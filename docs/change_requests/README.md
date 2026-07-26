@@ -85,3 +85,6 @@ ejes. No hay un segundo arbol por destino: duplicaria el estado.
 | id | origen | destino | asunto | estado | version objetivo |
 |---|---|---|---|---|---|
 | [CR-0001](from-ia_nest_extended/solicitado/CR-0001-checkpoint-enriquecimiento-por-subtarea.md) | `ia_nest_extended` | `ia_nest_core` | checkpoint de enriquecimiento por subtarea en `task.run` | propuesto | core MINOR, sin fijar |
+
+Handoff hacia la capa destino, cuando lo haya:
+[brief de CR-0001 para el core](../handoff/cr_0001_brief_core.md).
