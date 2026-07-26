@@ -55,9 +55,14 @@ Hoy, con consumidor real:
   version autoritativa debia "elevarse al core". Ese sintoma es el motivo de
   este repo.
 
-Propuesto y pendiente de reconciliacion (meta ADR 0001): registro de capas,
-convenciones transversales, doctrina multi-IA, SemVer como politica de ente,
-capas futuras, plantillas de brief.
+- Las convenciones transversales (`docs/CONVENCIONES_TRANSVERSALES.md`) y la
+  doctrina multi-IA (`docs/DOCTRINA_MULTI_IA.md`), re-hogadas desde el core en
+  meta ADR 0002. Gobiernan a todas las capas, luego no podian vivir dentro de
+  una de ellas sin obligar a las demas a citarla.
+
+Propuesto y pendiente de reconciliacion (meta ADR 0001): registro de capas y
+grafo de dependencias, SemVer como politica de ente, capas futuras, plantillas
+de brief.
 
 ## Que NO vive aqui
 

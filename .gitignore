@@ -1,0 +1,4 @@
+# Ajustes locales de herramientas de IA: contienen rutas de la maquina y no
+# pertenecen a un repo publico (ver docs/CONVENCIONES_TRANSVERSALES.md, regla 5).
+.claude/
+.codex/

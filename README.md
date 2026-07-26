@@ -57,13 +57,24 @@ reconciliadas, no por anticipacion.
 
 ## Estado actual
 
-Arranque minimo. Lo unico con consumidor real hoy es el proceso de Change
-Request, que vivia sin hogar en `ia_nest_extended`:
-`docs/change_requests/`.
+Arranque minimo, en migracion por pasos reconciliados.
 
-El resto de la doctrina de ente listada en el charter sigue viviendo en el core
-y se re-hoga por pasos reconciliados, no de un tiron. Los ADR del core NO se
-reescriben ni se mueven: son historia. Ver meta ADR 0001.
+Ya re-hogado aqui:
+
+- `docs/change_requests/` - proceso de CR entre capas y CR emitidos. Vivia sin
+  hogar en `ia_nest_extended` (meta ADR 0001).
+- `docs/CONVENCIONES_TRANSVERSALES.md` - texto, nombres y citas. Origen:
+  `core ADR 0016` (meta ADR 0002).
+- `docs/DOCTRINA_MULTI_IA.md` - roles, modo ciego, reconciliacion, handoff.
+  Origen: `core IA_NEST_CORE_CONTEXT.md`, donde estaba definida y desde donde se
+  habia copiado a cinco ficheros (meta ADR 0002).
+
+Pendiente de reconciliar: registro de capas y grafo de dependencias, reparto de
+SemVer, capas futuras, plantillas de brief.
+
+Los ADR del core NO se reescriben ni se mueven: son historia. Cuando una regla
+viva se re-hoga, al ADR de origen se le apendiza un puntero y su cuerpo queda
+intacto.
 
 ## Orden de lectura
 
