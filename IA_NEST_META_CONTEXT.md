@@ -11,20 +11,15 @@ El ente no es un programa: es un conjunto de capas que se contratan entre si.
 
 ## Mapa de repos
 
-Zona segun el mapa del core (core ADR 0033). El registro autoritativo de capas,
-con su grafo de dependencias y su estado, vive hoy en el core
-(`docs/FRONTERAS.md`); su re-hogacion a este repo esta propuesta y pendiente de
-reconciliacion (meta ADR 0001).
+En `docs/REGISTRO_CAPAS.md`: quien existe, en que zona, quien depende de quien,
+que version tiene publicada y en que estado esta (meta ADR 0003).
 
-| Zona | Repo | Que es |
-|---|---|---|
-| Taller | `ia_nest_meta` | Este repo. Gobernanza del ente. No es capa |
-| Ente | `ia_nest_core` | El motor: enruta, infiere, orquesta `task.run` |
-| Ente | `ia_nest_extended` | La memoria/conocimiento: enriquecimiento (via 2) |
-| Ente | `ia_nest_core_conscience` | La mente voluntaria: etica y personalidad. Prevista |
-| Ente | `ia_nest_core_pulse` | La mente involuntaria: regula parametros. Prevista |
-| Ente | `ia_nest_web` | La cara: GUI de gestion y presentacion. Prevista |
-| Exterior | `ia_nest_agents`, `ia_nest_external_*`, `ia_nest_module_*` | Consumen el ente por sus contratos publicos |
+Aqui no se repite: una segunda tabla de las mismas filas, en el repo cuyo
+trabajo es eliminar duplicaciones, seria indefendible.
+
+Tres zonas: **Ente** (el pack basico con identidad propia simulada) y
+**Exterior** (lo que consume el ente por sus contratos publicos), ambas de
+`core ADR 0033`; y **Taller**, que es este repo y no cabe en ninguna de las dos.
 
 ## Por que meta esta fuera del mapa ente/exterior
 
@@ -60,9 +55,12 @@ Hoy, con consumidor real:
   meta ADR 0002. Gobiernan a todas las capas, luego no podian vivir dentro de
   una de ellas sin obligar a las demas a citarla.
 
-Propuesto y pendiente de reconciliacion (meta ADR 0001): registro de capas y
-grafo de dependencias, SemVer como politica de ente, capas futuras, plantillas
-de brief.
+- El registro de capas y la regla de vinculo (`docs/REGISTRO_CAPAS.md`),
+  re-hogados en meta ADR 0003. El argumento decisivo: la tabla tiene zonas
+  "Ente" y "Exterior", y este repo no cabe en ninguna de las dos.
+
+Propuesto y pendiente de reconciliacion (meta ADR 0001): SemVer como politica de
+ente, capas futuras, plantillas de brief.
 
 ## Que NO vive aqui
 

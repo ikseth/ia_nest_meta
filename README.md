@@ -68,9 +68,12 @@ Ya re-hogado aqui:
 - `docs/DOCTRINA_MULTI_IA.md` - roles, modo ciego, reconciliacion, handoff.
   Origen: `core IA_NEST_CORE_CONTEXT.md`, donde estaba definida y desde donde se
   habia copiado a cinco ficheros (meta ADR 0002).
+- `docs/REGISTRO_CAPAS.md` - quien existe en el ente, quien depende de quien y
+  la regla de vinculo por SemVer. Origen: `core docs/FRONTERAS.md` y
+  `core ADR 0032` (meta ADR 0003).
 
-Pendiente de reconciliar: registro de capas y grafo de dependencias, reparto de
-SemVer, capas futuras, plantillas de brief.
+Pendiente de reconciliar: reparto de la politica de SemVer, capas futuras,
+plantillas de brief.
 
 Los ADR del core NO se reescriben ni se mueven: son historia. Cuando una regla
 viva se re-hoga, al ADR de origen se le apendiza un puntero y su cuerpo queda

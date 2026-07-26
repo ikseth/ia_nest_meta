@@ -6,13 +6,16 @@ Antes de proponer o valorar cualquier cambio, lee en este orden:
 2. `IA_NEST_META_CONTEXT.md` (que es el ente, mapa de repos, frontera del taller)
 3. `docs/CONVENCIONES_TRANSVERSALES.md` (reglas de texto, nombres y citas)
 4. `docs/DOCTRINA_MULTI_IA.md` (roles, modo ciego, reconciliacion, handoff)
-5. `docs/change_requests/README.md` (proceso de CR entre capas)
-6. ADRs en `docs/decision_records/`
+5. `docs/REGISTRO_CAPAS.md` (quien existe, quien depende de quien, regla de vinculo)
+6. `docs/change_requests/README.md` (proceso de CR entre capas)
+7. ADRs en `docs/decision_records/`
 
-Contexto de las capas: la doctrina viva del ente todavia vive en buena parte en
-`ia_nest_core` (`docs/FRONTERAS.md`, `docs/CONVENCIONES.md`, `docs/VERSIONADO.md`,
-core ADR 0016/0030/0031-0037). Su re-hogacion a este repo es progresiva y
-reconciliada. Ver meta ADR 0001.
+Contexto de las capas: parte de la doctrina viva del ente sigue en `ia_nest_core`
+y su re-hogacion es progresiva y reconciliada (meta ADR 0001). Pendiente hoy:
+la politica de SemVer (`core docs/VERSIONADO.md`, core ADR 0030) y el reparto de
+`core docs/CAPAS_FUTURAS.md`. Se queda alli, por ser del motor: la costura que
+el core expone a cada capa (`core docs/FRONTERAS.md`) y su metodo de trabajo
+(`core docs/CONVENCIONES.md`).
 
 ## Que es este repo, y que no
 
