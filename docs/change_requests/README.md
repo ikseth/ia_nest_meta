@@ -1,7 +1,7 @@
 # Change Requests (CR) entre capas del ente
 
 Estado: activo (hogar autoritativo)
-Version: 1.0 - 2026-07-26
+Version: 1.1 - 2026-07-26
 
 Canal formal para que una capa solicite un cambio en el contrato de otra capa de
 la que depende (tipicamente hacia el core). Complementa el grafo de dependencias
@@ -71,14 +71,33 @@ ejes. No hay un segundo arbol por destino: duplicaria el estado.
 ## Flujo
 
 1. La capa origen redacta el CR en este repo, bajo
-   `from-<su-capa>/solicitado/`, estado `propuesto`, y lo comunica a la capa
-   destino (issue en el repo destino). Anade su linea al indice.
-2. La capa destino DISPONE: si acepta (o reformula), lo convierte en un ADR
+   `from-<su-capa>/solicitado/`, estado `propuesto`, y anade su linea al indice.
+2. La capa origen NOTIFICA a la capa destino por un canal DURADERO (ver abajo).
+3. La capa destino DISPONE: si acepta (o reformula), lo convierte en un ADR
    propio + item de su PLAN, con su forma y su version objetivo. Si rechaza, con
    motivo. El CR refleja el resultado en su campo `estado`.
-3. Al entregarse (nueva version publicada de la capa destino), la capa origen
+4. Al entregarse (nueva version publicada de la capa destino), la capa origen
    actualiza su manifiesto de dependencias, marca el CR `entregado` y lo mueve a
    `from-<su-capa>/resuelto/`.
+
+## La notificacion tiene que ser duradera
+
+Lo que se exige es que la capa destino reciba el aviso por algo que SOBREVIVA a
+la conversacion en que se produjo. El mecanismo concreto es libre. Valen:
+
+- Un issue en el repo de la capa destino. Es la forma preferente cuando esta
+  disponible: vive en el repo de quien decide y es visible sin conocer meta.
+- Un brief de handoff en `docs/handoff/`, enlazado desde el indice de abajo.
+  Sirve tambien cuando hay contexto que entregar y no solo un aviso.
+
+NO vale como unica notificacion un hilo de conversacion con un agente. Se
+evapora, y el siguiente agente que abra la capa destino no encuentra rastro: el
+CR se quedaria esperando a alguien que no sabe que le esperan.
+
+Esta regla se escribio pidiendo issue de forma obligatoria. Se relajo al primer
+uso real, cuando resulto que la herramienta de issues no siempre esta a mano y
+el requisito habria quedado incumplido por sistema. Lo que importaba era la
+durabilidad, no el formulario.
 
 ## Indice de CR
 
@@ -86,5 +105,8 @@ ejes. No hay un segundo arbol por destino: duplicaria el estado.
 |---|---|---|---|---|---|
 | [CR-0001](from-ia_nest_extended/solicitado/CR-0001-checkpoint-enriquecimiento-por-subtarea.md) | `ia_nest_extended` | `ia_nest_core` | checkpoint de enriquecimiento por subtarea en `task.run` | propuesto | core MINOR, sin fijar |
 
-Handoff hacia la capa destino, cuando lo haya:
-[brief de CR-0001 para el core](../handoff/cr_0001_brief_core.md).
+Notificacion a la capa destino:
+
+| id | forma | referencia |
+|---|---|---|
+| CR-0001 | brief de handoff | [cr_0001_brief_core.md](../handoff/cr_0001_brief_core.md) |
