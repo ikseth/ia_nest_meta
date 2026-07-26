@@ -7,15 +7,19 @@ Antes de proponer o valorar cualquier cambio, lee en este orden:
 3. `docs/CONVENCIONES_TRANSVERSALES.md` (reglas de texto, nombres y citas)
 4. `docs/DOCTRINA_MULTI_IA.md` (roles, modo ciego, reconciliacion, handoff)
 5. `docs/REGISTRO_CAPAS.md` (quien existe, quien depende de quien, regla de vinculo)
-6. `docs/change_requests/README.md` (proceso de CR entre capas)
-7. ADRs en `docs/decision_records/`
+6. `docs/POLITICA_SEMVER.md` (esquema, que numero subir, publicacion)
+7. `docs/change_requests/README.md` (proceso de CR entre capas)
+8. `docs/CAPAS_FUTURAS.md` (concerns del ente sin repo asignado)
+9. ADRs en `docs/decision_records/`
 
-Contexto de las capas: parte de la doctrina viva del ente sigue en `ia_nest_core`
-y su re-hogacion es progresiva y reconciliada (meta ADR 0001). Pendiente hoy:
-la politica de SemVer (`core docs/VERSIONADO.md`, core ADR 0030) y el reparto de
-`core docs/CAPAS_FUTURAS.md`. Se queda alli, por ser del motor: la costura que
-el core expone a cada capa (`core docs/FRONTERAS.md`) y su metodo de trabajo
-(`core docs/CONVENCIONES.md`).
+La migracion abierta en meta ADR 0001 esta completa (meta ADR 0002/0003/0004).
+Este repo esta en regimen de uso: crece cuando entra un CR o se siembra una
+capa, no por migracion.
+
+Se queda en el core, por ser del motor: la costura que expone a cada capa
+(`core docs/FRONTERAS.md`), que cuenta como su contrato publico
+(`core docs/VERSIONADO.md`), su backlog (`core docs/CAPAS_FUTURAS.md`) y su
+metodo de trabajo (`core docs/CONVENCIONES.md`).
 
 ## Que es este repo, y que no
 

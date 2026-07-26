@@ -73,10 +73,9 @@ maquina se mantiene fuera del control de versiones.
 
 ## Fuera de este documento (todavia)
 
-- **SemVer y el contrato de vinculo entre capas** (`core ADR 0030/0032`,
-  `core docs/VERSIONADO.md`): la politica es transversal, pero su documento
-  actual mezcla la politica con lo especifico del contrato publico del core.
-  Su reparto esta propuesto y pendiente de reconciliacion (meta ADR 0001).
+- **SemVer y el contrato de vinculo entre capas**: repartidos ya. La politica
+  vive en `POLITICA_SEMVER.md` y la regla de vinculo en `REGISTRO_CAPAS.md`
+  (meta ADR 0003 y 0004).
 - **Metodo de trabajo del core** (filosofia UNIX, cabeceras de script, cuando
   ADR y cuando ficha, anti-entropia): se queda en `core docs/CONVENCIONES.md`.
   Es metodo de esa capa, no obligacion del ecosistema.

@@ -71,9 +71,14 @@ Ya re-hogado aqui:
 - `docs/REGISTRO_CAPAS.md` - quien existe en el ente, quien depende de quien y
   la regla de vinculo por SemVer. Origen: `core docs/FRONTERAS.md` y
   `core ADR 0032` (meta ADR 0003).
+- `docs/POLITICA_SEMVER.md` - esquema, que numero subir y proceso de
+  publicacion. Origen: `core docs/VERSIONADO.md` y `core ADR 0030`
+  (meta ADR 0004).
+- `docs/CAPAS_FUTURAS.md` - concerns del ente sin repo asignado. Origen:
+  `core docs/CAPAS_FUTURAS.md` (meta ADR 0004).
 
-Pendiente de reconciliar: reparto de la politica de SemVer, capas futuras,
-plantillas de brief.
+Con eso se agota la migracion abierta en meta ADR 0001. Diferido por falta de
+consumidor: plantillas de brief y handoff. Este repo pasa a regimen de uso.
 
 Los ADR del core NO se reescriben ni se mueven: son historia. Cuando una regla
 viva se re-hoga, al ADR de origen se le apendiza un puntero y su cuerpo queda

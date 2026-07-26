@@ -59,8 +59,13 @@ Hoy, con consumidor real:
   re-hogados en meta ADR 0003. El argumento decisivo: la tabla tiene zonas
   "Ente" y "Exterior", y este repo no cabe en ninguna de las dos.
 
-Propuesto y pendiente de reconciliacion (meta ADR 0001): SemVer como politica de
-ente, capas futuras, plantillas de brief.
+- La politica de SemVer (`docs/POLITICA_SEMVER.md`) y los concerns del ente sin
+  repo asignado (`docs/CAPAS_FUTURAS.md`), re-hogados en meta ADR 0004. Cada
+  capa conserva lo unico que no puede ser comun: QUE cuenta como su contrato
+  publico.
+
+Con eso queda agotada la migracion abierta en meta ADR 0001. Diferido por falta
+de consumidor: plantillas de brief y handoff.
 
 ## Que NO vive aqui
 

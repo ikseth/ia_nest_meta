@@ -75,5 +75,7 @@ pensar.
   reconciliado de capas aun no sembradas (conscience, pulse, web) sigue en
   `core docs/FRONTERAS.md` marcado como deuda declarada, y mudara al repo
   correspondiente cuando se siembre.
-- **Las capacidades sin repo asignado**: `core docs/CAPAS_FUTURAS.md`, cuyo
-  reparto esta pendiente de reconciliacion (meta ADR 0001).
+- **Los concerns del ente sin repo asignado**: `docs/CAPAS_FUTURAS.md`. Cuando
+  uno recibe repo, sale de alli y entra aqui como fila "prevista".
+- **El backlog del motor** (senales y capacidades que el core debe a otras
+  capas): `core docs/CAPAS_FUTURAS.md`.
