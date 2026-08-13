@@ -7,10 +7,11 @@ Antes de proponer o valorar cualquier cambio, lee en este orden:
 3. `docs/CONVENCIONES_TRANSVERSALES.md` (reglas de texto, nombres y citas)
 4. `docs/DOCTRINA_MULTI_IA.md` (roles, modo ciego, reconciliacion, handoff)
 5. `docs/REGISTRO_CAPAS.md` (quien existe, quien depende de quien, regla de vinculo)
-6. `docs/POLITICA_SEMVER.md` (esquema, que numero subir, publicacion)
-7. `docs/change_requests/README.md` (proceso de CR entre capas)
-8. `docs/CAPAS_FUTURAS.md` (concerns del ente sin repo asignado)
-9. ADRs en `docs/decision_records/`
+6. `docs/ARQUITECTURA_DE_CAPAS.md` (la FORMA en que las capas se componen)
+7. `docs/POLITICA_SEMVER.md` (esquema, que numero subir, publicacion)
+8. `docs/change_requests/README.md` (proceso de CR entre capas)
+9. `docs/CAPAS_FUTURAS.md` (concerns del ente sin repo asignado)
+10. ADRs en `docs/decision_records/`
 
 La migracion abierta en meta ADR 0001 esta completa (meta ADR 0002/0003/0004).
 Este repo esta en regimen de uso: crece cuando entra un CR o se siembra una
