@@ -103,10 +103,11 @@ durabilidad, no el formulario.
 
 | id | origen | destino | asunto | estado | version objetivo |
 |---|---|---|---|---|---|
-| [CR-0001](from-ia_nest_extended/solicitado/CR-0001-checkpoint-enriquecimiento-por-subtarea.md) | `ia_nest_extended` | `ia_nest_core` | checkpoint de enriquecimiento por subtarea en `task.run` | propuesto | core MINOR, sin fijar |
+| [CR-0001](from-ia_nest_extended/solicitado/CR-0001-checkpoint-enriquecimiento-por-subtarea.md) | `ia_nest_extended` | `ia_nest_core` | checkpoint de enriquecimiento por subtarea en `task.run` | reformulado | core MINOR, sin fijar |
 
 Notificacion a la capa destino:
 
 | id | forma | referencia |
 |---|---|---|
 | CR-0001 | brief de handoff | [cr_0001_brief_core.md](../handoff/cr_0001_brief_core.md) |
+| CR-0001 | respuesta del core | [cr_0001_respuesta_core.md](../handoff/cr_0001_respuesta_core.md) |

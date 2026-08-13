@@ -4,7 +4,7 @@
 - fecha: 2026-07-26
 - capa origen: `ia_nest_extended`
 - capa destino: `ia_nest_core`
-- estado: propuesto
+- estado: reformulado
 
 ## Caso de uso motor
 
@@ -59,3 +59,23 @@ extended) que la ejerceria desde el dia uno. La decision es del core: si el
 enriquecimiento por subtarea justifica una costura supervisada (hermana de los
 checkpoints de ADR 0034) sobre el contrato de `task.run` (ADR 0036), o si prefiere
 que el RAG en `task.run` quede upfront/grueso. Extended propone; el core dispone.
+
+## Resolucion de la capa destino
+
+`ia_nest_core` REFORMULA este CR (`core ADR 0040`, 2026-07-27). Acepta la
+necesidad; descarta la forma sugerida.
+
+La forma sugerida no es viable: los checkpoints del core son de una sola
+direccion, el punto de insercion cae dentro del pool de hilos del fan-out, y el
+consumidor real habla por REST, con lo que un puerto en proceso le es
+inalcanzable y una llamada saliente invertiria el grafo de dependencias. Ademas,
+los prompts de subtarea ya quedan fijados en la etapa PLAN, asi que la costura no
+necesita vivir dentro del bucle.
+
+Forma adoptada: capacidad `task.plan` (devuelve el plan con el dominio ya
+resuelto, sin ejecutarlo) y entrada opcional `plan` en `task.run`, con corte
+tipado `replan_unavailable` y campo `plan_source` en `plan_ready`. La capa
+enriquece entre las dos llamadas. Impacto: MINOR; version objetivo sin fijar.
+
+Detalle y alternativas descartadas: `core ADR 0040` y
+`docs/handoff/cr_0001_respuesta_core.md`.
