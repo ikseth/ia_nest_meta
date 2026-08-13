@@ -30,6 +30,8 @@ la capa.
 
 - Proceso y ficheros de Change Request (CR) entre capas.
 - Registro de capas y grafo de dependencias del ente.
+- Arquitectura de capas: la FORMA en que las capas se componen (contrato
+  uniforme entre capas, meta ADR 0007).
 - Convenciones transversales: docs en ASCII puro (sin acentos ni enye),
   identificadores en ingles snake_case, SemVer.
 - Doctrina multi-IA y roles de trabajo.
