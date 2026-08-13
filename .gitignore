@@ -2,3 +2,7 @@
 # pertenecen a un repo publico (ver docs/CONVENCIONES_TRANSVERSALES.md, regla 5).
 .claude/
 .codex/
+
+# Contexto local de la maquina (misma convencion que el resto de repos del
+# ente): nada de lo que cuelga de aqui se versiona.
+/local/

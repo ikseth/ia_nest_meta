@@ -1,7 +1,7 @@
 # Convenciones transversales del ente
 
 Estado: activo
-Version: 1.0 - 2026-07-26
+Version: 1.1 - 2026-08-06
 
 Reglas que aplican a TODOS los repos del ente y a este taller. Cada repo puede
 tener convenciones propias (estilo de codigo, cabeceras de script, cuando ADR y
@@ -65,11 +65,38 @@ Todo documento normativo abre con dos lineas:
 Sirve para saber, sin leer el cuerpo, si un documento manda o solo describe. Es
 independiente del SemVer del contrato publico de cada capa.
 
-## 5. Repo publico
+## 5. Repo publico y frontera de lo versionado
 
-Todos los repos del ente son publicos. Nunca se commitean IPs, hostnames, rutas
-de maquinas concretas, credenciales ni secretos. El contexto local de cada
-maquina se mantiene fuera del control de versiones.
+Todos los repos del ente son publicos, incluido este taller. Regla completa en
+meta ADR 0006.
+
+**Se versiona** el producto y su documentacion normativa: codigo, tests,
+contratos, ADR, planes y plantillas de ejemplo. Nada mas.
+
+**No se versiona nunca**: salida de ejecucion (logs, telemetria, trazas);
+temporales y artefactos de build; configuracion efectiva; secretos y entorno;
+contexto de la maquina o de la instalacion (IPs, hostnames, nombres de equipos,
+arquitecturas de prueba, informes de laboratorio, rutas locales); datos
+personales; y los ajustes de las herramientas de IA.
+
+**Patron de la plantilla**, para configuracion y secretos: se versiona el
+ejemplo, se ignora el efectivo, y el nombre lo declara
+(`config/core.example.yaml` frente a `config/core.yaml`; `.env.example` frente
+a `.env`). Asi un tercero instala el repo sin aprender nada del entorno de
+quien lo desarrolla.
+
+**Donde vive lo excluido**, con dueno distinto y sin mezclarse:
+
+- `local/`: contexto operativo privado del repo. Es del usuario y NEUTRAL entre
+  agentes; ahi va tambien el material compartido entre varios agentes. Se
+  ignora la raiz entera (`/local/`), para que nada de lo que cuelgue se escape
+  por olvido.
+- `.claude/`, `.codex/` y equivalentes: ajustes de las herramientas de IA. Son
+  de la herramienta, no del repo, y no se usan como almacen de contexto.
+
+**Obligacion al sembrar un repo**: su `.gitignore` cubre como minimo `/local/`,
+las carpetas de herramientas de IA, temporales y artefactos de build,
+configuracion efectiva y secretos.
 
 ## Fuera de este documento (todavia)
 
