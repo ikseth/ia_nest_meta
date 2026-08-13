@@ -77,8 +77,16 @@ Ya re-hogado aqui:
 - `docs/CAPAS_FUTURAS.md` - concerns del ente sin repo asignado. Origen:
   `core docs/CAPAS_FUTURAS.md` (meta ADR 0004).
 
-Con eso se agota la migracion abierta en meta ADR 0001. Diferido por falta de
-consumidor: plantillas de brief y handoff. Este repo pasa a regimen de uso.
+Con eso se agota la migracion abierta en meta ADR 0001. Este repo pasa a
+regimen de uso.
+
+Levantado ya en regimen de uso:
+
+- `docs/PLANTILLA_BRIEF.md` - forma del brief con el que un disenador pasa
+  trabajo a un codificador en ciego. Estaba diferida por falta de consumidor;
+  el consumidor aparecio en `core` el 2026-08-06 (meta ADR 0005).
+
+Diferido por falta de consumidor: plantilla de handoff.
 
 Los ADR del core NO se reescriben ni se mueven: son historia. Cuando una regla
 viva se re-hoga, al ADR de origen se le apendiza un puntero y su cuerpo queda

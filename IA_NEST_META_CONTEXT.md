@@ -64,8 +64,12 @@ Hoy, con consumidor real:
   capa conserva lo unico que no puede ser comun: QUE cuenta como su contrato
   publico.
 
+- La plantilla de brief (`docs/PLANTILLA_BRIEF.md`), levantada en regimen de
+  uso cuando aparecio su consumidor (meta ADR 0005). Fija la FORMA del brief;
+  el QUE debe llevar sigue en `docs/DOCTRINA_MULTI_IA.md`.
+
 Con eso queda agotada la migracion abierta en meta ADR 0001. Diferido por falta
-de consumidor: plantillas de brief y handoff.
+de consumidor: la plantilla de handoff.
 
 ## Que NO vive aqui
 
