@@ -1,7 +1,7 @@
 # Convenciones transversales del ente
 
 Estado: activo
-Version: 1.1 - 2026-08-06
+Version: 1.2 - 2026-08-14
 
 Reglas que aplican a TODOS los repos del ente y a este taller. Cada repo puede
 tener convenciones propias (estilo de codigo, cabeceras de script, cuando ADR y
@@ -97,6 +97,35 @@ quien lo desarrolla.
 **Obligacion al sembrar un repo**: su `.gitignore` cubre como minimo `/local/`,
 las carpetas de herramientas de IA, temporales y artefactos de build,
 configuracion efectiva y secretos.
+
+## 6. Hogar unico: se referencia, no se copia
+
+Un documento normativo tiene UN hogar. Las demas capas lo REFERENCIAN; nunca lo
+copian. Si un documento se encuentra en dos sitios, uno de los dos esta mal.
+
+**Donde vive cada documento**: donde vive su unidad de cambio.
+
+- Si cambia siempre a la vez que un codigo concreto, vive con ese codigo. Es el
+  caso del contrato publico de cada capa: contrato y codigo se mueven en el
+  mismo commit y la bateria de conformidad de esa capa los confronta. Separarlos
+  no evita la desincronizacion, la crea.
+- Si cambia con independencia de cualquier implementacion y lo consumen todos,
+  vive en el taller (`ia_nest_meta`).
+
+**Si hace falta presencia fisica en otro repo, se GENERA, no se copia a mano.**
+Todo fichero generado abre con una cabecera que lo declara y nombra su origen,
+para que nadie lo edite creyendo que manda:
+
+    <!-- GENERADO desde <repo>/<ruta>. No editar a mano. -->
+
+Motivo: la sincronizacion sostenida por disciplina humana falla. No es hipotesis;
+en este ente ya ocurrio, y es parte de por que existe este taller. Un dato
+replicado a mano se desactualiza en cuanto deja de mirarlo quien lo escribio.
+
+Consecuencia para los indices del taller (registro de capas, indice de
+contratos): reflejan datos cuya fuente de verdad es el manifiesto de cada capa,
+asi que se generan desde esos manifiestos. Un indice redactado a mano es un dato
+replicado a mano.
 
 ## Fuera de este documento (todavia)
 
