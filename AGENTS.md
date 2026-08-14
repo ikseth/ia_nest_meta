@@ -34,9 +34,10 @@ puede tocar gobernanza en repos hermanos, pero NUNCA el feature de una capa (su
 ## Reglas propias de este repo
 
 Las reglas transversales del ente -texto en ASCII puro, identificadores en
-ingles snake_case, citas `<repo> ADR NNNN`, modo ciego, regla de la
-inconsistencia, regla del registro (no cortar tags ni ramas remotas), repo
-publico- son los puntos 3 y 4 del orden de lectura y aplican tambien aqui. No se
+ingles snake_case, citas `<repo> ADR NNNN`, hogar unico de los documentos, modo
+ciego, regla de la inconsistencia, regla del registro (no cortar tags ni ramas
+remotas), repo publico- son los puntos 3 y 4 del orden de lectura y aplican
+tambien aqui. No se
 repiten en este fichero: duplicarlas seria justo el error que este repo existe
 para corregir.
 
