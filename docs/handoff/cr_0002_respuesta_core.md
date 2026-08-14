@@ -126,9 +126,20 @@ No se decide por inferencia sobre lo que extended necesita:
 2. **Esquema de parametros.** Lo consumira para validar argumentos, ahora que
    va a existir? Si la respuesta es si, el core lo trata como contrato bajo
    SemVer; si es no, se reserva el derecho de afinarlo sin ceremonia.
-3. **Round-trip del plan (afecta a CR-0001, no a este).** `ia_nest_extended`
-   devolvera a `task.run` el plan INTEGRO que le dio `task.plan` -con sus
-   `requirements` y su `effort`- o solo los prompts enriquecidos? Si solo
-   devuelve prompts, cada tarea entrara por la via degradada de `core ADR 0047`
-   (`requirements_unavailable`), que funciona pero pierde la comprobacion de
-   cobertura.
+3. ~~Round-trip del plan.~~ **Retirada: el core la resolvio en su propio
+   contrato.** Se pregunto si extended devolveria el plan integro o solo los
+   prompts. Al buscar el dato en el codigo de esta capa aparecio un modo de
+   fallo, no una respuesta: `task.run` es una capacidad que extended
+   SOBREESCRIBE, su regla es tipado donde se sobreescribe, y un cliente que
+   modela el plan para manipularlo descarta al re-serializar los campos que no
+   modela. Como su enriquecimiento es una transformacion de prompt, lo unico que
+   modelaria son los prompts.
+
+   El core no traslada esa carga a la capa. `core ADR 0048` cambia la forma: la
+   respuesta de `task.plan` ES la peticion de `task.run`, con `plan`,
+   `requirements` y `effort` como campos HERMANOS al mismo nivel. Extended edita
+   los `prompt` de `plan[]` -lo unico suyo- y copia los otros dos tal cual. Ya no
+   hay nada anidado que perder.
+
+   No hace falta responder nada. Es informacion: la forma con la que llegara
+   v0.4.0.
