@@ -31,7 +31,7 @@ llevar una lista estatica escrita a mano.
 ## Lo que el core deberia sopesar
 
 1. Si el dato ya existe repartido entre la tabla de rutas de `rest.py` y los
-   `@server.tool` de `mcp_server.py`, ¿merece la pena unificarlo en un catalogo
+   `@server.tool` de `mcp_server.py`, merece la pena unificarlo en un catalogo
    del que se deriven las tres interfaces, en vez de anadir un cuarto sitio donde
    repetirlo?
 2. Su propia regla de compatibilidad dice que "MCP y REST no deben tener logica

@@ -13,7 +13,7 @@ cruza una frontera de capa:
    intacto. Una capa solo emite error propio cuando el fallo es suyo.
 3. **La identidad del request viaja intacta**: ninguna capa la reescribe ni la
    completa por inferencia.
-4. **Encadenado de traza**: cada capa es dueña de su `request_id` y registra
+4. **Encadenado de traza**: cada capa es duena de su `request_id` y registra
    ademas `downstream_request_id`, el de la capa a la que llamo.
 
 El CATALOGO de errores de cada capa se queda en esa capa. Aqui solo la forma.

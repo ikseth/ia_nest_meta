@@ -52,7 +52,7 @@ de memoria-, pero lo que envia hacia abajo es lo que recibio.
 
 ## 4. Encadenado de la traza
 
-Cada capa emite su propia traza y es dueña de su `request_id`. Para que la cadena
+Cada capa emite su propia traza y es duena de su `request_id`. Para que la cadena
 se pueda reconstruir, cada capa registra ademas el identificador de la llamada
 que hizo hacia abajo:
 

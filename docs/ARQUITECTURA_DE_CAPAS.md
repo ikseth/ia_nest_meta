@@ -19,7 +19,7 @@ Es el criterio de modularidad del ente. Un diseno que no lo cumple no es
 modular: solo desplaza el acoplamiento a otro fichero.
 
 Es un criterio FALSABLE. Ante cualquier propuesta de composicion, la pregunta es
-literal: si manana entra una capa nueva, ¿que ficheros existentes hay que tocar?
+literal: si manana entra una capa nueva, que ficheros existentes hay que tocar.
 Si la respuesta no es "ninguno", la propuesta no cumple.
 
 ## 2. El principio: contrato uniforme
