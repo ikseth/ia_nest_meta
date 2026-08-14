@@ -89,8 +89,14 @@ REST, para no crear la asimetria que el CR venia a cerrar), que devuelve
 streaming, PARAMETROS y proyeccion por interfaz con nulo donde no se expone.
 `runtime.health` gana tambien `core_version`. Los huecos actuales quedan
 declarados por decision (`model.pull` e `init` solo-CLI por ser operacion de
-operador; `prompt.stream` y `reasoning.stream` sin MCP por forma del protocolo)
-y se cierra el unico real: `task.run` gana variante bloqueante en REST.
+operador; `prompt.stream` y `reasoning.stream` sin MCP por forma del protocolo).
+
+Con una ruptura declarada, la unica de esta resolucion: `task.run` pasa a
+devolver JSON en `POST /task/run` y su flujo SSE se muda a `task.stream` ->
+`POST /task/stream`. Motivo: la capa origen deriva la ruta del nombre de la
+capacidad sin tabla intermedia, asi que `X.run` tenia que significar lo mismo en
+todas las familias. Quien consuma hoy `/task/run` esperando eventos debe pasar a
+`/task/stream` al subir el pin a v0.4.0.
 
 El core publica ademas el esquema de parametros, que este CR no pedia: al
 derivar la CLI del catalogo hay que modelarlo igualmente, y esos parametros ya

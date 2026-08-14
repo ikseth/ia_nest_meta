@@ -51,7 +51,38 @@ lo triplicado era el catalogo.
   solo-CLI POR DECISION (operacion de operador, seccion 5 de
   `ARQUITECTURA_DE_CAPAS.md`; abrir descargas de gigabytes por red no procede);
   `prompt.stream` y `reasoning.stream` quedan sin MCP por forma del protocolo.
-  Se cierra el unico hueco real: `task.run` gana variante bloqueante en REST.
+
+## AVISO DE RUPTURA: task.run pasa a JSON, y nace task.stream
+
+Es lo unico de esta respuesta que rompe algo, y afecta directamente a extended.
+
+Hoy `POST /task/run` devuelve SSE, mientras `prompt.run` y `reasoning.run`
+devuelven JSON y su variante de flujo vive en `.stream`. Al fijar el catalogo,
+el core mira como consume la capa de arriba y encuentra que
+`ia_nest_extended/src/ianest_extended/clients.py` DERIVA la ruta del nombre de
+la capacidad -`prompt.run` -> `/prompt/run`, sustituyendo puntos por barras- sin
+tabla por capacidad. Ese mecanismo es exactamente lo que meta ADR 0007 persigue,
+y el core no quiere estropearlo: pero con `task.run` devolviendo SSE, el sufijo
+`.run` significa una cosa en dos capacidades y otra en la tercera, y quien
+reenvia de forma generica tiene que saberlo de memoria.
+
+Por eso el core alinea, en vez de anadir un nombre fuera de patron:
+
+- `task.run` -> `POST /task/run`, devuelve JSON con el resultado final.
+- `task.stream` -> `POST /task/stream`, devuelve SSE, que es lo que hoy hace
+  `/task/run`.
+
+Con esto, `X.run` es siempre bloqueante y `X.stream` siempre flujo, en las tres
+familias; y la bandera `streaming` de `capability.list` deja de ser informativa
+para volverse operativa: un reenviador generico puede consultarla en vez de
+llevar la lista a mano.
+
+**Lo que extended debe hacer**: quien hoy hable con `/task/run` esperando
+eventos tiene que pasar a `/task/stream`. El pin actual (`core >=0.2 <0.4`)
+protege: v0.4.0 no entra sola. Se avisa aqui para que el salto de pin se haga
+sabiendolo, no descubriendolo.
+
+Impacto de esta pieza: rompe contrato REST -> MINOR, coherente con la linea.
 
 ## Mas de lo que se pidio, y por que
 
