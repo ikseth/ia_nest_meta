@@ -10,7 +10,10 @@ cruza una frontera de capa:
 1. **Forma del error**: `type`, `message`, `field` opcional, `origin` (que capa
    lo origino) y `request_id`.
 2. **Un error reenviado no se re-envuelve**: se propaga tal cual, con su `origin`
-   intacto. Una capa solo emite error propio cuando el fallo es suyo.
+   intacto. Una capa solo emite error propio cuando el fallo es suyo. Excepcion
+   acotada: si la capa inferior no emite `origin`, la que reenvia lo COMPLETA con
+   la identidad de a quien llamo; nunca sobrescribe uno ya presente, ni toca
+   `type`, `message` o `field`.
 3. **La identidad del request viaja intacta**: ninguna capa la reescribe ni la
    completa por inferencia.
 4. **Encadenado de traza**: cada capa es duena de su `request_id` y registra

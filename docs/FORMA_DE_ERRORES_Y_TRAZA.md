@@ -41,6 +41,16 @@ catalogo ajeno replicado, contra la convencion transversal 6.
 
 Una capa SOLO emite error propio cuando el fallo es suyo.
 
+**Excepcion acotada: completar `origin` ausente.** Si la capa inferior no emite
+`origin`, la que reenvia lo COMPLETA con la identidad de a quien llamo, que
+conoce con certeza. No es traducir: `type`, `message` y `field` se dejan
+intactos. Sin esta excepcion, `origin` seria inutil hasta que TODAS las capas lo
+emitiesen, y la mas baja de la pila es justo la que menos motivo tiene para
+declararse a si misma.
+
+Completar es rellenar un hueco; sobrescribir un `origin` ya presente es
+falsificar la procedencia y no esta permitido.
+
 ## 3. La identidad del request viaja intacta
 
 El contexto de identidad del request (definido en `core docs/CORE_CONTRACT.md`;
