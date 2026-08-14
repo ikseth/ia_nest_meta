@@ -1,7 +1,7 @@
 # Registro de capas del ente y grafo de dependencias
 
 Estado: activo
-Version: 1.0 - 2026-07-26
+Version: 1.1 - 2026-08-14
 
 Indice de los repos que forman el ente IA_NEST y de sus dependencias. Responde
 a "quien existe, para que, y quien depende de quien" sin que ningun repo tenga
@@ -35,6 +35,30 @@ discrepancia, mandan el tag y el manifiesto, no esta tabla.
 fila es parte de publicar una version; crear su fila es parte de sembrar el
 repo. Sin un momento concreto al que engancharse, un indice se pudre: esta tabla
 ya se pudrio una vez por no tenerlo (meta ADR 0003).
+
+## 2b. Deber de aviso y deber de re-verificacion
+
+El Change Request es el canal ASCENDENTE: la capa de abajo pide un cambio a la
+de arriba. Faltaba el DESCENDENTE: avisar de que un contrato ha cambiado a quien
+depende de el. Sin el, una capa sigue prometiendo compatibilidad con un rango que
+ya no cumple, y el fallo es silencioso.
+
+**Deber de aviso (capa que publica).** Publicar una version que toca tu contrato
+publico incluye notificar a tus dependientes, por un canal DURADERO. Misma
+exigencia que la notificacion de un CR: no vale un hilo de conversacion con un
+agente, porque se evapora. Valen un issue en el repo del dependiente, un brief en
+`docs/handoff/`, o la entrada de `CHANGELOG.md` de la version si el dependiente
+tiene declarado que la vigila.
+
+**Deber de re-verificacion (capa que depende).** Publicada una version nueva
+arriba, re-verificar tu rango declarado y dejar el RESULTADO escrito en tu
+manifiesto: rango que queda vigente, que se comprobo y como. No basta con subir
+el techo del rango; hay que poder responder por que.
+
+Precedente de la forma esperada: `ia_nest_extended/docs/DEPENDENCIAS.md` al
+subir su rango a `>=0.2 <0.4`, donde consta que capacidades del core consume, que
+ADR de la version nueva las tocan y que la compatibilidad se verifico en vivo.
+Eso era buena practica; aqui pasa a ser deber.
 
 ## 3. El registro
 
