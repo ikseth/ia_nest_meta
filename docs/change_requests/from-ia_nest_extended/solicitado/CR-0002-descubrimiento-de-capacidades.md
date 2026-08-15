@@ -4,7 +4,7 @@
 - fecha: 2026-08-14
 - capa origen: `ia_nest_extended`
 - capa destino: `ia_nest_core`
-- estado: propuesto
+- estado: aceptado
 
 ## Caso de uso motor
 
@@ -75,3 +75,36 @@ Al contrario, apunta a una asimetria interna del propio core: su regla de
 compatibilidad dice que "MCP y REST no deben tener logica distinta a la CLI", y
 hoy MCP permite enumerar capacidades mientras REST y CLI no. Extended propone; el
 core dispone.
+
+## Resolucion de la capa destino
+
+`ia_nest_core` ACEPTA este CR (`core ADR 0046`, 2026-08-14) y lo amplia en la
+direccion que el propio CR senalaba como preferible: el catalogo pasa a ser la
+FUENTE UNICA de la que se derivan la CLI y las rutas REST, y contra la que se
+asertan las herramientas MCP; no un cuarto sitio donde repetir el dato.
+
+Forma adoptada: capacidad `capability.list` en las TRES interfaces (no solo
+REST, para no crear la asimetria que el CR venia a cerrar), que devuelve
+`core_version` y, por capacidad, nombre, descripcion corta, identidad,
+streaming, PARAMETROS y proyeccion por interfaz con nulo donde no se expone.
+`runtime.health` gana tambien `core_version`. Los huecos actuales quedan
+declarados por decision (`model.pull` e `init` solo-CLI por ser operacion de
+operador; `prompt.stream` y `reasoning.stream` sin MCP por forma del protocolo).
+
+Con una ruptura declarada, la unica de esta resolucion: `task.run` pasa a
+devolver JSON en `POST /task/run` y su flujo SSE se muda a `task.stream` ->
+`POST /task/stream`. Motivo: la capa origen deriva la ruta del nombre de la
+capacidad sin tabla intermedia, asi que `X.run` tenia que significar lo mismo en
+todas las familias. Quien consuma hoy `/task/run` esperando eventos debe pasar a
+`/task/stream` al subir el pin a v0.4.0.
+
+El core publica ademas el esquema de parametros, que este CR no pedia: al
+derivar la CLI del catalogo hay que modelarlo igualmente, y esos parametros ya
+eran contrato publico.
+
+Impacto: adicion compatible (PATCH por `POLITICA_SEMVER.md` seccion 3),
+publicada dentro de la linea **v0.4.0** del core, que el usuario corta como
+MINOR por envergadura. Es el tramo A de esa linea, antes de `extended CR-0001`.
+
+Detalle, alternativas descartadas y preguntas de vuelta a la capa origen:
+`core ADR 0046` y `docs/handoff/cr_0002_respuesta_core.md`.

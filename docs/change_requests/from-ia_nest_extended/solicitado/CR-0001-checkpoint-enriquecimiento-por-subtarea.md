@@ -79,3 +79,11 @@ enriquece entre las dos llamadas. Impacto: MINOR; version objetivo sin fijar.
 
 Detalle y alternativas descartadas: `core ADR 0040` y
 `docs/handoff/cr_0001_respuesta_core.md`.
+
+Actualizacion 2026-08-14: al preparar la implementacion, el core detecto que
+ADR 0040 no era implementable tal cual, por ser anterior a `core ADR 0041`,
+`0044` y `0045`, que cambiaron la etapa PLAN por debajo. `core ADR 0047` lo
+enmienda con las reglas que faltaban (esfuerzo heredado del plan, presupuesto
+concedido al plan suministrado, requisitos que viajan con el plan o degradacion
+declarada). La decision de ADR 0040 no cambia. Version objetivo fijada:
+**v0.4.0**, tramo B de esa linea, despues del catalogo de `extended CR-0002`.
