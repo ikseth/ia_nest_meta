@@ -19,15 +19,10 @@ a punta con su RAG por subtarea", por la leccion de su ADR 0035. Eso ya ocurrio:
 `task.plan` -> enriquecer cada subtarea con RAG gateado por su dominio ->
 `task.run(plan)`, con corpus real y modelos reales.
 
-Resultado, en tres brazos con tres repeticiones cada uno:
-
-    brazo               respuesta (media)   convergencia
-    sin plan                 1295 chars         1/3
-    plan en eco              1448 chars         2/3
-    plan enriquecido         1608 chars         3/3
-
-El enriquecimiento por subtarea no degrada la respuesta. Con n=3 no se afirma que
-mejore la convergencia. `plan_attempts` fue 0 y `requirements_covered` true en
+Medido en tres brazos -sin plan, plan en eco y plan enriquecido- con tres
+repeticiones cada uno: el enriquecimiento por subtarea NO degrada la respuesta.
+Con n=3 no se afirma que mejore la convergencia. Los datos crudos son de
+laboratorio y no se versionan. `plan_attempts` fue 0 y `requirements_covered` true en
 todas las pasadas con plan suministrado, porque la capa copia `requirements` y
 `effort` intactos y solo edita los `prompt`.
 
@@ -54,14 +49,8 @@ Nota: esa linea no basta para todo. Ver el hallazgo 2.
 
 ## Hallazgo 2: una respuesta vaciada por exceso de contexto tambien pasa el gate
 
-Midiendo cuanto contexto aguanta cada subtarea, con un factor controlado y tres
-repeticiones por tamano:
-
-    contexto/subtarea   gasto real   concesion vigente   respuesta
-            0              2.570          8.000          1.187-1.585 chars
-          500              4.330          8.000          1.071-1.523
-        1.500              7.960          8.000          1.090-1.839
-        3.000             10.640          8.000            112-479
+Midiendo cuanto contexto aguanta cada subtarea, con un factor controlado -de 0 a
+3.000 tokens por subtarea- y tres repeticiones por tamano:
 
 A 3.000 tokens por subtarea la respuesta se desploma a una decima parte, y el
 core reporta `task_done`, `requirements_covered` true y `degradations` vacio en
