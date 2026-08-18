@@ -4,7 +4,7 @@
 - fecha: 2026-08-14
 - capa origen: `ia_nest_extended`
 - capa destino: `ia_nest_core`
-- estado: aceptado
+- estado: entregado
 
 ## Caso de uso motor
 
@@ -108,3 +108,18 @@ MINOR por envergadura. Es el tramo A de esa linea, antes de `extended CR-0001`.
 
 Detalle, alternativas descartadas y preguntas de vuelta a la capa origen:
 `core ADR 0046` y `docs/handoff/cr_0002_respuesta_core.md`.
+
+## Entrega (2026-08-18)
+
+ENTREGADO en el `main` del core de la linea v0.4, sin tag todavia. `capability.list`
+responde por las tres interfaces con el catalogo unico del que se derivan CLI,
+rutas REST y herramientas MCP.
+
+Verificado en vivo por la capa origen: dieciseis capacidades declaradas.
+
+Pendiente en la capa ORIGEN, no en el destino: retirar su lista estatica y pasar
+a fusionar el catalogo obtenido en ejecucion (`extended ADR 0011`, puntos 9-11).
+Ese trabajo es de extended y no reabre este CR.
+
+Se marca `entregado` con el mismo criterio que `CR-0001`: el consumidor ya puede
+consumirlo; el tag es otro eje.
