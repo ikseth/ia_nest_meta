@@ -103,8 +103,9 @@ durabilidad, no el formulario.
 
 | id | origen | destino | asunto | estado | version objetivo |
 |---|---|---|---|---|---|
-| [CR-0001](from-ia_nest_extended/solicitado/CR-0001-checkpoint-enriquecimiento-por-subtarea.md) | `ia_nest_extended` | `ia_nest_core` | checkpoint de enriquecimiento por subtarea en `task.run` | reformulado | core v0.4.0 (tramo B) |
-| [CR-0002](from-ia_nest_extended/solicitado/CR-0002-descubrimiento-de-capacidades.md) | `ia_nest_extended` | `ia_nest_core` | descubrimiento de capacidades en REST (`capability.list`) | aceptado | core v0.4.0 (tramo A) |
+| [CR-0001](from-ia_nest_extended/resuelto/CR-0001-checkpoint-enriquecimiento-por-subtarea.md) | `ia_nest_extended` | `ia_nest_core` | checkpoint de enriquecimiento por subtarea en `task.run` | entregado | core v0.4.0 (tramo B), sin tag aun |
+| [CR-0002](from-ia_nest_extended/resuelto/CR-0002-descubrimiento-de-capacidades.md) | `ia_nest_extended` | `ia_nest_core` | descubrimiento de capacidades en REST (`capability.list`) | entregado | core v0.4.0 (tramo A), sin tag aun |
+| [CR-0003](from-ia_nest_extended/solicitado/CR-0003-identificador-de-build-en-la-respuesta.md) | `ia_nest_extended` | `ia_nest_core` | identificador de build en la respuesta, junto a `core_version` | propuesto | sin fijar |
 
 Notificacion a la capa destino:
 
@@ -114,3 +115,4 @@ Notificacion a la capa destino:
 | CR-0001 | respuesta del core | [cr_0001_respuesta_core.md](../handoff/cr_0001_respuesta_core.md) |
 | CR-0002 | brief de handoff | [cr_0002_brief_core.md](../handoff/cr_0002_brief_core.md) |
 | CR-0002 | respuesta del core | [cr_0002_respuesta_core.md](../handoff/cr_0002_respuesta_core.md) |
+| CR-0003 | hallazgos que lo motivan | [avisos_al_core_desde_extended_2026-08-18.md](../handoff/avisos_al_core_desde_extended_2026-08-18.md) |

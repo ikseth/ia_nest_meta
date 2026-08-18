@@ -4,7 +4,7 @@
 - fecha: 2026-07-26
 - capa origen: `ia_nest_extended`
 - capa destino: `ia_nest_core`
-- estado: reformulado
+- estado: entregado
 
 ## Caso de uso motor
 
@@ -87,3 +87,18 @@ enmienda con las reglas que faltaban (esfuerzo heredado del plan, presupuesto
 concedido al plan suministrado, requisitos que viajan con el plan o degradacion
 declarada). La decision de ADR 0040 no cambia. Version objetivo fijada:
 **v0.4.0**, tramo B de esa linea, despues del catalogo de `extended CR-0002`.
+
+## Entrega (2026-08-18)
+
+ENTREGADO en el `main` del core de la linea v0.4, sin tag todavia
+(`pyproject.toml` sigue declarando 0.3.0). `task.plan` y la entrada `plan` de
+`task.run` estan implementadas en las tres interfaces.
+
+Ejercido por la capa origen de punta a punta con RAG real por subtarea
+(`extended` fase 7b): `plan_attempts` 0, `plan_source` supplied y cobertura
+cubierta. Los hallazgos de ese ejercicio, en
+`docs/handoff/avisos_al_core_desde_extended_2026-08-18.md`.
+
+Se marca `entregado` porque el consumidor ya puede consumirlo, que es el criterio
+de este campo. El TAG es un eje distinto y sigue pendiente: hasta que exista
+v0.4.0, `extended docs/DEPENDENCIAS.md` no mueve su rango.
