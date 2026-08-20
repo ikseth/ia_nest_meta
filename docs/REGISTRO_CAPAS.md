@@ -72,7 +72,7 @@ capa con el core esta descrita en `core docs/FRONTERAS.md`.
 |---|---|---|---|---|---|---|
 | Taller | `ia_nest_meta` | Gobernanza del ente | - | - | sin SemVer (meta ADR 0001) | activo |
 | Ente | `ia_nest_core` | El motor: enruta, infiere, itera | - | - | `v0.4.0` | v0.4 entregada: catalogo + `capability.list`, `task.plan`, `routing_rules` retirada |
-| Ente | `ia_nest_extended` [1] | La memoria/conocimiento | enriquecimiento (`core ADR 0031`) | `core >=0.2 <0.4` | ninguna (sin tag) | memoria F2-F4 y conocimiento F5-F5c verificados; F7 (interfaz y contrato) en diseno |
+| Ente | `ia_nest_extended` [1] | La memoria/conocimiento | enriquecimiento (`core ADR 0031`) | `core >=0.4 <0.5` | `v0.1.0` | contrato publicado y activo; las tres pieles (CLI, REST, MCP) sirven el contrato uniforme; F6 (datos web) y F8 (despliegue) pendientes |
 | Ente | `ia_nest_core_conscience` | La mente voluntaria | checkpoints (`core ADR 0034`) | core, extended | - | prevista |
 | Ente | `ia_nest_core_pulse` | La mente involuntaria | telemetria + perillas (`core ADR 0037`) | core, extended, conscience | - | prevista |
 | Ente | `ia_nest_web` | La cara: GUI | contratos publicos | core, extended, conscience, pulse | - | prevista |
