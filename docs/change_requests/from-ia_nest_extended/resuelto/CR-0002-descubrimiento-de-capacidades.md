@@ -111,11 +111,14 @@ Detalle, alternativas descartadas y preguntas de vuelta a la capa origen:
 
 ## Entrega (2026-08-18)
 
-ENTREGADO en el `main` del core de la linea v0.4, sin tag todavia. `capability.list`
-responde por las tres interfaces con el catalogo unico del que se derivan CLI,
-rutas REST y herramientas MCP.
+ENTREGADO en el `main` del core de la linea v0.4. `capability.list` responde por
+las tres interfaces con el catalogo unico del que se derivan CLI, rutas REST y
+herramientas MCP.
 
 Verificado en vivo por la capa origen: dieciseis capacidades declaradas.
+
+PUBLICADO el 2026-08-20 en `core v0.4.0`, con smoke por REST contra el servicio
+reiniciado. La capa origen ya puede fijar su rango contra una version real.
 
 Pendiente en la capa ORIGEN, no en el destino: retirar su lista estatica y pasar
 a fusionar el catalogo obtenido en ejecucion (`extended ADR 0011`, puntos 9-11).

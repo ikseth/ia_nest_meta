@@ -90,9 +90,11 @@ declarada). La decision de ADR 0040 no cambia. Version objetivo fijada:
 
 ## Entrega (2026-08-18)
 
-ENTREGADO en el `main` del core de la linea v0.4, sin tag todavia
-(`pyproject.toml` sigue declarando 0.3.0). `task.plan` y la entrada `plan` de
-`task.run` estan implementadas en las tres interfaces.
+ENTREGADO en el `main` del core de la linea v0.4. `task.plan` y la entrada `plan`
+de `task.run` estan implementadas en las tres interfaces.
+
+PUBLICADO el 2026-08-20 en `core v0.4.0`, con smoke por REST contra el servicio
+reiniciado. La capa origen ya puede fijar su rango contra una version real.
 
 Ejercido por la capa origen de punta a punta con RAG real por subtarea
 (`extended` fase 7b): `plan_attempts` 0, `plan_source` supplied y cobertura
