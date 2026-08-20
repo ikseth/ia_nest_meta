@@ -118,3 +118,4 @@ Notificacion a la capa destino:
 | CR-0002 | respuesta del core | [cr_0002_respuesta_core.md](../handoff/cr_0002_respuesta_core.md) |
 | CR-0003 | hallazgos que lo motivan | [avisos_al_core_desde_extended_2026-08-18.md](../handoff/avisos_al_core_desde_extended_2026-08-18.md) |
 | CR-0004 | hallazgo que lo motiva | [avisos_al_core_desde_extended_2026-08-18.md](../handoff/avisos_al_core_desde_extended_2026-08-18.md) |
+| CR-0005 | verificado por el cable contra v0.4.0 | (sin brief aparte: el caso esta en la ficha) |
