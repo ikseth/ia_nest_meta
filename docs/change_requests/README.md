@@ -1,7 +1,7 @@
 # Change Requests (CR) entre capas del ente
 
 Estado: activo (hogar autoritativo)
-Version: 1.1 - 2026-07-26
+Version: 1.2 - 2026-08-22
 
 Canal formal para que una capa solicite un cambio en el contrato de otra capa de
 la que depende (tipicamente hacia el core). Complementa el grafo de dependencias
@@ -119,3 +119,25 @@ Notificacion a la capa destino:
 | CR-0003 | hallazgos que lo motivan | [avisos_al_core_desde_extended_2026-08-18.md](../handoff/avisos_al_core_desde_extended_2026-08-18.md) |
 | CR-0004 | hallazgo que lo motiva | [avisos_al_core_desde_extended_2026-08-18.md](../handoff/avisos_al_core_desde_extended_2026-08-18.md) |
 | CR-0005 | verificado por el cable contra v0.4.0 | (sin brief aparte: el caso esta en la ficha) |
+
+## Avisos entre capas que NO son CR
+
+Hallazgos medidos que una capa entrega a otra sin pedirle nada: no cambian
+contrato y por tanto no abren CR, pero la capa destino tiene que poder
+encontrarlos.
+
+Se indexan AQUI, y no en un indice propio de `docs/handoff/`, por hogar unico
+(convencion 6): este documento ya indexa briefs de handoff en su tabla de
+notificacion, y el brief del 2026-08-18 esta enlazado desde ella. Un segundo
+indice dejaria ese brief en dos sitios, que es justo el defecto que la regla
+prohibe.
+
+Esta tabla no cae en el deber de generar los indices del taller: ese deber
+alcanza a los que REFLEJAN datos cuya fuente de verdad es el manifiesto de otra
+capa (registro de capas, indice de contratos). Aqui la fuente de verdad son los
+ficheros de al lado, en este mismo repo.
+
+| fecha | emite | destino | asunto |
+|---|---|---|---|
+| [2026-08-18](../handoff/avisos_al_core_desde_extended_2026-08-18.md) | `ia_nest_extended` | `ia_nest_core` | el gate de la fase B3 no mira como termino la tarea; respuesta vaciada por exceso de contexto que pasa el gate |
+| [2026-08-22](../handoff/avisos_al_core_desde_extended_2026-08-22.md) | `ia_nest_extended` | `ia_nest_core` | el gate da verde a respuestas falsas y la cuarta linea sugerida no basta; planificador inestable; el `core.lab.example.yaml` publicado sirve el fallo que su propio comentario describe. Retira dos sospechas anteriores que resultaron artefactos de medir sobre ese ejemplo |
