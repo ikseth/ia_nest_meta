@@ -1,7 +1,7 @@
 # Change Requests (CR) entre capas del ente
 
 Estado: activo (hogar autoritativo)
-Version: 1.2 - 2026-08-22
+Version: 1.3 - 2026-08-22
 
 Canal formal para que una capa solicite un cambio en el contrato de otra capa de
 la que depende (tipicamente hacia el core). Complementa el grafo de dependencias
@@ -137,7 +137,7 @@ alcanza a los que REFLEJAN datos cuya fuente de verdad es el manifiesto de otra
 capa (registro de capas, indice de contratos). Aqui la fuente de verdad son los
 ficheros de al lado, en este mismo repo.
 
-| fecha | emite | destino | asunto |
-|---|---|---|---|
-| [2026-08-18](../handoff/avisos_al_core_desde_extended_2026-08-18.md) | `ia_nest_extended` | `ia_nest_core` | el gate de la fase B3 no mira como termino la tarea; respuesta vaciada por exceso de contexto que pasa el gate |
-| [2026-08-22](../handoff/avisos_al_core_desde_extended_2026-08-22.md) | `ia_nest_extended` | `ia_nest_core` | el gate da verde a respuestas falsas y la cuarta linea sugerida no basta; planificador inestable; el `core.lab.example.yaml` publicado sirve el fallo que su propio comentario describe. Retira dos sospechas anteriores que resultaron artefactos de medir sobre ese ejemplo |
+| fecha | emite | destino | asunto | notificado |
+|---|---|---|---|---|
+| [2026-08-18](../handoff/avisos_al_core_desde_extended_2026-08-18.md) | `ia_nest_extended` | `ia_nest_core` | el gate de la fase B3 no mira como termino la tarea; respuesta vaciada por exceso de contexto que pasa el gate | (enlazado desde CR-0003 y CR-0004) |
+| [2026-08-22](../handoff/avisos_al_core_desde_extended_2026-08-22.md) | `ia_nest_extended` | `ia_nest_core` | el gate da verde a respuestas falsas y la cuarta linea sugerida no basta; planificador inestable; el `core.lab.example.yaml` publicado sirve el fallo que su propio comentario describe. Retira dos sospechas anteriores que resultaron artefactos de medir sobre ese ejemplo | [ia_nest_core#36](https://github.com/ikseth/ia_nest_core/issues/36) |
