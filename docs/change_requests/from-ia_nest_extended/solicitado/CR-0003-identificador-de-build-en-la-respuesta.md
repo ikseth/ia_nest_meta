@@ -4,7 +4,7 @@
 - fecha: 2026-08-18
 - capa origen: `ia_nest_extended`
 - capa destino: `ia_nest_core`
-- estado: propuesto
+- estado: reformulado (core ADR 0052, reconciliado 2026-09-11; respuesta en `docs/handoff/cr_0003_respuesta_core.md`)
 
 ## Caso de uso motor
 
