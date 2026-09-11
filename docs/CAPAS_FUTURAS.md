@@ -1,7 +1,7 @@
 # Capas futuras del ente
 
 Estado: activo
-Version: 1.1 - 2026-08-14
+Version: 1.2 - 2026-08-21
 
 Concerns del ENTE que no tienen repo asignado. Se registran aqui para no
 perderlos: son fronteras futuras del ente, no trabajo pendiente de ninguna capa
@@ -39,6 +39,42 @@ Nota de alcance, para cuando se aborde: `core ADR 0033` situa el exterior como
 lo que CONSUME el ente sin dirigir su pensar. Otro ente no es un consumidor: es
 un par. La zona que le corresponde en `REGISTRO_CAPAS.md` esta por decidir, y
 probablemente exija revisar el mapa de dos zonas.
+
+## Quien decide y quien orquesta lo que el ente hace
+
+Registrado el 2026-08-21, al disenar la fase de datos web de
+`ia_nest_extended`. Son DOS preguntas con la misma forma, y ninguna tiene dueno:
+
+1. **Que capacidad usar.** Hoy nadie decide si una peticion es atomica
+   (`prompt.run`) o descomponible (`task.run`): el core no lo hace por diseno y
+   extended reexpone ambas sin elegir, de modo que le toca saberlo al operador.
+   Observado en uso real (`extended docs/PLAN.md`, "fuera de este plan").
+2. **Cuando el ente sale a buscar fuera, y quien lleva ese bucle.** Al querer que
+   el ente investigue -formular una consulta, buscar, abrir, leer, y reformular
+   si no encontro-, alguien tiene que decidir que se sale y cuando se para.
+
+No es un fallo de ninguna capa existente. El core no elige por diseno; extended
+enriquece, y elegir no es enriquecer (su `ALCANCE.md` manda el juicio a
+conscience). Es una funcion del ente que quedo entre las dos.
+
+**Lo que NO entra aqui:** el MECANISMO de la busqueda web -redactar la consulta,
+traer, extraer, buscar dentro del documento, suelo y presupuesto- es de
+`ia_nest_extended`, que ya tiene datos web asignados, y vive en su
+`docs/PLAN.md` (Fase 6, aparcada). Aqui solo esta quien decide y quien orquesta.
+
+**Disparador**: cuando exista un consumidor que ejerza la costura. Hoy el
+operador suple las dos decisiones a mano y basta; deja de bastar en cuanto el
+ente deba iniciar trabajo sin que alguien se lo dicte paso a paso.
+
+**Nota de alcance, para cuando se aborde:** ojo con confundirlo con conscience.
+Conscience decide QUE clase de ente es y que merece consolidarse; esto decide
+COMO se ejecuta un encargo concreto. Son juicios de naturaleza distinta y
+mezclarlos daria una capa que lo decide todo.
+
+**Un obstaculo ya conocido**: iterar exige re-planificar con lo hallado, y hoy
+re-planificar y enriquecer son mutuamente excluyentes (`extended docs/PLAN.md`,
+coste declarado de su Fase 7b). Quien aborde esto se lo encontrara, y el canal
+para resolverlo es un CR al core.
 
 ## Autenticacion de los interlocutores
 
