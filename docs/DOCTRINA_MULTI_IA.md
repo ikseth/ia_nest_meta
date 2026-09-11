@@ -54,6 +54,30 @@ repo: son de alguien. No los toques ni los commitees.
   impacto (`patch` / `minor` / `major`); el tag se corta en la reconciliacion.
 - Si dos agentes cambian contrato en paralelo, el usuario reconcilia y decide.
 
+## Regla de la puerta de laboratorio
+
+**Una fase que cambia comportamiento observable no se cierra sin una ejecucion
+contra un despliegue real, por la superficie que consumen las capas de encima, y
+con veredicto** (meta ADR 0010). Esto es lo que significa "validada" cuando una
+capa dice que una fase esta cerrada.
+
+- **El criterio se declara ANTES de medir**, y es falsable: que se mide, con que
+  valor pasa y con cual no. Un criterio escrito despues de ver el resultado no es
+  criterio.
+- **Se ejecuta, no se narra.** Vale un script con codigo de salida; no vale una
+  tabla redactada. Un informe que NARRA una verificacion es peor que no tenerlo,
+  porque la sustituye en lugar de guiarla.
+- **Se cruza dos veces, por dos agentes independientes.** La discrepancia entre
+  las dos pasadas no es ruido: es el hallazgo.
+- **Una afirmacion sobre la CALIDAD de lo producido necesita un control externo**
+  a las senales que emite el propio sistema. Un sistema no es su propio criterio
+  de aceptacion.
+- **Lo que la puerta no cubre se declara.** Un "PASA" de forma no es un "PASA" de
+  contenido.
+
+El PROCEDIMIENTO -que script, contra que host, con que umbrales- es de cada capa
+y vive en su repo. Aqui se fija que la puerta existe y que forma tiene.
+
 ## Handoff: como se pasa trabajo al codificador
 
 El trabajo que ejecuta un codificador en ciego va por brief escrito, no por
@@ -84,3 +108,10 @@ criticas, no ampliar alcance por conveniencia, cambios pequenos y verificables-
 NO se re-hoga aqui: vive en cada repo (`core docs/CONVENCIONES.md`,
 `core docs/LINEA_DE_ACTUACION.md`). Es metodo de trabajo, no protocolo entre
 agentes. Su posible unificacion queda pendiente y sin urgencia (meta ADR 0001).
+
+Con una excepcion, argumentada en meta ADR 0010: la **definicion de "validada"**
+si vive aqui, porque no es metodo propio sino vocabulario del que dependen las
+demas capas. Cuando una capa declara una fase cerrada, las de al lado lo creen y
+construyen encima; el vinculo por SemVer entre capas se apoya en que "entregado"
+signifique lo mismo para todos. Lo que se re-hoga es esa definicion y solo esa:
+como se ejecuta la puerta en cada sitio sigue siendo de cada repo.
