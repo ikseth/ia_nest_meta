@@ -91,7 +91,10 @@ solo separa hilos de recuerdo.
 ALLA DE LA MAQUINA (una GUI, o una REST publicada). Ahi la identidad afirmada
 pasa a ser afirmable por cualquiera.
 
-**Dos hogares candidatos**, sin decidir:
+**DECIDIDO el 2026-09-21 (meta ADR 0011): el hogar es el BORDE**, la
+superficie mas externa expuesta. El mecanismo sigue abierto. Se conservan abajo
+los dos candidatos que se valoraron, porque explican por que se eligio el
+primero:
 
 1. **La superficie mas externa expuesta.** Autentica quien recibe del exterior, y
    afirma la identidad hacia dentro; las capas interiores la consumen como hoy.
