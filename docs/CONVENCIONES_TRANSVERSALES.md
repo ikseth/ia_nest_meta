@@ -1,7 +1,7 @@
 # Convenciones transversales del ente
 
 Estado: activo
-Version: 1.2 - 2026-08-14
+Version: 1.3 - 2026-09-30
 
 Reglas que aplican a TODOS los repos del ente y a este taller. Cada repo puede
 tener convenciones propias (estilo de codigo, cabeceras de script, cuando ADR y
@@ -22,6 +22,14 @@ que "arregle" los acentos esta rompiendo la convencion, no mejorandola.
 
 Motivo: elimina una clase entera de ruido en diffs, greps, rutas y pipelines
 entre varios agentes y varias maquinas, sin coste de comprension.
+
+Alcance (meta ADR 0012): la regla cubre lo que circula entre agentes y
+maquinas -documentacion tecnica y normativa, codigo, identificadores y datos de
+entrada o salida-. Se exceptuan los TEXTOS DE PUBLICACION, escritos para
+lectores de fuera del ente (manifiestos, cartas abiertas, articulos): van en
+espanol correcto, con acentos y enye. La excepcion se declara por ubicacion:
+solo bajo un directorio `publications/` en la raiz de un repo. Fuera de el, la
+regla aplica sin cambios. Un texto de publicacion no es normativo.
 
 Precision honesta: `core ADR 0016` fijo "prosa en espanol sin tildes". La
 practica posterior en todos los repos ha sido mas estricta (ASCII puro, incluida

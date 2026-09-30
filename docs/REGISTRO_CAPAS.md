@@ -1,7 +1,7 @@
 # Registro de capas del ente y grafo de dependencias
 
 Estado: activo
-Version: 1.3 - 2026-09-12
+Version: 1.4 - 2026-09-30
 
 Indice de los repos que forman el ente IA_NEST y de sus dependencias. Responde
 a "quien existe, para que, y quien depende de quien" sin que ningun repo tenga
@@ -73,7 +73,7 @@ capa con el core esta descrita en `core docs/FRONTERAS.md`.
 | Taller | `ia_nest_meta` | Gobernanza del ente | - | - | sin SemVer (meta ADR 0001) | activo |
 | Ente | `ia_nest_core` | El motor: enruta, infiere, itera | - | - | `v0.4.0` | v0.4 entregada: catalogo + `capability.list`, `task.plan`, `routing_rules` retirada |
 | Ente | `ia_nest_extended` [1] | La memoria/conocimiento | enriquecimiento (`core ADR 0031`) | `core >=0.4 <0.5` | `v0.2.1` | contrato publicado y activo; las tres pieles (CLI, REST, MCP) sirven el contrato uniforme; puerta de laboratorio declarada con script propio, aun sin pasada sobre un despliegue natural (meta ADR 0010); F8 (despliegue) cerrada; F6 (datos web) aparcada; F9 (sintesis de hilo) abierta |
-| Ente | `ia_nest_core_conscience` | La mente voluntaria | checkpoints (`core ADR 0034`) | core, extended | - | prevista |
+| Ente | `ia_nest_conscience` [2] | La mente voluntaria | checkpoints (`core ADR 0034`) | core, extended | - | semilla: doctrina mudada desde el core, base conceptual de la deliberacion y manifiesto; sin codigo ni contrato (conscience ADR 0001) |
 | Ente | `ia_nest_core_pulse` | La mente involuntaria | telemetria + perillas (`core ADR 0037`) | core, extended, conscience | - | prevista |
 | Ente | `ia_nest_web` | La cara: GUI | contratos publicos | core, extended, conscience, pulse | - | prevista |
 | Exterior | `ia_nest_agents` | Agentes que consumen el ente | contratos publicos | core (+ las que use) | - | prevista |
@@ -86,6 +86,11 @@ capa con el core esta descrita en `core docs/FRONTERAS.md`.
 `core IA_NEST_CORE_CONTEXT.md` y la capa misma. El ADR conserva su texto: es
 historia, y la deriva de nombre se anota aqui en lugar de reescribirlo.
 
+[2] `core ADR 0033` nombra esta capa `ia_nest_core_conscience`. El repo real es
+`ia_nest_conscience`, por el mismo motivo que [1] (conscience ADR 0001). Otros
+documentos del core y de extended conservan el nombre antiguo; mismo
+tratamiento: la deriva se anota aqui.
+
 Zona "Ente" = el pack basico con identidad propia simulada (`core ADR 0033`).
 Zona "Exterior" = consume el ente por sus contratos publicos y NO dirige su
 pensar.
@@ -96,9 +101,10 @@ pensar.
   `core docs/FRONTERAS.md`. Es la promesa del core, vecina de su contrato.
 - **Lo que hace cada capa por dentro**: vive en el repo de esa capa. Meta
   gobierna COMO se construye el ente, no que hace cada pieza. El diseno ya
-  reconciliado de capas aun no sembradas (conscience, pulse, web) sigue en
+  reconciliado de capas aun no sembradas (pulse, web) sigue en
   `core docs/FRONTERAS.md` marcado como deuda declarada, y mudara al repo
-  correspondiente cuando se siembre.
+  correspondiente cuando se siembre. El de conscience ya mudo a
+  `ia_nest_conscience/docs/DOCTRINA.md` (conscience ADR 0001).
 - **Los concerns del ente sin repo asignado**: `docs/CAPAS_FUTURAS.md`. Cuando
   uno recibe repo, sale de alli y entra aqui como fila "prevista".
 - **El backlog del motor** (senales y capacidades que el core debe a otras
