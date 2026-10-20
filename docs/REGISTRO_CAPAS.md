@@ -1,7 +1,7 @@
 # Registro de capas del ente y grafo de dependencias
 
 Estado: activo
-Version: 1.4 - 2026-09-30
+Version: 1.5 - 2026-10-20 (fila de extended a v0.5.2)
 
 Indice de los repos que forman el ente IA_NEST y de sus dependencias. Responde
 a "quien existe, para que, y quien depende de quien" sin que ningun repo tenga
@@ -72,7 +72,7 @@ capa con el core esta descrita en `core docs/FRONTERAS.md`.
 |---|---|---|---|---|---|---|
 | Taller | `ia_nest_meta` | Gobernanza del ente | - | - | sin SemVer (meta ADR 0001) | activo |
 | Ente | `ia_nest_core` | El motor: enruta, infiere, itera | - | - | `v0.4.0` | v0.4 entregada: catalogo + `capability.list`, `task.plan`, `routing_rules` retirada |
-| Ente | `ia_nest_extended` [1] | La memoria/conocimiento | enriquecimiento (`core ADR 0031`) | `core >=0.4 <0.5` | `v0.2.1` | contrato publicado y activo; las tres pieles (CLI, REST, MCP) sirven el contrato uniforme; puerta de laboratorio declarada con script propio, aun sin pasada sobre un despliegue natural (meta ADR 0010); F8 (despliegue) cerrada; F6 (datos web) aparcada; F9 (sintesis de hilo) abierta |
+| Ente | `ia_nest_extended` [1] | La memoria/conocimiento | enriquecimiento (`core ADR 0031`) | `core >=0.4 <0.5` | `v0.5.2` | hito v0.5.0 cerrado el 2026-10-20 con gaps declarados: puerta de laboratorio NO PASA solo por L5r (la cortesia recupera de un corpus enciclopedico; falta decidir si el turno pide conocimiento) y L4b de control; los dos son requisito de entrada para abrir el ente a otros usuarios; RAG con fuentes abiertas medido (fase A); F9 (sintesis de hilo) apagada en el lab; F6 (datos web) aparcada |
 | Ente | `ia_nest_conscience` [2] | La mente voluntaria | checkpoints (`core ADR 0034`) | core, extended | - | semilla: doctrina mudada desde el core, base conceptual de la deliberacion y manifiesto; sin codigo ni contrato (conscience ADR 0001) |
 | Ente | `ia_nest_core_pulse` | La mente involuntaria | telemetria + perillas (`core ADR 0037`) | core, extended, conscience | - | prevista |
 | Ente | `ia_nest_web` | La cara: GUI | contratos publicos | core, extended, conscience, pulse | - | prevista |
