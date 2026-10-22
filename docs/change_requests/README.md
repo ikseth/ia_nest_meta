@@ -110,6 +110,7 @@ durabilidad, no el formulario.
 | [CR-0005](from-ia_nest_extended/solicitado/CR-0005-trace-en-prompt-stream.md) | `ia_nest_extended` | `ia_nest_core` | `prompt.stream` publica su `trace`, como sus hermanas | aceptado (core ADR 0052) | core PATCH, sin numero |
 | [edge CR-0001](from-ia_nest_edge/solicitado/CR-0001-perfil-del-interlocutor-en-la-identidad.md) | `ia_nest_edge` | `ia_nest_core` | el contexto de identidad dice que clase de interlocutor es | propuesto | core PATCH, sin numero |
 | [edge CR-0002](from-ia_nest_edge/solicitado/CR-0002-extended-compone-el-perfil-del-interlocutor.md) | `ia_nest_edge` | `ia_nest_extended` | extended transporta el perfil del interlocutor y lo compone | propuesto | extended PATCH, sin numero |
+| [edge CR-0003](from-ia_nest_edge/solicitado/CR-0003-modo-iterativo-de-uso-normal.md) | `ia_nest_edge` | `ia_nest_extended` | un modo iterativo de uso normal: `task.stream` enriquecido y re-planificar con enriquecimiento | propuesto | lo que disponga extended (y el core, por su CR) |
 
 Notificacion a la capa destino:
 
@@ -127,6 +128,7 @@ Notificacion a la capa destino:
 | CR-0005 | respuesta del core | [cr_0005_respuesta_core.md](../handoff/cr_0005_respuesta_core.md) |
 | edge CR-0001 | issue en el core | pendiente |
 | edge CR-0002 | issue en extended | pendiente |
+| edge CR-0003 | issue en extended | pendiente |
 
 ## Avisos entre capas que NO son CR
 
