@@ -126,9 +126,9 @@ Notificacion a la capa destino:
 | CR-0003 | respuesta del core | [cr_0003_respuesta_core.md](../handoff/cr_0003_respuesta_core.md) |
 | CR-0004 | respuesta del core | [cr_0004_respuesta_core.md](../handoff/cr_0004_respuesta_core.md) |
 | CR-0005 | respuesta del core | [cr_0005_respuesta_core.md](../handoff/cr_0005_respuesta_core.md) |
-| edge CR-0001 | issue en el core | pendiente |
-| edge CR-0002 | issue en extended | pendiente |
-| edge CR-0003 | issue en extended | pendiente |
+| edge CR-0001 | issue en el core | [ia_nest_core#44](https://github.com/ikseth/ia_nest_core/issues/44) |
+| edge CR-0002 | issue en extended | [ia_nest_extended#81](https://github.com/ikseth/ia_nest_extended/issues/81) |
+| edge CR-0003 | issue en extended | [ia_nest_extended#82](https://github.com/ikseth/ia_nest_extended/issues/82) |
 
 ## Avisos entre capas que NO son CR
 
