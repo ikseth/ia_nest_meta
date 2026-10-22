@@ -1,7 +1,7 @@
 # Change Requests (CR) entre capas del ente
 
 Estado: activo (hogar autoritativo)
-Version: 1.4 - 2026-10-20 (aviso al core del 2026-10-20)
+Version: 1.5 - 2026-10-22 (primeros CR del borde)
 
 Canal formal para que una capa solicite un cambio en el contrato de otra capa de
 la que depende (tipicamente hacia el core). Complementa el grafo de dependencias
@@ -108,6 +108,9 @@ durabilidad, no el formulario.
 | [CR-0003](from-ia_nest_extended/solicitado/CR-0003-identificador-de-build-en-la-respuesta.md) | `ia_nest_extended` | `ia_nest_core` | identificador de build en la respuesta, junto a `core_version` | reformulado (core ADR 0052) | core PATCH, sin numero |
 | [CR-0004](from-ia_nest_extended/solicitado/CR-0004-render-en-el-catalogo.md) | `ia_nest_extended` | `ia_nest_core` | el catalogo publica como se presenta cada capacidad | aceptado (core ADR 0052) | core PATCH, sin numero |
 | [CR-0005](from-ia_nest_extended/solicitado/CR-0005-trace-en-prompt-stream.md) | `ia_nest_extended` | `ia_nest_core` | `prompt.stream` publica su `trace`, como sus hermanas | aceptado (core ADR 0052) | core PATCH, sin numero |
+| [edge CR-0001](from-ia_nest_edge/solicitado/CR-0001-perfil-del-interlocutor-en-la-identidad.md) | `ia_nest_edge` | `ia_nest_core` | el contexto de identidad dice que clase de interlocutor es | propuesto | core PATCH, sin numero |
+| [edge CR-0002](from-ia_nest_edge/solicitado/CR-0002-extended-compone-el-perfil-del-interlocutor.md) | `ia_nest_edge` | `ia_nest_extended` | extended transporta el perfil del interlocutor y lo compone | propuesto | extended PATCH, sin numero |
+| [edge CR-0003](from-ia_nest_edge/solicitado/CR-0003-modo-iterativo-de-uso-normal.md) | `ia_nest_edge` | `ia_nest_extended` | un modo iterativo de uso normal: `task.stream` enriquecido y re-planificar con enriquecimiento | propuesto | lo que disponga extended (y el core, por su CR) |
 
 Notificacion a la capa destino:
 
@@ -123,6 +126,9 @@ Notificacion a la capa destino:
 | CR-0003 | respuesta del core | [cr_0003_respuesta_core.md](../handoff/cr_0003_respuesta_core.md) |
 | CR-0004 | respuesta del core | [cr_0004_respuesta_core.md](../handoff/cr_0004_respuesta_core.md) |
 | CR-0005 | respuesta del core | [cr_0005_respuesta_core.md](../handoff/cr_0005_respuesta_core.md) |
+| edge CR-0001 | issue en el core | [ia_nest_core#44](https://github.com/ikseth/ia_nest_core/issues/44) |
+| edge CR-0002 | issue en extended | [ia_nest_extended#81](https://github.com/ikseth/ia_nest_extended/issues/81) |
+| edge CR-0003 | issue en extended | [ia_nest_extended#82](https://github.com/ikseth/ia_nest_extended/issues/82) |
 
 ## Avisos entre capas que NO son CR
 

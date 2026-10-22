@@ -61,3 +61,10 @@ Por que el borde y no una capa intermedia:
 - No autentica maquina a maquina, que es otro problema y tiene otra respuesta.
 - No cambia la forma de la identidad del request ni el contrato de nadie.
 - No convierte la autenticacion en autorizacion: seguiran siendo dos cosas.
+
+## Estado posterior
+
+2026-10-22: el disparador del punto 4 se cumple. El primer consumidor que no es
+el operador es la familia, y el borde recibe repo propio, `ia_nest_edge`, en la
+zona Exterior. La excepcion del punto 3 caduca cuando entre ese primer usuario.
+Ver meta ADR 0013.
