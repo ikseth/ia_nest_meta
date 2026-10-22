@@ -1,7 +1,7 @@
 # Capas futuras del ente
 
 Estado: activo
-Version: 1.2 - 2026-08-21
+Version: 1.3 - 2026-10-22 (autenticacion sale: tiene repo, meta ADR 0013)
 
 Concerns del ENTE que no tienen repo asignado. Se registran aqui para no
 perderlos: son fronteras futuras del ente, no trabajo pendiente de ninguna capa
@@ -71,39 +71,21 @@ Conscience decide QUE clase de ente es y que merece consolidarse; esto decide
 COMO se ejecuta un encargo concreto. Son juicios de naturaleza distinta y
 mezclarlos daria una capa que lo decide todo.
 
+**Estado al 2026-10-22 (meta ADR 0013).** `ia_nest_agents` recibe forma, y con
+ella el bucle de un encargo que llega desde fuera: es del agente que lo lleva.
+Siguen sin dueno la pregunta 1 (la piel OpenAI del borde la suple con una
+correspondencia fija, sin resolverla) y lo que el ente haga por iniciativa
+propia.
+
 **Un obstaculo ya conocido**: iterar exige re-planificar con lo hallado, y hoy
 re-planificar y enriquecer son mutuamente excluyentes (`extended docs/PLAN.md`,
 coste declarado de su Fase 7b). Quien aborde esto se lo encontrara, y el canal
 para resolverlo es un CR al core.
 
-## Autenticacion de los interlocutores
+## Concerns que ya tienen repo
 
-Hoy nadie autentica. La identidad del request (`core CORE_CONTRACT.md`) es una
-AFIRMACION de quien llama, no una prueba, y basta: en un CLI, quien tiene shell
-en la maquina ya fue autenticado por el sistema operativo.
+Se dejan solo como puntero, para que las referencias desde otros repos no queden
+colgando.
 
-Y basta ademas porque `user_id` SEGMENTA, no AUTORIZA: la autoridad en este ente
-la dan el principal en codigo (`extended ADR 0002`) y el GRANT del motor
-(`extended ADR 0010`), no el usuario. Ningun `user_id` concede ni deniega nada;
-solo separa hilos de recuerdo.
-
-**Disparador**: deja de bastar cuando exista la primera superficie expuesta MAS
-ALLA DE LA MAQUINA (una GUI, o una REST publicada). Ahi la identidad afirmada
-pasa a ser afirmable por cualquiera.
-
-**DECIDIDO el 2026-09-21 (meta ADR 0011): el hogar es el BORDE**, la
-superficie mas externa expuesta. El mecanismo sigue abierto. Se conservan abajo
-los dos candidatos que se valoraron, porque explican por que se eligio el
-primero:
-
-1. **La superficie mas externa expuesta.** Autentica quien recibe del exterior, y
-   afirma la identidad hacia dentro; las capas interiores la consumen como hoy.
-   Encaja con el contrato uniforme (`meta ADR 0007`): entra como capa por encima
-   sin editar a nadie. Contra: hoy esa superficie no existe.
-2. **`ia_nest_extended`.** Es la capa de recursos extendidos del ente, y un repo
-   dedicado solo a login es dificil de justificar. Contra: autenticar en una capa
-   INTERMEDIA obliga a las de arriba a decidir si reautentican o confian, y la
-   autenticacion no es enriquecimiento (su `ALCANCE.md`).
-
-No se decide ahora, de forma deliberada: no hay consumidor que ejerza la costura,
-y una costura sin consumidor real se pudre (`core ADR 0035`).
+- **Autenticacion de los interlocutores.** Hogar decidido en meta ADR 0011 (el
+  borde); repo asignado en meta ADR 0013: `ia_nest_edge`, zona Exterior.

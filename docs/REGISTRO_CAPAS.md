@@ -1,7 +1,7 @@
 # Registro de capas del ente y grafo de dependencias
 
 Estado: activo
-Version: 1.5 - 2026-10-20 (fila de extended a v0.5.2)
+Version: 1.6 - 2026-10-22 (core a v0.4.1; borde y capa agentica, meta ADR 0013)
 
 Indice de los repos que forman el ente IA_NEST y de sus dependencias. Responde
 a "quien existe, para que, y quien depende de quien" sin que ningun repo tenga
@@ -71,12 +71,13 @@ capa con el core esta descrita en `core docs/FRONTERAS.md`.
 | Zona | Repo | Que es | Costura | Depende de | Version publicada | Estado de trabajo |
 |---|---|---|---|---|---|---|
 | Taller | `ia_nest_meta` | Gobernanza del ente | - | - | sin SemVer (meta ADR 0001) | activo |
-| Ente | `ia_nest_core` | El motor: enruta, infiere, itera | - | - | `v0.4.0` | v0.4 entregada: catalogo + `capability.list`, `task.plan`, `routing_rules` retirada |
+| Ente | `ia_nest_core` | El motor: enruta, infiere, itera | - | - | `v0.4.1` | tanda v0.4.1 cerrada: senal de vacio, respuesta que se describe a si misma, plan derivado con ciclo, instalador |
 | Ente | `ia_nest_extended` [1] | La memoria/conocimiento | enriquecimiento (`core ADR 0031`) | `core >=0.4 <0.5` | `v0.5.2` | hito v0.5.0 cerrado el 2026-10-20 con gaps declarados: puerta de laboratorio NO PASA solo por L5r (la cortesia recupera de un corpus enciclopedico; falta decidir si el turno pide conocimiento) y L4b de control; los dos son requisito de entrada para abrir el ente a otros usuarios; RAG con fuentes abiertas medido (fase A); F9 (sintesis de hilo) apagada en el lab; F6 (datos web) aparcada |
 | Ente | `ia_nest_conscience` [2] | La mente voluntaria | checkpoints (`core ADR 0034`) | core, extended | - | semilla: doctrina mudada desde el core, base conceptual de la deliberacion y manifiesto; sin codigo ni contrato (conscience ADR 0001) |
 | Ente | `ia_nest_core_pulse` | La mente involuntaria | telemetria + perillas (`core ADR 0037`) | core, extended, conscience | - | prevista |
-| Ente | `ia_nest_web` | La cara: GUI | contratos publicos | core, extended, conscience, pulse | - | prevista |
-| Exterior | `ia_nest_agents` | Agentes que consumen el ente | contratos publicos | core (+ las que use) | - | prevista |
+| Ente | `ia_nest_web` | La cara: GUI de usuario y de administracion | contratos publicos | core, extended, conscience, pulse | - | prevista; mientras, el webchat lo cubre Open WebUI tras el borde (meta ADR 0013) |
+| Exterior | `ia_nest_edge` | El borde: autentica a los consumidores y afirma su identidad hacia dentro (meta ADR 0011) | contratos publicos de extended + piel OpenAI | extended | - | prevista; primera entrega del plan de apertura (meta ADR 0013) |
+| Exterior | `ia_nest_agents` | Agentes que consumen el ente, con su gestor (registro, policy, auditoria) | contratos publicos, a traves del borde | edge | - | prevista; tras el borde: agente Linux y luego Nextcloud, solo lectura (meta ADR 0013) |
 | Exterior | `ia_nest_external_*` | Integraciones que ACTUAN | `tool_contracts` (`core ADR 0007`) | core | - | diferida |
 | Exterior | `ia_nest_module_*` | Modulos propios | contratos publicos | core | - | prevista |
 | Exterior | Otras entidades IA_NEST | Comunicacion entidad-a-entidad | por definir | - | - | futura |
