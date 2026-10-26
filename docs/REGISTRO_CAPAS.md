@@ -1,7 +1,7 @@
 # Registro de capas del ente y grafo de dependencias
 
 Estado: activo
-Version: 1.6 - 2026-10-22 (core a v0.4.1; edge, agents y web sembrados, meta ADR 0013)
+Version: 1.7 - 2026-10-26 (edge a v0.1.0)
 
 Indice de los repos que forman el ente IA_NEST y de sus dependencias. Responde
 a "quien existe, para que, y quien depende de quien" sin que ningun repo tenga
@@ -76,7 +76,7 @@ capa con el core esta descrita en `core docs/FRONTERAS.md`.
 | Ente | `ia_nest_conscience` [2] | La mente voluntaria | checkpoints (`core ADR 0034`) | core, extended | - | semilla: doctrina mudada desde el core, base conceptual de la deliberacion y manifiesto; sin codigo ni contrato (conscience ADR 0001) |
 | Ente | `ia_nest_core_pulse` | La mente involuntaria | telemetria + perillas (`core ADR 0037`) | core, extended, conscience | - | prevista |
 | Ente | `ia_nest_web` | La cara: GUI de usuario y de administracion | contratos publicos | core, extended, conscience, pulse | - | semilla (web ADR 0001): toda la interfaz de usuario y de administracion; sin codigo hasta que Open WebUI, que la cubre tras el borde, se quede corto (meta ADR 0013) |
-| Exterior | `ia_nest_edge` | El borde: autentica a los consumidores y afirma su identidad hacia dentro (meta ADR 0011) | contratos publicos de extended + piel OpenAI | extended | - | semilla (edge ADR 0001): primera entrega del plan de apertura; decisiones previas al brief en su `docs/PLAN.md` (meta ADR 0013) |
+| Exterior | `ia_nest_edge` | El borde: autentica a los consumidores y afirma su identidad hacia dentro (meta ADR 0011) | contratos publicos de extended + piel OpenAI | `extended >=0.5 <0.6` | `v0.1.0` | piel OpenAI, autenticacion por consumidor e instalador (edge ADR 0002); rango comprobado contra el codigo de extended, verificacion en vivo pendiente de la visita de laboratorio; la familia espera a edge CR-0001/0002 y a L5r/L4b de extended (meta ADR 0013) |
 | Exterior | `ia_nest_agents` | Agentes que consumen el ente, con su gestor (registro, policy, auditoria) | contratos publicos, a traves del borde | edge | - | semilla (agents ADR 0001): tras el borde, agente Linux y luego Nextcloud, solo lectura (meta ADR 0013) |
 | Exterior | `ia_nest_external_*` | Integraciones que ACTUAN | `tool_contracts` (`core ADR 0007`) | core | - | diferida |
 | Exterior | `ia_nest_module_*` | Modulos propios | contratos publicos | core | - | prevista |
