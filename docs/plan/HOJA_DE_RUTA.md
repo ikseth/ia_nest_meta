@@ -21,7 +21,7 @@ en el fichero de cada hito; un hito sin fichero aun no esta abierto.
 
 | Id | Hito | Depende de | Estado |
 |---|---|---|---|
-| H06 | TLS en todos los tramos que cruzan el perimetro (raiz autofirmada de laboratorio) | H03 | siguiente |
+| H06 | TLS en todos los tramos que cruzan el perimetro (raiz autofirmada de laboratorio) | H03 | en curso |
 | H04 | Directorio de identidades, solo IA_NEST y preparado para crecer, en la pasarela | H02, H03, H06 | pendiente |
 | H05 | Borde: identidades del directorio y punto REST/MCP comun | H04 | pendiente |
 | H07 | Consumidores, uno a uno: Open WebUI, Home Assistant, Kodi, agente Linux | H05 | pendiente |
