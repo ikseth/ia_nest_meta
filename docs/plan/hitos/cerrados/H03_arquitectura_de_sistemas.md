@@ -1,6 +1,6 @@
 # H03: arquitectura de sistemas y servicios de IA_NEST
 
-Estado: abierto
+Estado: cerrado (2026-10-27)
 Abierto: 2026-10-27
 
 ## Objetivo
@@ -66,7 +66,16 @@ papeles, decisiones y motivos.
 | H03P4 | Disponibilidad (C4): efecto del reinicio, una o mas | este hilo | H03P3 | decidido: una sola pasarela (una segunda en el mismo anfitrion no cubre su caida, y sin anfitrion tampoco hay GPU); autoarranque antes que el ente; reinicios de MicroOS en ventana nocturna; el apagado y arranque seguros del anfitrion la reconocen y la ordenan (ultima en apagarse, primera en arrancar) |
 | H03P5 | Recursos conectados: almacen del RAG (A06) y la costura de la GPU | este hilo | H03P1 | decidido: el almacen se queda donde esta, declarado como recurso conectado; no se migra hasta que se monte el recinto; falta su copia (hoy no la tiene): volcado periodico y ligero al volumen de copias del anfitrion, tarea de lab |
 | H03P6 | Base de TLS: CA propia y emision de certificados (para `H06`) | este hilo | H03P3 | decidido: raiz autofirmada de laboratorio sin caducidad practica que firma los certificados de cada servicio, clave fuera de linea; `H06` pasa delante de `H04` |
-| H03P7 | ADR de meta; evidencia en `ia_nest_lab`; hoja de ruta al dia y PR | meta, lab | H03P1-P6 | en curso: meta ADR 0016, `docs/ARQUITECTURA_DE_SISTEMAS.md`, evidencia en `ia_nest_lab/labs/moria-gate/` (nombre de laboratorio) |
+| H03P7 | ADR de meta; evidencia en `ia_nest_lab`; hoja de ruta al dia y PR | meta, lab | H03P1-P6 | hecho: meta ADR 0016, `docs/ARQUITECTURA_DE_SISTEMAS.md`, evidencia en `ia_nest_lab/labs/moria-gate/` (nombre de laboratorio); PR meta#25, mergeado |
+
+## Cierre
+
+Cerrado el 2026-10-27 con meta#25 mergeado: meta ADR 0016 fija la arquitectura
+de referencia (recinto con pasarela, recursos conectados) y el estado de ahora,
+y `docs/ARQUITECTURA_DE_SISTEMAS.md` lleva servicios, tramos, copias,
+disponibilidad y TLS. `H06` pasa delante de `H04`. Quedan para el laboratorio:
+el volcado del almacen del RAG a las copias del anfitrion y, al montar la
+pasarela en `H04`, su lugar en el apagado y arranque seguros del anfitrion.
 
 ## La costura de la GPU
 
