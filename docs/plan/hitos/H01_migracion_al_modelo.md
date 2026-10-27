@@ -26,6 +26,7 @@ Los cuatro puntos del criterio de meta ADR 0014, mas:
 | H01P4 | `PLAN.md` de capa sin orden entre capas, con puntero al hito | un commit por repo | H01P2 | hecho en ramas locales `plan/H01-migracion` (extended, edge, agents); falta PR |
 | H01P5 | Arranque de hilos: `AGENTS.md` de cada capa apunta a la hoja de ruta; memoria | repos de capa, memoria | H01P4 | hecho en ramas locales (extended, edge, agents, conscience, web) y memoria; falta PR y el core (aprobacion) |
 | H01P6 | Orden de la casa: registro (borde v0.1.1; core registrado v0.4.1 y rocinante en v0.4.0), enlace del handoff de meta en `ia_nest_lab/enlaces.txt` | meta, lab | H00 | hecho, salvo la accion del operador de abajo |
+| H01P7 | Saneamiento de git: ramas remotas antiguas (unas 50 en extended, 5 en edge, 10 en meta; revisar tambien core). Lista por repo con lo que cada una tiene fuera de `main`; se borran solo las contenidas en `main` y con aprobacion del usuario; las que tengan trabajo suelto se consultan una a una | todos los repos del ente | H01P6 | pendiente |
 
 ## Hecho en H01P6
 
