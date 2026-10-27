@@ -1,7 +1,7 @@
 # Capas futuras del ente
 
 Estado: activo
-Version: 1.3 - 2026-10-22 (autenticacion sale: tiene repo, meta ADR 0013)
+Version: 1.4 - 2026-10-27 (pasarela del recinto, H03)
 
 Concerns del ENTE que no tienen repo asignado. Se registran aqui para no
 perderlos: son fronteras futuras del ente, no trabajo pendiente de ninguna capa
@@ -81,6 +81,27 @@ propia.
 re-planificar y enriquecer son mutuamente excluyentes (`extended docs/PLAN.md`,
 coste declarado de su Fase 7b). Quien aborde esto se lo encontrara, y el canal
 para resolverlo es un CR al core.
+
+## Pasarela del recinto (infraestructura del ente)
+
+Registrado el 2026-10-27, en `H03` de la hoja de ruta. La arquitectura de
+referencia de IA_NEST es un recinto autocontenido detras de una pasarela
+(`gate`): un interfaz delantero que publica solo los puntos de uso del ente y
+uno trasero que da a una red contenida sus recursos (directorio, DNS, DHCP,
+proxies, CA). Detalle en `docs/plan/hitos/H03_arquitectura_de_sistemas.md`.
+
+No es una capa con contrato de runtime: es infraestructura del ente. Su hogar
+previsto es un repo propio, `ia_nest_gate`, con instalador versionado (primer
+arranque de openSUSE MicroOS y compose de sus servicios).
+
+Hoy el instalador vive en el laboratorio, sin repo, por decision del usuario
+(2026-10-27): no se invierte en el repo mientras la pasarela se descubre
+montandola.
+
+**Disparador**: cuando la pasarela tenga que reproducirse fuera del
+laboratorio (otro entorno, o una segunda pasarela), o cuando su instalador
+deje de cambiar a cada paso. Entonces se crea `ia_nest_gate`, el instalador
+muda alli y esto sale como fila "prevista" en `REGISTRO_CAPAS.md`.
 
 ## Concerns que ya tienen repo
 

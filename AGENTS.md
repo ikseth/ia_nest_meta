@@ -8,6 +8,7 @@ Antes de proponer o valorar cualquier cambio, lee en este orden:
 4. `docs/DOCTRINA_MULTI_IA.md` (roles, modo ciego, reconciliacion, handoff)
 5. `docs/REGISTRO_CAPAS.md` (quien existe, quien depende de quien, regla de vinculo)
 6. `docs/ARQUITECTURA_DE_CAPAS.md` (la FORMA en que las capas se componen)
+6b. `docs/ARQUITECTURA_DE_SISTEMAS.md` (donde CORRE el ente: recinto con pasarela)
 7. `docs/POLITICA_SEMVER.md` (esquema, que numero subir, publicacion)
 8. `docs/change_requests/README.md` (proceso de CR entre capas)
 9. `docs/CAPAS_FUTURAS.md` (concerns del ente sin repo asignado)
