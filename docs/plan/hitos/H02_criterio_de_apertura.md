@@ -33,7 +33,7 @@ No decide mecanismo ni maquina del directorio: eso es H03 y H04.
 | H02P1 | Situar al usuario y cerrar lo que el criterio no puede dejar abierto | este hilo | - | hecho: C4 decidido por el usuario (fallo cerrado) |
 | H02P2 | ADR de meta con el criterio revisado y la leccion | meta `docs/decision_records/` | H02P1 | hecho: meta ADR 0015 |
 | H02P3 | `## Estado posterior` en meta ADR 0013 | meta | H02P2 | hecho |
-| H02P4 | Hoja de ruta al dia y PR de meta | meta | H02P3 | en curso |
+| H02P4 | Hoja de ruta al dia y PR de meta | meta | H02P3 | en curso: PR de meta; puntero en `edge ADR 0002` por PR edge#8 (aprobado) |
 
 ## Reglas del hito
 
