@@ -37,12 +37,15 @@ la capa.
 - Doctrina multi-IA y roles de trabajo.
 - Capas futuras: concerns de ente que aun no tienen repo.
 - Plantillas de brief y handoff.
+- El plan del ente: hitos, orden entre capas y dependencias (`docs/plan/`,
+  meta ADR 0014).
 
 ### Se queda en cada capa
 
 - Su contrato publico.
 - Sus ADR internos.
-- Su PLAN y su estado.
+- Su PLAN y su estado, salvo el orden respecto a otras capas, que vive en el
+  plan de meta (meta ADR 0014).
 - Su codigo, sus tests, su despliegue.
 
 ### Prueba de corte

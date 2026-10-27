@@ -13,6 +13,10 @@ Antes de proponer o valorar cualquier cambio, lee en este orden:
 9. `docs/CAPAS_FUTURAS.md` (concerns del ente sin repo asignado)
 10. ADRs en `docs/decision_records/`
 
+Para trabajar en un hito no hace falta leer todo lo anterior: basta
+`docs/plan/HOJA_DE_RUTA.md`, el fichero del hito y el de su paso (meta ADR
+0014). Los puntos 1-10 se leen cuando el paso toca gobernanza.
+
 La migracion abierta en meta ADR 0001 esta completa (meta ADR 0002/0003/0004).
 Este repo esta en regimen de uso: crece cuando entra un CR o se siembra una
 capa, no por migracion.
@@ -28,8 +32,15 @@ Es gobernanza. No hay codigo, ni contrato de runtime, ni dependencia de ninguna
 capa. Meta no es una capa del ente ni un consumidor exterior (core ADR 0033).
 
 El mandato de este repo es por CONCERN (gobernanza), no por repo: desde aqui se
-puede tocar gobernanza en repos hermanos, pero NUNCA el feature de una capa (su
-`src/`, sus fases, su contrato). Eso vive en el hilo de esa capa.
+puede tocar gobernanza en repos hermanos, pero el feature de una capa (su
+`src/`, sus fases, su contrato) no se cambia POR CUENTA de meta.
+
+Desde meta ADR 0014 los hilos de trabajo del ente salen de aqui, uno por hito:
+desde un hilo de meta se disena con el usuario, se escriben briefs, se lanza al
+codificador en el repo de la capa y se verifica. El codigo entra por PR en el
+repo de su capa, y antes de tocarla se lee su `AGENTS.md`. Un hilo propio de
+una capa solo se abre para trabajo largo de esa capa sola, con handoff desde un
+paso de meta.
 
 ## Reglas propias de este repo
 
