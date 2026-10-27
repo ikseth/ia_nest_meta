@@ -23,10 +23,10 @@ Los cuatro puntos del criterio de meta ADR 0014, mas:
 | H01P1 | Inventario de lo vivo: tarjetas, `PLAN.md` de capas, handoffs, issues y CR abiertos | solo lectura, todos los repos y Deck | H00 | hecho: [inventario](../pasos/H01P1_inventario.md) |
 | H01P2 | Asignar cada entrada a un hito o descartarla con motivo | con el usuario | H01P1 | hecho: cinco bloques validados el 2026-10-27 |
 | H01P3 | Deck: tarjetas a hitos y pasos; las que sobran a Terminado con puntero | Deck, tablero Casa | H01P2 | hecho: #144 (H01) creada; #66, #124 (H07), #125 (H08), #135 (H04) reconvertidas; #123, #136, #96, #102 a Terminado |
-| H01P4 | `PLAN.md` de capa sin orden entre capas, con puntero al hito | un commit por repo | H01P2 | hecho en ramas locales `plan/H01-migracion` (extended, edge, agents); falta PR |
-| H01P5 | Arranque de hilos: `AGENTS.md` de cada capa apunta a la hoja de ruta; memoria | repos de capa, memoria | H01P4 | hecho en ramas locales (extended, edge, agents, conscience, web) y memoria; falta PR y el core (aprobacion) |
-| H01P6 | Orden de la casa: registro (borde v0.1.1; core registrado v0.4.1 y rocinante en v0.4.0), enlace del handoff de meta en `ia_nest_lab/enlaces.txt` | meta, lab | H00 | hecho, salvo la accion del operador de abajo |
-| H01P7 | Saneamiento de git: ramas remotas antiguas (unas 50 en extended, 5 en edge, 10 en meta; revisar tambien core). Lista por repo con lo que cada una tiene fuera de `main`; se borran solo las contenidas en `main` y con aprobacion del usuario; las que tengan trabajo suelto se consultan una a una | todos los repos del ente | H01P6 | pendiente |
+| H01P4 | `PLAN.md` de capa sin orden entre capas, con puntero al hito | un commit por repo | H01P2 | hecho: PR extended#83, edge#7, agents#2, mergeados |
+| H01P5 | Arranque de hilos: `AGENTS.md` de cada capa apunta a la hoja de ruta; memoria | repos de capa, memoria | H01P4 | hecho: PR de extended, edge, agents, conscience y web mergeados; memoria; core en PR core#46 (aprobado), pendiente de merge |
+| H01P6 | Orden de la casa: registro (borde v0.1.1; core registrado v0.4.1 y rocinante en v0.4.0), enlace del handoff de meta en `ia_nest_lab/enlaces.txt` | meta, lab | H00 | hecho |
+| H01P7 | Saneamiento de git: ramas remotas antiguas (unas 50 en extended, 5 en edge, 10 en meta; revisar tambien core). Lista por repo con lo que cada una tiene fuera de `main`; se borran solo las contenidas en `main` y con aprobacion del usuario; las que tengan trabajo suelto se consultan una a una | todos los repos del ente | H01P6 | hecho: 115 ramas remotas borradas (aprobado); solo queda la de core#46 |
 
 ## Hecho en H01P6
 
@@ -38,10 +38,17 @@ Los cuatro puntos del criterio de meta ADR 0014, mas:
   `web_chat` archivado (aprobado por el usuario).
 - Enlaces de los handoffs de meta en `ia_nest_lab/enlaces.txt` (ya estaban).
 
-## Accion del operador
+- rocinante (por encargo del usuario): copia de `extended.setup.conf`
+  refrescada desde el efectivo (A07); core a `v0.4.1` por el instalador desde
+  el tag (E03). El instalador no reinicio las units: reinicio a mano aprobado
+  por el usuario y fallo abierto en core#47. Humo del core 10/10 con
+  `v0.4.1`; extended y borde responden. Evidencia en el inventario de
+  rocinante del laboratorio.
 
-- rocinante: actualizar el core a `v0.4.1` por el instalador desde el tag y
-  refrescar la copia de `extended.setup.conf` (inventario A07, E03).
+## Para cerrar
+
+- Merge de core#46 (`AGENTS.md` del core apunta a la hoja de ruta). Con eso se
+  cumplen los cuatro puntos del criterio de meta ADR 0014.
 
 ## Reglas del hito
 
