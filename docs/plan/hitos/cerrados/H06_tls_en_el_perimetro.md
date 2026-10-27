@@ -1,6 +1,6 @@
 # H06: TLS en los tramos que cruzan el perimetro
 
-Estado: abierto
+Estado: cerrado (2026-10-27)
 Abierto: 2026-10-27
 
 ## Objetivo
@@ -61,8 +61,18 @@ Decidido por el usuario el 2026-10-27.
 | H06P3 | Duracion de los certificados de servicio | este hilo | H06P2 | decidido: lo maximo razonable, raiz 25 anos y servicios 20, para no depender de recordar una renovacion; Apple queda fuera hoy; cada certificado emitido se apunta en un inventario del laboratorio (servicio, nombres, emision, caducidad, huella) que pueda leer una futura interfaz de gestion |
 | H06P4 | Como se instala la raiz en cada consumidor (navegadores, Open WebUI, HA, Kodi) | este hilo | H06P2 | decidido (el usuario lo delega con un criterio: coste minimo, ningun paso que haya que recordar): Open WebUI la lleva en la definicion de su stack, como unica autoridad; navegadores, a mano una vez por dispositivo con guia en el laboratorio; Home Assistant y Kodi, en `H07` y DENTRO de su propia instalacion (configuracion de la integracion o del complemento), para que un consumidor nuevo no pida un paso aparte |
 | H06P5 | Quien termina TLS de Open WebUI | este hilo | H06P1 | decidido: un proxy inverso en el mismo stack que Open WebUI, en el mismo puerto de siempre (ninguna regla del perimetro cambia); Open WebUI deja de publicarse; el borde sirve solo HTTPS en su puerto de siempre |
-| H06P6 | Montaje en el laboratorio por la via natural; evidencia en `ia_nest_lab` | lab, repo del borde si falta algo | H06P2-P5 | hecho: borde por su configuracion y segunda pasada del instalador (no le falta nada; con la configuracion ya instalada hay que pedir que se sustituya); proxy inverso y raiz en la definicion del stack de Open WebUI; conexion de Open WebUI al borde cambiada a https; criterio 1, 2, 4-7 PASA, 3 PASA salvo el navegador real (pendiente de que el operador importe la raiz); ningun cambio de cortafuegos |
-| H06P7 | `ARQUITECTURA_DE_SISTEMAS.md` al dia, hoja de ruta y PR | meta | H06P6 | hecho en rama local; PR pendiente de aprobacion |
+| H06P6 | Montaje en el laboratorio por la via natural; evidencia en `ia_nest_lab` | lab, repo del borde si falta algo | H06P2-P5 | hecho: borde por su configuracion y segunda pasada del instalador (no le falta nada; con la configuracion ya instalada hay que pedir que se sustituya); proxy inverso y raiz en la definicion del stack de Open WebUI; conexion de Open WebUI al borde cambiada a https; criterio 1-7 PASA (3: por linea de ordenes con la raiz; el navegador del operador entra por HTTPS aceptando el aviso porque aun no tiene la raiz importada, paso de una vez por dispositivo documentado en el laboratorio); ningun cambio de cortafuegos |
+| H06P7 | `ARQUITECTURA_DE_SISTEMAS.md` al dia, hoja de ruta y PR | meta | H06P6 | hecho: PR meta#27, mergeado |
+
+## Cierre
+
+Cerrado el 2026-10-27 con meta#27 mergeado. Ningun tramo del perimetro va en
+claro: el borde solo sirve HTTPS con un certificado de la raiz de laboratorio,
+y Open WebUI se publica por un proxy inverso de su stack y verifica al borde
+contra esa raiz. No hizo falta ningun cambio en el instalador del borde ni en
+el cortafuegos. Home Assistant y Kodi llevan su prueba a `H07`, con la raiz
+dentro de su propia instalacion. `H04` queda desbloqueado: LDAPS nace con esta
+raiz.
 
 ## Notas para despues
 

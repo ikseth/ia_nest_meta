@@ -1,7 +1,7 @@
 # Hoja de ruta del ente
 
 Estado: activo
-Version: 0.2 - 2026-10-27 (H06 antes que H04, meta ADR 0016)
+Version: 0.3 - 2026-10-27 (H06 cerrado; H04 siguiente)
 
 Nivel 0 del plan (meta ADR 0014). Solo hitos, orden y estado. El detalle vive
 en el fichero de cada hito; un hito sin fichero aun no esta abierto.
@@ -21,8 +21,7 @@ en el fichero de cada hito; un hito sin fichero aun no esta abierto.
 
 | Id | Hito | Depende de | Estado |
 |---|---|---|---|
-| H06 | TLS en todos los tramos que cruzan el perimetro (raiz autofirmada de laboratorio) | H03 | en curso |
-| H04 | Directorio de identidades, solo IA_NEST y preparado para crecer, en la pasarela | H02, H03, H06 | pendiente |
+| H04 | Directorio de identidades, solo IA_NEST y preparado para crecer, en la pasarela | H02, H03, H06 | siguiente |
 | H05 | Borde: identidades del directorio y punto REST/MCP comun | H04 | pendiente |
 | H07 | Consumidores, uno a uno: Open WebUI, Home Assistant, Kodi, agente Linux | H05 | pendiente |
 | H08 | Entrada de la familia | H06, H07, trabajo de capa | pendiente |
@@ -53,3 +52,4 @@ Se conduce en su capa; aqui solo consta que bloquea a un hito. Asignado en
 - [H01](hitos/cerrados/H01_migracion_al_modelo.md): migracion al modelo, inventario y orden de la casa. Cerrado el 2026-10-27.
 - [H02](hitos/cerrados/H02_criterio_de_apertura.md): criterio de apertura revisado (meta ADR 0015). Cerrado el 2026-10-27.
 - [H03](hitos/cerrados/H03_arquitectura_de_sistemas.md): arquitectura de referencia, recinto con pasarela (meta ADR 0016). Cerrado el 2026-10-27.
+- [H06](hitos/cerrados/H06_tls_en_el_perimetro.md): TLS en los tramos que cruzan el perimetro, raiz de laboratorio con alcance minimo. Cerrado el 2026-10-27.
