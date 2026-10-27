@@ -20,9 +20,8 @@ en el fichero de cada hito; un hito sin fichero aun no esta abierto.
 
 | Id | Hito | Depende de | Estado |
 |---|---|---|---|
-| [H01](hitos/H01_migracion_al_modelo.md) | Migrar plan, tarjetas y repos al modelo; orden de la casa | H00 | en curso |
-| H02 | Criterio de apertura revisado: identidad central y punto REST/MCP (adenda a meta ADR 0013) | H00 | pendiente |
-| H03 | Arquitectura de sistemas y servicios de IA_NEST (VM de recursos: directorio, DNS, DHCP...) | H01 | pendiente |
+| H02 | Criterio de apertura revisado: identidad central y punto REST/MCP (adenda a meta ADR 0013) | H00 | siguiente |
+| H03 | Arquitectura de sistemas y servicios de IA_NEST (VM de recursos: directorio, DNS, DHCP...) | H01 | siguiente |
 | H04 | Directorio de identidades, solo IA_NEST y preparado para crecer | H02, H03 | pendiente |
 | H05 | Borde: identidades del directorio y punto REST/MCP comun | H04 | pendiente |
 | H06 | TLS en todos los tramos que cruzan el perimetro | H03 | pendiente |
@@ -49,3 +48,4 @@ Se conduce en su capa; aqui solo consta que bloquea a un hito. Asignado en
 ## Cerrados
 
 - [H00](hitos/cerrados/H00_modelo_de_orquestacion.md): modelo de orquestacion desde meta (meta ADR 0014). Cerrado el 2026-10-27.
+- [H01](hitos/cerrados/H01_migracion_al_modelo.md): migracion al modelo, inventario y orden de la casa. Cerrado el 2026-10-27.
