@@ -1,7 +1,7 @@
 # Hoja de ruta del ente
 
 Estado: activo
-Version: 0.1 - 2026-10-27 (esqueleto, meta ADR 0014)
+Version: 0.2 - 2026-10-27 (H06 antes que H04, meta ADR 0016)
 
 Nivel 0 del plan (meta ADR 0014). Solo hitos, orden y estado. El detalle vive
 en el fichero de cada hito; un hito sin fichero aun no esta abierto.
@@ -14,16 +14,17 @@ en el fichero de cada hito; un hito sin fichero aun no esta abierto.
 2. La autenticacion es el punto de partida: un directorio de identidades propio
    de IA_NEST por el que pasan todos los consumidores.
 3. La infraestructura del ente se disena antes de montarse: servicios en VMs
-   que se migran y aseguran aparte; tron solo da recursos.
+   que se migran y aseguran aparte; tron solo da recursos. Referencia: recinto
+   con pasarela (`docs/ARQUITECTURA_DE_SISTEMAS.md`).
 
 ## Hitos
 
 | Id | Hito | Depende de | Estado |
 |---|---|---|---|
-| H03 | Arquitectura de sistemas y servicios de IA_NEST (VM de recursos: directorio, DNS, DHCP...) | H01 | siguiente |
-| H04 | Directorio de identidades, solo IA_NEST y preparado para crecer | H02, H03 | pendiente |
+| [H03](hitos/H03_arquitectura_de_sistemas.md) | Arquitectura de sistemas y servicios de IA_NEST (recinto con pasarela, meta ADR 0016) | H01 | abierto |
+| H06 | TLS en todos los tramos que cruzan el perimetro (raiz autofirmada de laboratorio) | H03 | siguiente |
+| H04 | Directorio de identidades, solo IA_NEST y preparado para crecer, en la pasarela | H02, H03, H06 | pendiente |
 | H05 | Borde: identidades del directorio y punto REST/MCP comun | H04 | pendiente |
-| H06 | TLS en todos los tramos que cruzan el perimetro | H03 | pendiente |
 | H07 | Consumidores, uno a uno: Open WebUI, Home Assistant, Kodi, agente Linux | H05 | pendiente |
 | H08 | Entrada de la familia | H06, H07, trabajo de capa | pendiente |
 
