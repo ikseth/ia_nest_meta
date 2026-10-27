@@ -150,3 +150,12 @@ que se arreglan en extended y no desde aqui:
 
 Ninguno en el contrato publico de ninguna capa. Registra repos nuevos y un orden
 de trabajo.
+
+## Estado posterior
+
+2026-10-27: el criterio de salida del punto 6 se amplia y el orden del punto 5
+queda sustituido por la hoja de ruta del plan. Entran como punto de partida un
+directorio central de identidades, un punto REST/MCP comun en el borde y TLS en
+los tramos que cruzan el perimetro, con ocho criterios falsables y el hito que
+cumple cada uno. Los criterios 2, 3 y 4 y el punto 7 siguen vigentes. Ver meta
+ADR 0015.
