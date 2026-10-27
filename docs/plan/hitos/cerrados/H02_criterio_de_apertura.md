@@ -1,6 +1,6 @@
 # H02: criterio de apertura revisado (adenda a meta ADR 0013)
 
-Estado: en curso
+Estado: cerrado (2026-10-27)
 Abierto: 2026-10-27
 
 ## Objetivo
@@ -33,7 +33,15 @@ No decide mecanismo ni maquina del directorio: eso es H03 y H04.
 | H02P1 | Situar al usuario y cerrar lo que el criterio no puede dejar abierto | este hilo | - | hecho: C4 decidido por el usuario (fallo cerrado) |
 | H02P2 | ADR de meta con el criterio revisado y la leccion | meta `docs/decision_records/` | H02P1 | hecho: meta ADR 0015 |
 | H02P3 | `## Estado posterior` en meta ADR 0013 | meta | H02P2 | hecho |
-| H02P4 | Hoja de ruta al dia y PR de meta | meta | H02P3 | en curso: PR de meta; puntero en `edge ADR 0002` por PR edge#8 (aprobado) |
+| H02P4 | Hoja de ruta al dia y PR de meta | meta | H02P3 | hecho: PR meta#23 y edge#8 (puntero en `edge ADR 0002`), mergeados |
+
+## Cierre
+
+Cerrado el 2026-10-27 con meta#23 y edge#8 mergeados: meta ADR 0015 fija los
+criterios C1-C8 (C4, fallo cerrado, decidido por el usuario), meta ADR 0013 y
+`edge ADR 0002` llevan su `## Estado posterior`, y A09-A14 quedan cubiertas.
+`H03` hereda un requisito: la parada del directorio para a todos los
+consumidores (C4).
 
 ## Reglas del hito
 

@@ -20,13 +20,15 @@ en el fichero de cada hito; un hito sin fichero aun no esta abierto.
 
 | Id | Hito | Depende de | Estado |
 |---|---|---|---|
-| [H02](hitos/H02_criterio_de_apertura.md) | Criterio de apertura revisado: identidad central y punto REST/MCP (adenda a meta ADR 0013) | H00 | en curso |
 | H03 | Arquitectura de sistemas y servicios de IA_NEST (VM de recursos: directorio, DNS, DHCP...) | H01 | siguiente |
 | H04 | Directorio de identidades, solo IA_NEST y preparado para crecer | H02, H03 | pendiente |
 | H05 | Borde: identidades del directorio y punto REST/MCP comun | H04 | pendiente |
 | H06 | TLS en todos los tramos que cruzan el perimetro | H03 | pendiente |
 | H07 | Consumidores, uno a uno: Open WebUI, Home Assistant, Kodi, agente Linux | H05 | pendiente |
 | H08 | Entrada de la familia | H06, H07, trabajo de capa | pendiente |
+
+El criterio de salida de H04-H08 esta en meta ADR 0015 (C1-C8, con el hito que
+cumple cada uno).
 
 Lo asignado a un hito que aun no tiene fichero esta en el inventario de `H01`
 (`pasos/H01P1_inventario.md`): se lee al abrir el hito.
@@ -49,3 +51,4 @@ Se conduce en su capa; aqui solo consta que bloquea a un hito. Asignado en
 
 - [H00](hitos/cerrados/H00_modelo_de_orquestacion.md): modelo de orquestacion desde meta (meta ADR 0014). Cerrado el 2026-10-27.
 - [H01](hitos/cerrados/H01_migracion_al_modelo.md): migracion al modelo, inventario y orden de la casa. Cerrado el 2026-10-27.
+- [H02](hitos/cerrados/H02_criterio_de_apertura.md): criterio de apertura revisado (meta ADR 0015). Cerrado el 2026-10-27.
