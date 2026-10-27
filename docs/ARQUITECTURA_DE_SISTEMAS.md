@@ -1,7 +1,7 @@
 # Arquitectura de sistemas del ente
 
 Estado: activo
-Version: 1.1 - 2026-10-27 (TLS montado, hito `H06`)
+Version: 1.2 - 2026-10-27 (directorio montado, hito `H04`)
 
 Donde CORRE el ente: que maquina, que red, que tramo cruza que perimetro y de
 que depende cada pieza. Complementa a `ARQUITECTURA_DE_CAPAS.md`, que dice como
@@ -56,7 +56,7 @@ ninguna excepcion de entrada para funcionar.
 | Servicio | Papel en la referencia | Ahora | Copia de seguridad |
 |---|---|---|---|
 | core, extended, borde | red contenida | VM del ente, en la red critica | por reinstalacion desde tag; datos en el almacen |
-| Directorio | pasarela, detras | pasarela, en la red critica (`H04`) | exportacion cifrada al volumen de copias del anfitrion; snapshot antes de cambios grandes |
+| Directorio | pasarela, detras | pasarela, en la red critica; lldap, solo LDAPS publicado (`H04`) | copia nocturna de su base, empujada por la pasarela al volumen de copias del anfitrion con una cuenta de solo escritura; sus claves fijas, con los secretos; sin cifrar mientras dure el alcance minimo de laboratorio; snapshot antes de cambiar la pasarela; restaurar es reinstalarla con la ultima copia (`H04`) |
 | CA | pasarela | raiz autofirmada del laboratorio, clave fuera de linea (`H06`) | con los secretos al volumen de copias; sin cifrar mientras dure el alcance minimo de laboratorio (`H06`) |
 | DNS, DHCP, proxy de salida | pasarela, detras | no hacen falta todavia: los da la casa | se rehacen con el instalador |
 | Almacen del RAG | recurso conectado | contenedor en el anfitrion | volcado periodico al volumen de copias |
@@ -91,12 +91,15 @@ ADR 0015, punto 3).
 - Una sola pasarela. Una segunda en el mismo anfitrion no cubre su caida, y
   sin anfitrion tampoco hay GPU: la disponibilidad del ente la marca el
   anfitrion.
-- Reiniciar la pasarela: mientras dura, el directorio no responde y el borde
-  rechaza todo con 503 (fallo cerrado, C4); al volver, todo entra sin tocar
-  nada. Es criterio de `H04`.
+- Reiniciar la pasarela: mientras dura (menos de un minuto en el laboratorio),
+  el directorio no responde; al volver, responde sin tocar nada (`H04`). Que
+  el borde rechace todo con 503 mientras tanto (fallo cerrado, C4) se prueba en
+  `H05`, cuando el borde consulta el directorio.
 - La pasarela arranca la primera y se apaga la ultima; el apagado y arranque
-  seguros del anfitrion la reconocen. Sus reinicios automaticos por
-  actualizacion van en ventana nocturna.
+  seguros del anfitrion la reconocen (apagado en dos fases). Sus reinicios
+  automaticos por actualizacion van en ventana nocturna, despues de la copia.
+- La pasarela no depende del DHCP de la red donde nace: su direccion es fija
+  desde el primer arranque.
 
 ## 6. TLS
 

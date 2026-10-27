@@ -32,7 +32,7 @@ Validado por el usuario el 2026-10-27, tal cual.
 | A06 | pgvector del RAG: servicio con datos en tron | artifact | H03 |
 | A07 | Copia desfasada de `extended.setup.conf` en rocinante | #123 | H01P6 |
 | A08 | core#45: `razonado` entrega su JSON interno y corta por `max_context_tokens` acumulado | visita del borde | vigilado en core (bloquea H08) |
-| A09 | Cuentas locales de Open WebUI (solo laboratorio) | artifact | H04 (login contra el directorio) |
+| A09 | Cuentas locales de Open WebUI (solo laboratorio) | artifact | H07 (login contra el directorio; movida desde H04 en `H04P1`, meta ADR 0015 C3) |
 | A10 | Personas y claves Bearer en el fichero del borde | artifact | H05 |
 | A11 | Reenvio REST/MCP del borde ("segunda entrega") | edge `PLAN.md`, artifact | H05 |
 | A12 | Agente Linux por la piel OpenAI: revisar con el punto REST/MCP | artifact | H07 |
