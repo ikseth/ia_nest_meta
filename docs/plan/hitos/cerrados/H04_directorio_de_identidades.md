@@ -1,6 +1,6 @@
 # H04: directorio de identidades en la pasarela
 
-Estado: abierto
+Estado: cerrado (2026-10-27)
 Abierto: 2026-10-27
 
 ## Objetivo
@@ -71,7 +71,31 @@ meta ADR 0015).
 | H04P5 | Alta de la pasarela: direccion, primer arranque, autoarranque, apagado seguro | este hilo, la casa | H04P2 | decidido: direccion fija en la red critica, puesta en el primer arranque, con nombre en el DNS de la casa; VM pequena (2 vCPU, 2 GiB, 20 GiB); imagen oficial de MicroOS y un disco de Combustion que genera el instalador con todo (red, docker, directorio, certificado, cuenta de servicio, copia, ventana de reinicio), en una sola orden; autoarranque con la pasarela sin retraso y el resto de VMs con 60 s; el apagado seguro del anfitrion en dos fases, la pasarela la ultima (cambio de la casa); reinicios por actualizacion en ventana nocturna, despues de la copia. La excepcion del cortafuegos para LDAPS desde la red de servicios es de la casa, no del instalador |
 | H04P6 | Copia y restauracion | este hilo | H04P5 | decidido: cada noche, antes de la ventana de reinicio, copia en caliente y consistente de la base del directorio; la pasarela la empuja al volumen de copias del anfitrion con una cuenta que solo puede escribir en su carpeta, asi el destino es configuracion de la pasarela; siete copias, una por dia de la semana, sin borrar nada desde la pasarela. Las claves fijas del directorio (sin la del servidor, una base restaurada no deja entrar a nadie) las genera el instalador una vez, viven con los secretos del laboratorio y el instalador deja su copia en el volumen de copias. Sin cifrar (alcance minimo). El instalador hace un snapshot antes de cambiar una pasarela existente, y restaurar es reinstalar con la ultima copia |
 | H04P7 | Montaje en el laboratorio por su instalador; evidencia en `ia_nest_lab` | lab | H04P2-P6 | hecho: pasarela y directorio montados por su instalador; criterio 1-7 PASA. 1 y 2 desde la red de servicios, la critica y la de gestion; 4 con la pasarela destruida y reinstalada (volcado identico, claves validas); 5: el directorio vuelve solo en menos de un minuto; 6 con un reinicio real del anfitrion (la pasarela se apaga la ultima y arranca un minuto antes que el resto). Cuatro fallos del primer montaje corregidos en el instalador; la red critica solo da salida por direccion, asi que los paquetes se instalan en el primer arranque con la direccion fija y no en el initrd. Queda por ejercitar en un apagado normal la parada en dos fases del anfitrion, probada en seco |
-| H04P8 | `ARQUITECTURA_DE_SISTEMAS.md` al dia, hoja de ruta y PR | meta | H04P7 | hecho: arquitectura 1.2 y hoja de ruta; PR pendiente de aprobacion |
+| H04P8 | `ARQUITECTURA_DE_SISTEMAS.md` al dia, hoja de ruta y PR | meta | H04P7 | hecho: arquitectura 1.2 y hoja de ruta; PR meta#29, mergeado |
+
+## Cierre
+
+Cerrado el 2026-10-27 con meta#29 mergeado. El directorio de IA_NEST vive en la
+pasarela y solo se publica por LDAPS, con un certificado de la raiz de
+laboratorio; se alcanza desde la red de servicios y desde la critica, y nada
+responde en claro. La pasarela se instala, se restaura y se actualiza por su
+instalador del laboratorio, sin pasos a mano; vuelve sola tras reiniciarse y es
+la primera en arrancar y la ultima en apagarse en el anfitrion. `H05` queda
+desbloqueado.
+
+## Notas para `H05`
+
+- El borde resuelve contra el directorio con `svc_edge` (solo lectura) y LDAPS
+  verificado contra la raiz. Regla de perfil decidida aqui (H04P3): fuera de
+  `ia_nest_users` no entra; `child` salvo que solo este en `profile_adult`.
+- El `uid` es estable y no se reutiliza: puede ser el `user_id` de extended.
+- Criterio que pasa a `H05`: con la pasarela parada, el borde responde 503 a
+  todos y lo deja en la auditoria (C4); al volver, todo entra sin tocar nada.
+  La pasarela tarda menos de un minuto en volver.
+- Como se autentican servicios y agentes contra el borde (clave, bind u otro)
+  sigue abierto: es diseno de `H05`.
+- Hay dos personas de prueba declaradas como tales en el laboratorio, una por
+  perfil.
 
 ## Reglas del hito
 
