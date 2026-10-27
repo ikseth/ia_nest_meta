@@ -1,6 +1,6 @@
 # H01: migrar plan, tarjetas y repos al modelo
 
-Estado: siguiente
+Estado: en curso
 Abierto: 2026-10-27
 
 ## Objetivo
@@ -20,8 +20,8 @@ Los cuatro puntos del criterio de meta ADR 0014, mas:
 
 | Id | Que | Donde | Depende de | Estado |
 |---|---|---|---|---|
-| H01P1 | Inventario de lo vivo: tarjetas, `PLAN.md` de capas, handoffs, issues y CR abiertos | solo lectura, todos los repos y Deck | H00 | pendiente |
-| H01P2 | Asignar cada entrada a un hito o descartarla con motivo | con el usuario | H01P1 | pendiente |
+| H01P1 | Inventario de lo vivo: tarjetas, `PLAN.md` de capas, handoffs, issues y CR abiertos | solo lectura, todos los repos y Deck | H00 | hecho: [inventario](../pasos/H01P1_inventario.md) |
+| H01P2 | Asignar cada entrada a un hito o descartarla con motivo | con el usuario | H01P1 | en curso |
 | H01P3 | Deck: tarjetas a hitos y pasos; las que sobran a Terminado con puntero | Deck, tablero Casa | H01P2 | pendiente |
 | H01P4 | `PLAN.md` de capa sin orden entre capas, con puntero al hito | un commit por repo | H01P2 | pendiente |
 | H01P5 | Arranque de hilos: `AGENTS.md` de cada capa apunta a la hoja de ruta; memoria | repos de capa, memoria | H01P4 | pendiente |
