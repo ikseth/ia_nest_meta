@@ -1,7 +1,7 @@
 # Arquitectura de sistemas del ente
 
 Estado: activo
-Version: 1.0 - 2026-10-27
+Version: 1.1 - 2026-10-27 (TLS montado, hito `H06`)
 
 Donde CORRE el ente: que maquina, que red, que tramo cruza que perimetro y de
 que depende cada pieza. Complementa a `ARQUITECTURA_DE_CAPAS.md`, que dice como
@@ -57,11 +57,11 @@ ninguna excepcion de entrada para funcionar.
 |---|---|---|---|
 | core, extended, borde | red contenida | VM del ente, en la red critica | por reinstalacion desde tag; datos en el almacen |
 | Directorio | pasarela, detras | pasarela, en la red critica (`H04`) | exportacion cifrada al volumen de copias del anfitrion; snapshot antes de cambios grandes |
-| CA | pasarela | raiz autofirmada del laboratorio, clave fuera de linea (`H06`) | con los secretos, cifrada, al volumen de copias |
+| CA | pasarela | raiz autofirmada del laboratorio, clave fuera de linea (`H06`) | con los secretos al volumen de copias; sin cifrar mientras dure el alcance minimo de laboratorio (`H06`) |
 | DNS, DHCP, proxy de salida | pasarela, detras | no hacen falta todavia: los da la casa | se rehacen con el instalador |
 | Almacen del RAG | recurso conectado | contenedor en el anfitrion | volcado periodico al volumen de copias |
 | Backend de modelos | recurso conectado | contenedor en el anfitrion, con la GPU | sin datos: los modelos se vuelven a descargar |
-| Open WebUI | consumidor (`H07`) | servicios compartidos de la casa, en la red de servicios | de la casa |
+| Open WebUI | consumidor (`H07`) | servicios compartidos de la casa, en la red de servicios, detras de un proxy inverso que termina TLS en su mismo stack | de la casa |
 
 El volumen de copias es un RAID 1 del anfitrion en discos distintos de los de
 las VMs y los datos. No es una copia fuera del anfitrion: coste aceptado.
@@ -105,6 +105,15 @@ ADR 0015, punto 3).
   Nada de certificados sueltos autofirmados ni de desactivar la verificacion
   (`edge ADR 0002`, punto 8).
 - La clave de la raiz vive fuera de linea, con los secretos del laboratorio.
+  Alcance minimo de laboratorio (`H06`): sin frase de paso y con copia sin
+  cifrar en el volumen de copias; se endurece al asegurar la red del ente.
+- Raiz de 25 anos y certificados de servicio de 20: ninguna renovacion en la
+  vida del laboratorio. Cada emision queda en un inventario del laboratorio.
+- La raiz va en la instalacion de cada consumidor (definicion de su servicio,
+  configuracion de su integracion o complemento), no como paso aparte. Los
+  navegadores la importan una vez por dispositivo.
+- El borde solo sirve HTTPS. Open WebUI se publica por un proxy inverso de su
+  stack, en el mismo puerto de siempre, y confia solo en la raiz.
 - Aviso: los dispositivos Apple rechazan certificados de servidor de mas de
-  825 dias aunque la raiz sea propia. Hoy no hay ninguno; si llega, los
-  certificados de servicio pasan a durar unos dos anos.
+  825 dias aunque la raiz sea propia. Hoy no hay ninguno; si llega, sus
+  certificados de servicio se reemiten a unos dos anos.
