@@ -88,7 +88,7 @@ Registrado el 2026-10-27, en `H03` de la hoja de ruta. La arquitectura de
 referencia de IA_NEST es un recinto autocontenido detras de una pasarela
 (`gate`): un interfaz delantero que publica solo los puntos de uso del ente y
 uno trasero que da a una red contenida sus recursos (directorio, DNS, DHCP,
-proxies, CA). Detalle en `docs/plan/hitos/H03_arquitectura_de_sistemas.md`.
+proxies, CA). Detalle en `docs/ARQUITECTURA_DE_SISTEMAS.md`.
 
 No es una capa con contrato de runtime: es infraestructura del ente. Su hogar
 previsto es un repo propio, `ia_nest_gate`, con instalador versionado (primer

@@ -21,7 +21,6 @@ en el fichero de cada hito; un hito sin fichero aun no esta abierto.
 
 | Id | Hito | Depende de | Estado |
 |---|---|---|---|
-| [H03](hitos/H03_arquitectura_de_sistemas.md) | Arquitectura de sistemas y servicios de IA_NEST (recinto con pasarela, meta ADR 0016) | H01 | abierto |
 | H06 | TLS en todos los tramos que cruzan el perimetro (raiz autofirmada de laboratorio) | H03 | siguiente |
 | H04 | Directorio de identidades, solo IA_NEST y preparado para crecer, en la pasarela | H02, H03, H06 | pendiente |
 | H05 | Borde: identidades del directorio y punto REST/MCP comun | H04 | pendiente |
@@ -53,3 +52,4 @@ Se conduce en su capa; aqui solo consta que bloquea a un hito. Asignado en
 - [H00](hitos/cerrados/H00_modelo_de_orquestacion.md): modelo de orquestacion desde meta (meta ADR 0014). Cerrado el 2026-10-27.
 - [H01](hitos/cerrados/H01_migracion_al_modelo.md): migracion al modelo, inventario y orden de la casa. Cerrado el 2026-10-27.
 - [H02](hitos/cerrados/H02_criterio_de_apertura.md): criterio de apertura revisado (meta ADR 0015). Cerrado el 2026-10-27.
+- [H03](hitos/cerrados/H03_arquitectura_de_sistemas.md): arquitectura de referencia, recinto con pasarela (meta ADR 0016). Cerrado el 2026-10-27.
