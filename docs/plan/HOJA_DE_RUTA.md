@@ -20,8 +20,7 @@ en el fichero de cada hito; un hito sin fichero aun no esta abierto.
 
 | Id | Hito | Depende de | Estado |
 |---|---|---|---|
-| [H00](hitos/H00_modelo_de_orquestacion.md) | Modelo de orquestacion desde meta (meta ADR 0014) | - | en curso |
-| [H01](hitos/H01_migracion_al_modelo.md) | Migrar plan, tarjetas y repos al modelo; orden de la casa | H00 | siguiente |
+| [H01](hitos/H01_migracion_al_modelo.md) | Migrar plan, tarjetas y repos al modelo; orden de la casa | H00 | en curso |
 | H02 | Criterio de apertura revisado: identidad central y punto REST/MCP (adenda a meta ADR 0013) | H00 | pendiente |
 | H03 | Arquitectura de sistemas y servicios de IA_NEST (VM de recursos: directorio, DNS, DHCP...) | H01 | pendiente |
 | H04 | Directorio de identidades, solo IA_NEST y preparado para crecer | H02, H03 | pendiente |
@@ -30,17 +29,23 @@ en el fichero de cada hito; un hito sin fichero aun no esta abierto.
 | H07 | Consumidores, uno a uno: Open WebUI, Home Assistant, Kodi, agente Linux | H05 | pendiente |
 | H08 | Entrada de la familia | H06, H07, trabajo de capa | pendiente |
 
+Lo asignado a un hito que aun no tiene fichero esta en el inventario de `H01`
+(`pasos/H01P1_inventario.md`): se lee al abrir el hito.
+
 ## Trabajo de capa que esta hoja vigila
 
-Se conduce en su capa; aqui solo consta que bloquea a un hito. Se asigna en
-`H01`.
+Se conduce en su capa; aqui solo consta que bloquea a un hito. Asignado en
+`H01P2`.
 
 | Que | Donde | Bloquea |
 |---|---|---|
 | `edge CR-0001` (perfil del interlocutor) | core#44 | H08 |
 | `edge CR-0002` (extended lo compone) | extended#81 | H08 |
 | L5r y L4b de la puerta de extended | extended, Deck #125 | H08 |
+| `razonado` entrega su JSON interno y corta por contexto acumulado | core#45 | H08 |
+| ~24 s hasta el primer token en `directo` | extended (y core) | H08 |
+| `edge CR-0003` (modo iterativo de uso normal) | extended#82 | - |
 
 ## Cerrados
 
-Ninguno.
+- [H00](hitos/cerrados/H00_modelo_de_orquestacion.md): modelo de orquestacion desde meta (meta ADR 0014). Cerrado el 2026-10-27.

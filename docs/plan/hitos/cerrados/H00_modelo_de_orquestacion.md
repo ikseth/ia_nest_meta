@@ -1,6 +1,6 @@
 # H00: modelo de orquestacion desde meta
 
-Estado: en curso
+Estado: cerrado (2026-10-27)
 Abierto: 2026-10-27
 
 ## Objetivo
@@ -18,10 +18,10 @@ implantacion del modelo (meta ADR 0014) se comprueba al cerrar `H01`.
 
 | Id | Que | Donde | Depende de | Estado |
 |---|---|---|---|---|
-| H00P1 | meta ADR 0014 | meta | - | escrito, por revisar |
-| H00P2 | Esqueleto: hoja de ruta, H00 y H01 | meta `docs/plan/` | H00P1 | escrito, por revisar |
-| H00P3 | `README.md` y `AGENTS.md` alineados con el ADR | meta | H00P1 | escrito, por revisar |
-| H00P4 | PR y merge | meta | H00P1-3 | pendiente (aprobacion del usuario) |
+| H00P1 | meta ADR 0014 | meta | - | hecho |
+| H00P2 | Esqueleto: hoja de ruta, H00 y H01 | meta `docs/plan/` | H00P1 | hecho |
+| H00P3 | `README.md` y `AGENTS.md` alineados con el ADR | meta | H00P1 | hecho |
+| H00P4 | PR y merge | meta | H00P1-3 | hecho (PR #19, mergeado el 2026-10-27) |
 
 ## Origen
 
