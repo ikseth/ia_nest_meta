@@ -20,7 +20,7 @@ en el fichero de cada hito; un hito sin fichero aun no esta abierto.
 
 | Id | Hito | Depende de | Estado |
 |---|---|---|---|
-| H02 | Criterio de apertura revisado: identidad central y punto REST/MCP (adenda a meta ADR 0013) | H00 | siguiente |
+| [H02](hitos/H02_criterio_de_apertura.md) | Criterio de apertura revisado: identidad central y punto REST/MCP (adenda a meta ADR 0013) | H00 | en curso |
 | H03 | Arquitectura de sistemas y servicios de IA_NEST (VM de recursos: directorio, DNS, DHCP...) | H01 | siguiente |
 | H04 | Directorio de identidades, solo IA_NEST y preparado para crecer | H02, H03 | pendiente |
 | H05 | Borde: identidades del directorio y punto REST/MCP comun | H04 | pendiente |
