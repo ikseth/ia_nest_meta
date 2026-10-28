@@ -1,6 +1,6 @@
 # H05: borde contra el directorio y punto REST/MCP
 
-Estado: abierto
+Estado: cerrado (2026-10-28)
 Abierto: 2026-10-27
 
 ## Objetivo
@@ -79,7 +79,34 @@ Decidido por el usuario el 2026-10-27.
 | H05P6 | Que queda en la configuracion del borde (A10) | este hilo | H05P2-P5 | decidido. Por REST y MCP solo pasan las capacidades de una lista de permitidas de la configuracion, una sola para todas las cuentas en `H05`: conversar (`prompt.*`, `reasoning.*`, `task.run`), lo propio de la identidad (`session.*`, `memory.recall`) y leer el estado (`capability.list`, `knowledge.status`, `runtime.health`). Lo que cambia estado compartido (`knowledge.ingest/confirm/reject`, `memory.write/consolidate/maintain`, `memory_type.*`, `config.validate`) queda para el operador por loopback. MCP lista solo las permitidas. Motivo: fallo cerrado; una capacidad nueva del core no se expone sin decidirlo. No rompe meta ADR 0007: el reenvio sigue siendo generico y la lista es autorizacion, no catalogo. Otra lista por grupo del directorio, cuando un consumidor la pida. El directorio dice quien y el fichero dice como. En el directorio: cuentas, hash de su clave, alta y baja, perfil, la clase de cada cuenta (`edge_class_<nombre>`), quien afirma personas (`edge_asserts_people`) y quien ve las entradas prototipo del menu (`edge_prototypes`, hoy solo el operador; edge ADR 0002, punto 5). En el fichero: conexion al directorio (con la ruta de la clave de `svc_edge`), clases de consumidor (cabeceras, menu por perfil, si escribe memoria), lista de permitidas, servidor, TLS, extended y auditoria. Una cuenta pertenece a exactamente una clase; ninguna o dos: 403 y auditoria. En `H05`, clases `open_webui` y `api`; las de HA, Kodi y el agente, en `H07` (una entrada en el fichero y un grupo, sin codigo: C6) |
 | H05P7 | Brief, codigo por el codificador y PR en `ia_nest_edge` | edge | H05P6 | hecho: edge ADR 0003 (puntero apendizado a 0002) y brief de la segunda entrega; codigo del codificador en tres rondas, verificado por el disenador: la revision encontro que `/rest` reenviaba sin `identity` un cuerpo vacio o no JSON (extended habria usado su identidad por defecto), una ruta de MCP sin autenticar y un bind del directorio por busqueda; el montaje, un tiempo de espera que `ldap3` no acepta y una excepcion que salia como 500 en vez de 503. Borde `v0.2.0`; PR pendiente |
 | H05P8 | Montaje en el laboratorio por el instalador del borde; evidencia en `ia_nest_lab` | lab | H05P7 | hecho: pasarela actualizada por su instalador (grupos y atributo), cuentas de servicio y claves por el script del directorio, borde por su instalador desde un script del laboratorio, cuentas y conexion de Open WebUI por otro. Criterio 1-8 PASA con una sonda repetible del laboratorio; en el 6, la pasarela apagada da 503 por las tres caras, el borde arranca sin ella y vuelve solo en menos de un minuto. Open WebUI publica todos los modelos de la conexion a sus usuarios: el menu lo impone el borde por persona (un grupo de adultos en Open WebUI seria otra lista de personas). El script del directorio queda como herramienta del operador para dar de alta personas y servicios |
-| H05P9 | Arquitectura y hoja de ruta al dia; PR | meta | H05P8 | pendiente |
+| H05P9 | Arquitectura y hoja de ruta al dia; PR | meta | H05P8 | hecho: arquitectura 1.3 y hoja de ruta; PR meta#31 y edge#9, mergeados; tag `v0.2.0` del borde, cortado con aprobacion del usuario, y laboratorio redesplegado desde el tag |
+
+## Cierre
+
+Cerrado el 2026-10-28 con meta#31 y edge#9 mergeados y el borde en `v0.2.0`. El
+borde resuelve toda identidad en el directorio, por LDAPS y sin otra fuente; su
+configuracion no contiene ninguna. Servicios y agentes entran con una clave de
+API de su cuenta; las personas, afirmadas por Open WebUI y buscadas en el
+directorio, sin invitado. Junto a la piel OpenAI ofrece `/rest` y `/mcp`, con
+la identidad puesta por el borde y una lista de permitidas. Sin directorio, 503
+por las tres caras y en la auditoria; al volver, todo entra sin tocar nada.
+`H07` queda desbloqueado.
+
+## Notas para `H07`
+
+- Open WebUI: su login contra el directorio (A09, C3) retira sus cuentas
+  locales salvo el admin de emergencia, y con ellas el paso coyuntural que hoy
+  deja cada alta y baja de persona tambien en Open WebUI. Hoy todos sus modelos
+  son visibles para todos sus usuarios y el menu lo impone el borde.
+- Cada consumidor nuevo es una cuenta de servicio con su clase (script del
+  directorio del laboratorio) y una clase en la configuracion del borde, sin
+  codigo (C6).
+- `write_memory` no se aplica aun a `/rest` ni `/mcp`: lo decide el agente
+  Linux, que ademas revisa si entra por la piel OpenAI o por REST/MCP (A12).
+- La memoria de extended con los `user_id` del fichero sigue huerfana.
+- Con el directorio caido, cada peticion espera su tiempo de espera y un
+  reintento antes del 503, y las busquedas van en serie: aceptable con los
+  consumidores del laboratorio; se mira si un consumidor lo nota.
 
 ## Reglas del hito
 
