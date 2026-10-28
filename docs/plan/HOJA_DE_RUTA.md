@@ -1,7 +1,7 @@
 # Hoja de ruta del ente
 
 Estado: activo
-Version: 0.7 - 2026-10-28 (H05 cerrado; H07 siguiente)
+Version: 0.8 - 2026-10-28 (H07 abierto)
 
 Nivel 0 del plan (meta ADR 0014). Solo hitos, orden y estado. El detalle vive
 en el fichero de cada hito; un hito sin fichero aun no esta abierto.
@@ -21,7 +21,7 @@ en el fichero de cada hito; un hito sin fichero aun no esta abierto.
 
 | Id | Hito | Depende de | Estado |
 |---|---|---|---|
-| H07 | Consumidores, uno a uno: Open WebUI, Home Assistant, Kodi, agente Linux | H05 | siguiente |
+| [H07](hitos/H07_consumidores_uno_a_uno.md) | Consumidores, uno a uno: Open WebUI, Home Assistant, Kodi, agente Linux | H05 | abierto |
 | H08 | Entrada de la familia | H06, H07, trabajo de capa | pendiente |
 
 El criterio de salida de H04-H08 esta en meta ADR 0015 (C1-C8, con el hito que
@@ -42,6 +42,7 @@ Se conduce en su capa; aqui solo consta que bloquea a un hito. Asignado en
 | L5r y L4b de la puerta de extended | extended, Deck #125 | H08 |
 | `razonado` entrega su JSON interno y corta por contexto acumulado | core#45 | H08 |
 | ~24 s hasta el primer token en `directo` | extended (y core) | H08 |
+| Home Assistant al ente: el asistente de voz con estado y control de la casa, con integracion propia (H07P7; C6 para Home Assistant) | por disenar (meta) | H08 |
 | `edge CR-0003` (modo iterativo de uso normal) | extended#82 | - |
 
 ## Cerrados
