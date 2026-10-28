@@ -1,7 +1,7 @@
 # Arquitectura de sistemas del ente
 
 Estado: activo
-Version: 1.3 - 2026-10-28 (borde contra el directorio, hito `H05`)
+Version: 1.4 - 2026-10-28 (consumidores uno a uno, hito `H07`)
 
 Donde CORRE el ente: que maquina, que red, que tramo cruza que perimetro y de
 que depende cada pieza. Complementa a `ARQUITECTURA_DE_CAPAS.md`, que dice como
@@ -61,7 +61,8 @@ ninguna excepcion de entrada para funcionar.
 | DNS, DHCP, proxy de salida | pasarela, detras | no hacen falta todavia: los da la casa | se rehacen con el instalador |
 | Almacen del RAG | recurso conectado | contenedor en el anfitrion | volcado periodico al volumen de copias |
 | Backend de modelos | recurso conectado | contenedor en el anfitrion, con la GPU | sin datos: los modelos se vuelven a descargar |
-| Open WebUI | consumidor (`H07`) | servicios compartidos de la casa, en la red de servicios, detras de un proxy inverso que termina TLS en su mismo stack | de la casa |
+| Open WebUI | consumidor (`H07`) | servicios compartidos de la casa, en la red de servicios, detras de un proxy inverso que termina TLS en su mismo stack; las personas entran por el directorio (LDAPS, cuenta de solo lectura) y solo queda local el admin de emergencia | de la casa |
+| Agente Linux | exterior, consumidor (`H07`) | VM propia y exclusiva en el anfitrion, en la red critica, fuera de las maquinas del ente; su gestor va dentro | por reinstalacion con su instalador; sus informes no se copian |
 
 El volumen de copias es un RAID 1 del anfitrion en discos distintos de los de
 las VMs y los datos. No es una copia fuera del anfitrion: coste aceptado.
@@ -76,8 +77,11 @@ perimetro: `H06` (meta ADR 0015, C8).
 | Personas | Open WebUI (red de servicios) | HTTPS | si (ya permitido) | las personas entran por Open WebUI |
 | Open WebUI (red de servicios) | borde (red critica) | HTTPS | si: excepcion declarada | unica entrada de servicios al ente |
 | Open WebUI (red de servicios) | directorio (red critica) | LDAPS | si: excepcion declarada (`H04`) | C7 |
-| HA, Kodi (red critica) | borde | HTTPS | no | consumidores en la misma red |
-| HA, Kodi (red critica) | directorio | LDAPS | no | C7 |
+| Kodi (red critica) | borde | HTTPS | no | recomendador por `/rest`, cuenta por dispositivo (`H07`) |
+| Agente Linux (red critica) | borde | HTTPS | no | piel OpenAI, sin escribir memoria (`H07`) |
+| Agente Linux | destinos Linux | ssh | segun destino (hoy no) | usuario normal y comando forzado con el catalogo (`H07`) |
+| HA (red critica) | borde | HTTPS | no | pendiente: diseno aparte vigilado en la hoja de ruta (`H07P7`) |
+| Consumidores de la red critica | directorio | LDAPS | no | C7 |
 | borde | directorio | LDAPS | no | resolucion de identidades (C1, C4) |
 | ente | backend de modelos, almacen del RAG | HTTP, PostgreSQL | no | recursos conectados |
 | pasarela, almacen del RAG | volumen de copias | copia | no | copia de seguridad |
@@ -119,6 +123,9 @@ ADR 0015, punto 3).
   navegadores la importan una vez por dispositivo.
 - El borde solo sirve HTTPS. Open WebUI se publica por un proxy inverso de su
   stack, en el mismo puerto de siempre, y confia solo en la raiz.
+- Un consumidor que no puede declarar la raiz en su configuracion no entra
+  solo con configuracion: Home Assistant OS solo confia en las autoridades
+  publicas, y su entrada pide una integracion propia que lleve la raiz (`H07`).
 - Aviso: los dispositivos Apple rechazan certificados de servidor de mas de
   825 dias aunque la raiz sea propia. Hoy no hay ninguno; si llega, sus
   certificados de servicio se reemiten a unos dos anos.
