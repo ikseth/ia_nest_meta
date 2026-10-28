@@ -1,7 +1,7 @@
 # Hoja de ruta del ente
 
 Estado: activo
-Version: 0.5 - 2026-10-27 (H04 cerrado; H05 siguiente)
+Version: 0.6 - 2026-10-27 (H05 abierto)
 
 Nivel 0 del plan (meta ADR 0014). Solo hitos, orden y estado. El detalle vive
 en el fichero de cada hito; un hito sin fichero aun no esta abierto.
@@ -21,7 +21,7 @@ en el fichero de cada hito; un hito sin fichero aun no esta abierto.
 
 | Id | Hito | Depende de | Estado |
 |---|---|---|---|
-| H05 | Borde: identidades del directorio y punto REST/MCP comun | H04 | siguiente |
+| [H05](hitos/H05_borde_contra_el_directorio.md) | Borde: identidades del directorio y punto REST/MCP comun | H04 | abierto |
 | H07 | Consumidores, uno a uno: Open WebUI, Home Assistant, Kodi, agente Linux | H05 | pendiente |
 | H08 | Entrada de la familia | H06, H07, trabajo de capa | pendiente |
 

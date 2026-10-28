@@ -1,7 +1,7 @@
 # Arquitectura de sistemas del ente
 
 Estado: activo
-Version: 1.2 - 2026-10-27 (directorio montado, hito `H04`)
+Version: 1.3 - 2026-10-28 (borde contra el directorio, hito `H05`)
 
 Donde CORRE el ente: que maquina, que red, que tramo cruza que perimetro y de
 que depende cada pieza. Complementa a `ARQUITECTURA_DE_CAPAS.md`, que dice como
@@ -91,10 +91,12 @@ ADR 0015, punto 3).
 - Una sola pasarela. Una segunda en el mismo anfitrion no cubre su caida, y
   sin anfitrion tampoco hay GPU: la disponibilidad del ente la marca el
   anfitrion.
-- Reiniciar la pasarela: mientras dura (menos de un minuto en el laboratorio),
-  el directorio no responde; al volver, responde sin tocar nada (`H04`). Que
-  el borde rechace todo con 503 mientras tanto (fallo cerrado, C4) se prueba en
-  `H05`, cuando el borde consulta el directorio.
+- Reiniciar o apagar la pasarela: mientras dura, el directorio no responde y
+  el borde rechaza toda peticion con 503, por sus tres caras, y lo deja en la
+  auditoria (fallo cerrado, C4). El borde arranca aunque la pasarela este
+  parada; al volver, atiende sin tocar nada (en el laboratorio, menos de un
+  minuto desde que arranca la pasarela). El operador sigue llegando a extended
+  por loopback (`H05`).
 - La pasarela arranca la primera y se apaga la ultima; el apagado y arranque
   seguros del anfitrion la reconocen (apagado en dos fases). Sus reinicios
   automaticos por actualizacion van en ventana nocturna, despues de la copia.
