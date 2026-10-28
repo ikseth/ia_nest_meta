@@ -1,7 +1,7 @@
 # Hoja de ruta del ente
 
 Estado: activo
-Version: 0.8 - 2026-10-28 (H07 abierto)
+Version: 0.9 - 2026-10-28 (H07 cerrado; H08 siguiente)
 
 Nivel 0 del plan (meta ADR 0014). Solo hitos, orden y estado. El detalle vive
 en el fichero de cada hito; un hito sin fichero aun no esta abierto.
@@ -21,8 +21,7 @@ en el fichero de cada hito; un hito sin fichero aun no esta abierto.
 
 | Id | Hito | Depende de | Estado |
 |---|---|---|---|
-| [H07](hitos/H07_consumidores_uno_a_uno.md) | Consumidores, uno a uno: Open WebUI, Home Assistant, Kodi, agente Linux | H05 | abierto |
-| H08 | Entrada de la familia | H06, H07, trabajo de capa | pendiente |
+| H08 | Entrada de la familia | H06, H07, trabajo de capa | siguiente |
 
 El criterio de salida de H04-H08 esta en meta ADR 0015 (C1-C8, con el hito que
 cumple cada uno).
@@ -54,3 +53,4 @@ Se conduce en su capa; aqui solo consta que bloquea a un hito. Asignado en
 - [H06](hitos/cerrados/H06_tls_en_el_perimetro.md): TLS en los tramos que cruzan el perimetro, raiz de laboratorio con alcance minimo. Cerrado el 2026-10-27.
 - [H04](hitos/cerrados/H04_directorio_de_identidades.md): directorio de identidades en la pasarela (lldap, solo LDAPS), con copia, restauracion y orden de arranque probados. Cerrado el 2026-10-27.
 - [H05](hitos/cerrados/H05_borde_contra_el_directorio.md): borde contra el directorio (clave de API por cuenta, sin identidades en su configuracion) y punto REST/MCP, con fallo cerrado probado. Cerrado el 2026-10-28.
+- [H07](hitos/cerrados/H07_consumidores_uno_a_uno.md): consumidores uno a uno: Open WebUI por el directorio, Kodi y agente Linux con su cuenta y su clase (borde `v0.2.1`); Home Assistant, al diseno aparte vigilado. Cerrado el 2026-10-28.
