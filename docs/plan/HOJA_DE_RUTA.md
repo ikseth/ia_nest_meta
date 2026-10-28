@@ -42,7 +42,7 @@ Se conduce en su capa; aqui solo consta que bloquea a un hito. Asignado en
 | L5r y L4b de la puerta de extended | extended, Deck #125 | H08 |
 | `razonado` entrega su JSON interno y corta por contexto acumulado | core#45 | H08 |
 | ~24 s hasta el primer token en `directo` | extended (y core) | H08 |
-| Asistente de voz de Home Assistant al ente con estado y control de la casa (H07P7) | por disenar (meta) | H08 |
+| Home Assistant al ente: el asistente de voz con estado y control de la casa, con integracion propia (H07P7; C6 para Home Assistant) | por disenar (meta) | H08 |
 | `edge CR-0003` (modo iterativo de uso normal) | extended#82 | - |
 
 ## Cerrados
