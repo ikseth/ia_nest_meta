@@ -37,7 +37,7 @@ Se conduce en su capa; aqui solo consta que bloquea a un hito. Asignado en
 
 | Que | Donde | Bloquea |
 |---|---|---|
-| `edge CR-0001` (perfil del interlocutor) | core#44 | H08 |
+| `edge CR-0001` (perfil del interlocutor) | core#44 | - (entregado en core `v0.4.2`, H08P9) |
 | `edge CR-0002` (extended lo compone) | extended#81 | H08 |
 | L5r y L4b de la puerta de extended | extended, Deck #125 | H08 |
 | `razonado` entrega su JSON interno y corta por contexto acumulado | core#45 | - (fuera de los menus de la familia mientras siga abierto, H08P1) |
