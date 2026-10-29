@@ -1,7 +1,7 @@
 # Hoja de ruta del ente
 
 Estado: activo
-Version: 0.9 - 2026-10-28 (H07 cerrado; H08 siguiente)
+Version: 0.10 - 2026-10-29 (H08 abierto; H09 Home Assistant; segunda GPU vigilada)
 
 Nivel 0 del plan (meta ADR 0014). Solo hitos, orden y estado. El detalle vive
 en el fichero de cada hito; un hito sin fichero aun no esta abierto.
@@ -21,7 +21,8 @@ en el fichero de cada hito; un hito sin fichero aun no esta abierto.
 
 | Id | Hito | Depende de | Estado |
 |---|---|---|---|
-| H08 | Entrada de la familia | H06, H07, trabajo de capa | siguiente |
+| H09 | Home Assistant al ente: estado y control por la frontera de herramientas del core y el servidor MCP de Home Assistant, en dos tramos (H08P3) | H07 | siguiente |
+| [H08](hitos/H08_entrada_de_la_familia.md) | Entrada de la familia | H06, H07, H09, trabajo de capa | abierto |
 
 El criterio de salida de H04-H08 esta en meta ADR 0015 (C1-C8, con el hito que
 cumple cada uno).
@@ -39,9 +40,9 @@ Se conduce en su capa; aqui solo consta que bloquea a un hito. Asignado en
 | `edge CR-0001` (perfil del interlocutor) | core#44 | H08 |
 | `edge CR-0002` (extended lo compone) | extended#81 | H08 |
 | L5r y L4b de la puerta de extended | extended, Deck #125 | H08 |
-| `razonado` entrega su JSON interno y corta por contexto acumulado | core#45 | H08 |
+| `razonado` entrega su JSON interno y corta por contexto acumulado | core#45 | - (fuera de los menus de la familia mientras siga abierto, H08P1) |
 | ~24 s hasta el primer token en `directo` | extended (y core) | H08 |
-| Home Assistant al ente: el asistente de voz con estado y control de la casa, con integracion propia (H07P7; C6 para Home Assistant) | por disenar (meta) | H08 |
+| Segunda GPU del recurso de modelos en su propio contenedor, para los modelos pequenos (H08P7) | anfitrion, Deck #126 | H08 |
 | `edge CR-0003` (modo iterativo de uso normal) | extended#82 | - |
 
 ## Cerrados
