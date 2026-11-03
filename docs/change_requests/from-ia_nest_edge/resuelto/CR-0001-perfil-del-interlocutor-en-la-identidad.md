@@ -4,7 +4,7 @@
 - fecha: 2026-10-22
 - capa origen: `ia_nest_edge`
 - capa destino: `ia_nest_core`
-- estado: propuesto
+- estado: entregado
 
 ## Caso de uso motor
 
@@ -67,3 +67,13 @@ dato de identidad, que es para lo que existe el contexto de identidad. Cuida
 `core ADR 0033`: el hecho sale del borde, el juicio queda dentro del ente.
 
 Hermano: `edge CR-0002` (extended lo transporta y lo compone).
+
+## Resolucion
+
+ENTREGADO y PUBLICADO el 2026-10-29 en `core v0.4.2` (PATCH; ficha
+`core docs/fixes/v0.4/0013`, core#49 y core#50). Forma: la sugerida,
+`identity.interlocutor_profile: "adult" | "child"`, opcional; un valor fuera
+del vocabulario es error de validacion (400 en REST). El core lo transporta y
+lo traza y no lo interpreta. La telemetria sube a `schema_version` 2 (columna
+final del CSV; core ADR 0015, estado posterior). Desplegado en el laboratorio
+y comprobado en la traza y la telemetria (meta `H08`, paso H08P9).

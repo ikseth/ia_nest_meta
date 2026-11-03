@@ -1,7 +1,7 @@
 # Hoja de ruta del ente
 
 Estado: activo
-Version: 0.10 - 2026-10-29 (H08 abierto; H09 Home Assistant; segunda GPU vigilada)
+Version: 0.11 - 2026-11-03 (core#47 bloquea H08; core#48 no bloquea)
 
 Nivel 0 del plan (meta ADR 0014). Solo hitos, orden y estado. El detalle vive
 en el fichero de cada hito; un hito sin fichero aun no esta abierto.
@@ -37,11 +37,13 @@ Se conduce en su capa; aqui solo consta que bloquea a un hito. Asignado en
 
 | Que | Donde | Bloquea |
 |---|---|---|
-| `edge CR-0001` (perfil del interlocutor) | core#44 | H08 |
+| `edge CR-0001` (perfil del interlocutor) | core#44 | - (entregado en core `v0.4.2`, H08P9) |
 | `edge CR-0002` (extended lo compone) | extended#81 | H08 |
 | L5r y L4b de la puerta de extended | extended, Deck #125 | H08 |
 | `razonado` entrega su JSON interno y corta por contexto acumulado | core#45 | - (fuera de los menus de la familia mientras siga abierto, H08P1) |
+| El instalador del core no reinicia los servicios al actualizar y su verificacion no lo detecta | core#47 | H08 (criterio 12); se corrige antes del tramo 2 de H09 |
 | ~24 s hasta el primer token en `directo` | extended (y core) | H08 |
+| La eleccion de dominio cuesta ~3 s por turno | core#48 | - (no se desarma el diseno por latencia, H08P13) |
 | Segunda GPU del recurso de modelos en su propio contenedor, para los modelos pequenos (H08P7) | anfitrion, Deck #126 | H08 |
 | `edge CR-0003` (modo iterativo de uso normal) | extended#82 | - |
 
