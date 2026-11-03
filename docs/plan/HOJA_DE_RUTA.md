@@ -1,7 +1,7 @@
 # Hoja de ruta del ente
 
 Estado: activo
-Version: 0.11 - 2026-11-03 (core#47 bloquea H08; core#48 no bloquea)
+Version: 0.12 - 2026-11-03 (linea base de la bateria de primer token, H08P14)
 
 Nivel 0 del plan (meta ADR 0014). Solo hitos, orden y estado. El detalle vive
 en el fichero de cada hito; un hito sin fichero aun no esta abierto.
@@ -42,9 +42,9 @@ Se conduce en su capa; aqui solo consta que bloquea a un hito. Asignado en
 | L5r y L4b de la puerta de extended | extended, Deck #125 | H08 |
 | `razonado` entrega su JSON interno y corta por contexto acumulado | core#45 | - (fuera de los menus de la familia mientras siga abierto, H08P1) |
 | El instalador del core no reinicia los servicios al actualizar y su verificacion no lo detecta | core#47 | H08 (criterio 12); se corrige antes del tramo 2 de H09 |
-| ~24 s hasta el primer token en `directo` | extended (y core) | H08 |
+| Primer token en `directo`: p90 de 29,9 s en la bateria v1, frente a los 8 s del criterio 7 (H08P14) | extended, recurso de modelos | H08 |
 | La eleccion de dominio cuesta ~3 s por turno | core#48 | - (no se desarma el diseno por latencia, H08P13) |
-| Segunda GPU del recurso de modelos en su propio contenedor, para los modelos pequenos (H08P7) | anfitrion, Deck #126 | H08 |
+| Segunda GPU del recurso de modelos (H08P7) | anfitrion, Deck #126 | aplazada hasta medir el efecto de extended (H08P15) |
 | `edge CR-0003` (modo iterativo de uso normal) | extended#82 | - |
 
 ## Cerrados
