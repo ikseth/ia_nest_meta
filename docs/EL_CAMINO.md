@@ -35,9 +35,9 @@ borrador. Se decidira si sigue.
 
 ## El confirmador con enrutador
 
-Es el enrutador del core con otra funcion, no una pieza nueva. Sus salidas son: no
-se entiende (pide reformular), charla (contesta sin buscar), un dominio, o complejo
-(sube al orquestador).
+Es el enrutador del core con otra funcion, no una pieza nueva. Sus salidas son:
+charla (contesta sin buscar, y pide reformular si no entiende), un dominio, o
+complejo (sube al orquestador).
 
 Una respuesta de charla rara es un rasgo de personalidad, no un error de
 conocimiento. Lo que no se admite es una pregunta real clasificada como charla: ante
@@ -45,7 +45,7 @@ la duda, a un dominio.
 
 ## Lo que falta
 
-- Confirmador: salidas de charla y no se entiende, ver el hilo, escribir un prompt
+- Confirmador: salida de charla, ver el hilo, escribir un prompt
   limpio y subir al orquestador. Recordar pasa a ir antes de clasificar; hoy, en
   directo, va despues.
 - Orquestador: no inventar cuando no entiende, streaming con memoria y conocimiento
