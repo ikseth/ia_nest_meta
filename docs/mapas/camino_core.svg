@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="880" height="400" viewBox="0 0 880 400" role="img" aria-label="El confirmador con enrutador lee el mensaje y tiene cuatro salidas: pedir que se reformule, charla, un dominio, o pasar al orquestador. El orquestador crea tareas y puede iterar. El modo directo evita todo cuando ya se sabe el dominio."><style>
+<svg xmlns="http://www.w3.org/2000/svg" width="880" height="400" viewBox="0 0 880 400" role="img" aria-label="El confirmador con enrutador lee el mensaje y tiene tres salidas: charla o pedir que se reformule, un dominio, o pasar al orquestador. El orquestador crea tareas y puede iterar. El modo directo evita todo cuando ya se sabe el dominio."><style>
 text{font-family:Helvetica,Arial,sans-serif;fill:#1d2422;font-size:13px}
 .sub{fill:#5a6661;font-size:11.5px}.b{font-weight:700}
 .box{fill:#ffffff;stroke:#b5bdb8;stroke-width:1.2}
@@ -21,8 +21,8 @@ text{font-family:Helvetica,Arial,sans-serif;fill:#1d2422;font-size:13px}
 
           <rect class="core" x="150" y="100" width="175" height="140" rx="5"/><text class="b" x="237" y="128" text-anchor="middle">Confirmador</text><text class="b" x="237" y="146" text-anchor="middle">con enrutador</text><text class="sub" x="237" y="170" text-anchor="middle">LLM rapido</text><text class="sub" x="237" y="188" text-anchor="middle">tiene sentido?</text><text class="sub" x="237" y="205" text-anchor="middle">que es?, que dominio?</text><text class="sub" x="237" y="224" text-anchor="middle">Hoy: el enrutador</text>
 
-          <rect class="box" x="385" y="42" width="175" height="50" rx="5"/><text x="472" y="62" text-anchor="middle">No se entiende</text><text class="sub" x="472" y="80" text-anchor="middle">"me lo reformulas?"</text>
-          <rect class="box" x="385" y="105" width="175" height="50" rx="5"/><text x="472" y="125" text-anchor="middle">Charla</text><text class="sub" x="472" y="143" text-anchor="middle">contesta, sin buscar</text>
+          
+          <rect class="box" x="385" y="95" width="175" height="60" rx="5"/><text x="472" y="120" text-anchor="middle">Charla o no se entiende</text><text class="sub" x="472" y="140" text-anchor="middle">contesta o pide reformular</text>
           <rect class="core" x="385" y="168" width="175" height="50" rx="5"/><text x="472" y="188" text-anchor="middle">Un dominio</text><text class="sub" x="472" y="206" text-anchor="middle">modelo de ese dominio</text>
           <rect class="core" x="385" y="272" width="175" height="66" rx="5"/><text class="b" x="472" y="298" text-anchor="middle">Orquestador</text><text class="sub" x="472" y="318" text-anchor="middle">prompt nuevo por tarea</text>
           <rect class="core" x="600" y="272" width="110" height="66" rx="5"/><text x="655" y="298" text-anchor="middle">Tareas</text><text class="sub" x="655" y="318" text-anchor="middle">varios dominios</text>
@@ -30,13 +30,13 @@ text{font-family:Helvetica,Arial,sans-serif;fill:#1d2422;font-size:13px}
           <rect class="box" x="730" y="125" width="140" height="80" rx="5"/><text x="800" y="158" text-anchor="middle">Respuesta unica</text><text class="sub" x="800" y="178" text-anchor="middle">organizada por puntos</text>
 
           <path class="main" marker-end="url(#m)" d="M110 170H148"/>
-          <path class="edge" marker-end="url(#g)" d="M325 130C360 120 350 67 383 67"/>
+          
           <path class="edge" marker-end="url(#g)" d="M325 150C350 148 360 130 383 130"/>
           <path class="main" marker-end="url(#m)" d="M325 180C350 182 360 193 383 193"/>
           <path class="main" marker-end="url(#m)" d="M325 215C360 230 345 305 383 305"/>
           <text class="sub" x="335" y="290" text-anchor="end">complejo o</text><text class="sub" x="335" y="305" text-anchor="end">varios dominios</text>
 
-          <path class="edge" marker-end="url(#g)" d="M560 67C650 67 680 130 728 140"/>
+          
           <path class="edge" marker-end="url(#g)" d="M560 130C620 130 680 150 728 155"/>
           <path class="main" marker-end="url(#m)" d="M560 193C620 193 680 180 728 175"/>
           <path class="main" marker-end="url(#m)" d="M560 305H598"/>
