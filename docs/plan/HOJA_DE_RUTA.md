@@ -1,10 +1,13 @@
 # Hoja de ruta del ente
 
 Estado: activo
-Version: 0.12 - 2026-11-03 (linea base de la bateria de primer token, H08P14)
+Version: 0.13 - 2026-11-04 (el camino: mapas del core y de extended)
 
 Nivel 0 del plan (meta ADR 0014). Solo hitos, orden y estado. El detalle vive
 en el fichero de cada hito; un hito sin fichero aun no esta abierto.
+
+La idea central y sus mapas estan en `docs/EL_CAMINO.md`. Cada hito indica que parte
+de esos mapas mueve.
 
 ## Idea final
 

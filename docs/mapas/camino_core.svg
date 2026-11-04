@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="880" height="400" viewBox="0 0 880 400" role="img" aria-label="El confirmador con enrutador lee el mensaje y tiene cuatro salidas: pedir que se reformule, charla, un dominio, o pasar al orquestador. El orquestador crea tareas y puede iterar. El modo directo evita todo cuando ya se sabe el dominio."><style>
+text{font-family:Helvetica,Arial,sans-serif;fill:#1d2422;font-size:13px}
+.sub{fill:#5a6661;font-size:11.5px}.b{font-weight:700}
+.box{fill:#ffffff;stroke:#b5bdb8;stroke-width:1.2}
+.core{fill:#dcefe6;stroke:#1f6f55;stroke-width:2}
+.ext{fill:#f6e8cb;stroke:#8a5a0b;stroke-width:2}
+.edge{stroke:#5a6661;stroke-width:1.4;fill:none}
+.main{stroke:#1f6f55;stroke-width:2.4;fill:none}
+.dash{stroke:#5a6661;stroke-width:1.4;fill:none;stroke-dasharray:5 4}
+.head{fill:#5a6661}.headm{fill:#1f6f55}
+</style><rect width="880" height="400" fill="#ffffff"/>
+          <defs>
+            <marker id="m" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto"><path class="headm" d="M0 0 8 4 0 8z"/></marker>
+            <marker id="g" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto"><path class="head" d="M0 0 8 4 0 8z"/></marker>
+          </defs>
+
+          <text class="sub" x="430" y="30" text-anchor="middle">Directo: quien llama ya sabe el dominio</text>
+          <path class="dash" marker-end="url(#g)" d="M60 135V14H800V123"/>
+
+          <rect class="box" x="10" y="135" width="100" height="70" rx="5"/><text x="60" y="166" text-anchor="middle">Mensaje</text><text class="sub" x="60" y="184" text-anchor="middle">mas el hilo</text>
+
+          <rect class="core" x="150" y="100" width="175" height="140" rx="5"/><text class="b" x="237" y="128" text-anchor="middle">Confirmador</text><text class="b" x="237" y="146" text-anchor="middle">con enrutador</text><text class="sub" x="237" y="170" text-anchor="middle">LLM rapido</text><text class="sub" x="237" y="188" text-anchor="middle">tiene sentido?</text><text class="sub" x="237" y="205" text-anchor="middle">que es?, que dominio?</text><text class="sub" x="237" y="224" text-anchor="middle">Hoy: el enrutador</text>
+
+          <rect class="box" x="385" y="42" width="175" height="50" rx="5"/><text x="472" y="62" text-anchor="middle">No se entiende</text><text class="sub" x="472" y="80" text-anchor="middle">"me lo reformulas?"</text>
+          <rect class="box" x="385" y="105" width="175" height="50" rx="5"/><text x="472" y="125" text-anchor="middle">Charla</text><text class="sub" x="472" y="143" text-anchor="middle">contesta, sin buscar</text>
+          <rect class="core" x="385" y="168" width="175" height="50" rx="5"/><text x="472" y="188" text-anchor="middle">Un dominio</text><text class="sub" x="472" y="206" text-anchor="middle">modelo de ese dominio</text>
+          <rect class="core" x="385" y="272" width="175" height="66" rx="5"/><text class="b" x="472" y="298" text-anchor="middle">Orquestador</text><text class="sub" x="472" y="318" text-anchor="middle">prompt nuevo por tarea</text>
+          <rect class="core" x="600" y="272" width="110" height="66" rx="5"/><text x="655" y="298" text-anchor="middle">Tareas</text><text class="sub" x="655" y="318" text-anchor="middle">varios dominios</text>
+
+          <rect class="box" x="730" y="125" width="140" height="80" rx="5"/><text x="800" y="158" text-anchor="middle">Respuesta unica</text><text class="sub" x="800" y="178" text-anchor="middle">organizada por puntos</text>
+
+          <path class="main" marker-end="url(#m)" d="M110 170H148"/>
+          <path class="edge" marker-end="url(#g)" d="M325 130C360 120 350 67 383 67"/>
+          <path class="edge" marker-end="url(#g)" d="M325 150C350 148 360 130 383 130"/>
+          <path class="main" marker-end="url(#m)" d="M325 180C350 182 360 193 383 193"/>
+          <path class="main" marker-end="url(#m)" d="M325 215C360 230 345 305 383 305"/>
+          <text class="sub" x="335" y="290" text-anchor="end">complejo o</text><text class="sub" x="335" y="305" text-anchor="end">varios dominios</text>
+
+          <path class="edge" marker-end="url(#g)" d="M560 67C650 67 680 130 728 140"/>
+          <path class="edge" marker-end="url(#g)" d="M560 130C620 130 680 150 728 155"/>
+          <path class="main" marker-end="url(#m)" d="M560 193C620 193 680 180 728 175"/>
+          <path class="main" marker-end="url(#m)" d="M560 305H598"/>
+          <path class="main" marker-end="url(#m)" d="M710 305C770 305 800 260 800 207"/>
+          <text class="sub" x="770" y="306">combina</text>
+
+          <path class="dash" marker-end="url(#g)" d="M655 338V368H472V340"/>
+          <text class="sub" x="563" y="386" text-anchor="middle">Iteracion, opcional: evalua y vuelve a planificar</text>
+        </svg>
