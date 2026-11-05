@@ -43,6 +43,22 @@ Una respuesta de charla rara es un rasgo de personalidad, no un error de
 conocimiento. Lo que no se admite es una pregunta real clasificada como charla: ante
 la duda, a un dominio.
 
+## Los tipos de memoria
+
+Decidido en extended ADR 0002 (enmienda del 2026-09-22) y recordado por el operador el
+2026-11-05.
+
+| | Conversacional | De conscience | Conocimiento (no es memoria) |
+|---|---|---|---|
+| Para que | Mantener el hilo | Experiencias con cada persona y aprendizaje propio | Saber del mundo |
+| Quien la escribe | Extended, en cada turno | Conscience, por reflexion | Corpus curado |
+| Ambito | La conversacion | Entre conversaciones | Compartido |
+| Filtro de dominio | No: el hilo cambia de tema | Lo decidira conscience | Si |
+| Tipos | `dialog`, `thread_summary`, `thread_artifacts` | `semantic`, `entities`, `identity`, `principles` | RAG |
+
+Nada de lo que escribe extended sobrevive a su hilo. Hasta que exista conscience, el
+ente no recuerda de una conversacion a otra.
+
 ## Lo que falta
 
 - Confirmador: salida de charla, ver el hilo, escribir un prompt
