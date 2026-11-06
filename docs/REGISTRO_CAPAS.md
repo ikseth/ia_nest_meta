@@ -1,7 +1,7 @@
 # Registro de capas del ente y grafo de dependencias
 
 Estado: activo
-Version: 1.11 - 2026-11-06 (external_home_assistant sembrada)
+Version: 1.12 - 2026-11-06 (external_home_assistant sembrada; core a v0.4.3)
 
 Indice de los repos que forman el ente IA_NEST y de sus dependencias. Responde
 a "quien existe, para que, y quien depende de quien" sin que ningun repo tenga
@@ -71,7 +71,7 @@ capa con el core esta descrita en `core docs/FRONTERAS.md`.
 | Zona | Repo | Que es | Costura | Depende de | Version publicada | Estado de trabajo |
 |---|---|---|---|---|---|---|
 | Taller | `ia_nest_meta` | Gobernanza del ente | - | - | sin SemVer (meta ADR 0001) | activo |
-| Ente | `ia_nest_core` | El motor: enruta, infiere, itera | - | - | `v0.4.2` | v0.4.2: perfil del interlocutor en la identidad (`edge CR-0001`); telemetria en `schema_version` 2 |
+| Ente | `ia_nest_core` | El motor: enruta, infiere, itera | - | - | `v0.4.3` | v0.4.3: el instalador reinicia al actualizar y verifica el arbol servido (core#47); abierto `external_home_assistant CR-0001` (core#51) |
 | Ente | `ia_nest_extended` [1] | La memoria/conocimiento | enriquecimiento (`core ADR 0031`) | `core >=0.4 <0.5` | `v0.5.2` | hito v0.5.0 cerrado el 2026-10-20 con gaps declarados: puerta de laboratorio NO PASA solo por L5r (la cortesia recupera de un corpus enciclopedico; falta decidir si el turno pide conocimiento) y L4b de control; los dos son requisito de entrada para abrir el ente a otros usuarios; RAG con fuentes abiertas medido (fase A); F9 (sintesis de hilo) apagada en el lab; F6 (datos web) aparcada |
 | Ente | `ia_nest_conscience` [2] | La mente voluntaria | checkpoints (`core ADR 0034`) | core, extended | - | semilla: doctrina mudada desde el core, base conceptual de la deliberacion y manifiesto; sin codigo ni contrato (conscience ADR 0001) |
 | Ente | `ia_nest_core_pulse` | La mente involuntaria | telemetria + perillas (`core ADR 0037`) | core, extended, conscience | - | prevista |
