@@ -92,4 +92,4 @@ marcas, nunca relajarlas.
 - `core ADR 0031`: RAG, memoria y datos web siguen siendo enriquecimiento, no
   herramientas.
 
-Notificacion a la capa destino: pendiente (issue en `ia_nest_core` al publicar).
+Notificacion a la capa destino: ikseth/ia_nest_core#51 (2026-11-06).
