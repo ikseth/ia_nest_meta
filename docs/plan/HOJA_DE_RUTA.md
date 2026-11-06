@@ -46,10 +46,10 @@ Se conduce en su capa; aqui solo consta que bloquea a un hito. Asignado en
 | L5r y L4b de la puerta de extended | extended, Deck #125 | H08 (en verde en extended `v0.6.4` con un ejecutor; el segundo, en H08P10) |
 | `razonado` entrega su JSON interno y corta por contexto acumulado | core#45 | - (fuera de los menus de la familia mientras siga abierto, H08P1) |
 | El instalador del core no reinicia los servicios al actualizar y su verificacion no lo detecta | core#47 | H08 (criterio 12); se corrige antes del tramo 2 de H09 |
-| El confirmador agota 30 s esperando la eleccion de dominio del core (7 de 60 en la bateria v1) y lo devuelve como HTTP 400; un `TimeoutError` a mitad de flujo termina sin evento de error (H08P14, H08P18) | extended (y core) | H08 (criterio 7) |
-| Memoria y conocimiento en paralelo e indice vectorial: recordar cuesta 4,8 s por turno (H08P6, H08P18) | extended | - |
+| Una peticion que no se contesta no avisa bien: un tiempo de espera hacia el core llega al cliente como HTTP 400, y un `TimeoutError` a mitad de flujo termina sin evento de error ni rastro en la telemetria (H08P14, H08P21) | extended (y borde, si su auditoria no lo recoge) | H08 (criterio 7) |
+| Memoria y conocimiento en paralelo e indice vectorial: recordar cuesta 4,8 s por turno (H08P6, H08P18) | extended | - (sin prioridad, H08P21) |
 | La eleccion de dominio cuesta ~3 s por turno | core#48 | - (no se desarma el diseno por latencia, H08P13) |
-| Segunda GPU del recurso de modelos (H08P7) | anfitrion, Deck #126 | - (deja de bloquear por el criterio 7, H08P18) |
+| Segunda GPU del recurso de modelos (H08P7) | anfitrion, Deck #126 | H08 (criterio 7: quitar los tiempos de espera del confirmador, 7 de 60 en la bateria v1; H08P21) |
 | `edge CR-0003` (modo iterativo de uso normal) | extended#82 | H10 |
 
 ## Cerrados
