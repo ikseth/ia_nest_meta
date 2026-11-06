@@ -1,7 +1,7 @@
 # Hoja de ruta del ente
 
 Estado: activo
-Version: 0.14 - 2026-11-06 (H08: modo por consumidor; H10, el orquestador para la familia)
+Version: 0.14 - 2026-11-06 (H08: modo por consumidor y criterio 7 por modo; H10, el orquestador para la familia)
 
 Nivel 0 del plan (meta ADR 0014). Solo hitos, orden y estado. El detalle vive
 en el fichero de cada hito; un hito sin fichero aun no esta abierto.
@@ -46,9 +46,10 @@ Se conduce en su capa; aqui solo consta que bloquea a un hito. Asignado en
 | L5r y L4b de la puerta de extended | extended, Deck #125 | H08 (en verde en extended `v0.6.4` con un ejecutor; el segundo, en H08P10) |
 | `razonado` entrega su JSON interno y corta por contexto acumulado | core#45 | - (fuera de los menus de la familia mientras siga abierto, H08P1) |
 | El instalador del core no reinicia los servicios al actualizar y su verificacion no lo detecta | core#47 | H08 (criterio 12); se corrige antes del tramo 2 de H09 |
-| Primer token en `directo`: p90 de 29,9 s en la bateria v1, frente a los 8 s del criterio 7 (H08P14) | extended, recurso de modelos | H08 |
+| El confirmador agota 30 s esperando la eleccion de dominio del core (7 de 60 en la bateria v1) y lo devuelve como HTTP 400; un `TimeoutError` a mitad de flujo termina sin evento de error (H08P14, H08P18) | extended (y core) | H08 (criterio 7) |
+| Memoria y conocimiento en paralelo e indice vectorial: recordar cuesta 4,8 s por turno (H08P6, H08P18) | extended | - |
 | La eleccion de dominio cuesta ~3 s por turno | core#48 | - (no se desarma el diseno por latencia, H08P13) |
-| Segunda GPU del recurso de modelos (H08P7) | anfitrion, Deck #126 | aplazada hasta medir el efecto de extended (H08P15) |
+| Segunda GPU del recurso de modelos (H08P7) | anfitrion, Deck #126 | - (deja de bloquear por el criterio 7, H08P18) |
 | `edge CR-0003` (modo iterativo de uso normal) | extended#82 | H10 |
 
 ## Cerrados
