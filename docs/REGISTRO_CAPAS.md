@@ -1,7 +1,7 @@
 # Registro de capas del ente y grafo de dependencias
 
 Estado: activo
-Version: 1.10 - 2026-11-03 (agents a v0.1.0)
+Version: 1.11 - 2026-11-06 (external_home_assistant sembrada)
 
 Indice de los repos que forman el ente IA_NEST y de sus dependencias. Responde
 a "quien existe, para que, y quien depende de quien" sin que ningun repo tenga
@@ -78,7 +78,8 @@ capa con el core esta descrita en `core docs/FRONTERAS.md`.
 | Ente | `ia_nest_web` | La cara: GUI de usuario y de administracion | contratos publicos | core, extended, conscience, pulse | - | semilla (web ADR 0001): toda la interfaz de usuario y de administracion; sin codigo hasta que Open WebUI, que la cubre tras el borde, se quede corto (meta ADR 0013) |
 | Exterior | `ia_nest_edge` | El borde: autentica a los consumidores y afirma su identidad hacia dentro (meta ADR 0011) | contratos publicos de extended + piel OpenAI | `extended >=0.5 <0.6` | `v0.2.1` | autenticacion contra el directorio (clave de API por cuenta) y punto REST/MCP (`H05`); parche de sesion en `/rest` y `/mcp` (`H07`); sin trabajo abierto: solo cambia para corregir lo prometido o por decision del usuario (`H07`) |
 | Exterior | `ia_nest_agents` | Agentes que consumen el ente, con su gestor (registro, policy, auditoria) | contratos publicos, a traves del borde | edge | `v0.1.0` | gestor y agente Linux de solo lectura, tras el borde (`H07`); Nextcloud despues, tambien solo lectura (meta ADR 0013) |
-| Exterior | `ia_nest_external_*` | Integraciones que ACTUAN | `tool_contracts` (`core ADR 0007`) | core | - | diferida |
+| Exterior | `ia_nest_external_home_assistant` | Integracion que ACTUA sobre la casa: cliente del servidor MCP de Home Assistant que publica al core herramientas clasificadas (meta H09) | `tool_contracts` por MCP (`core ADR 0007`, `external_home_assistant CR-0001`) | core | - | semilla: proposito, reglas y genesis; sin codigo ni contrato |
+| Exterior | `ia_nest_external_*` (otras) | Integraciones que ACTUAN | `tool_contracts` (`core ADR 0007`) | core | - | diferida |
 | Exterior | `ia_nest_module_*` | Modulos propios | contratos publicos | core | - | prevista |
 | Exterior | Otras entidades IA_NEST | Comunicacion entidad-a-entidad | por definir | - | - | futura |
 
