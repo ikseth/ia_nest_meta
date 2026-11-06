@@ -52,6 +52,7 @@ Se conduce en su capa; aqui solo consta que bloquea a un hito. Asignado en
 | La eleccion de dominio cuesta ~3 s por turno | core#48 | - (no se desarma el diseno por latencia, H08P13) |
 | Segunda GPU del recurso de modelos (H08P7) | anfitrion, Deck #126 | H08 (criterio 7: quitar los tiempos de espera del confirmador, 7 de 60 en la bateria v1; H08P21) |
 | Extended declara `core >=0.4 <0.5` y el laboratorio ya sirve core `v0.5.0` (sin eventos D2 nuevos) | extended#101 | - (re-verificar y ampliar el rango, deber de 2b) |
+| El instalador del core reescribe su fichero de entorno y borra la variable de `auth_env` de un proveedor de herramientas | core#56 | - (cubierto en el laboratorio con un drop-in de systemd, H09P16) |
 | `edge CR-0003` (modo iterativo de uso normal) | extended#82 | H10 |
 
 ## Cerrados
