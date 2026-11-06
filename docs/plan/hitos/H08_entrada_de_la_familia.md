@@ -28,12 +28,21 @@ entre la primera persona que no sea el operador, y desde entonces el criterio 2
 es invariante de despliegue; `user_id` propios para pruebas y aviso a la
 familia antes de cada parada.
 
+## Que mueve del camino
+
+De `docs/EL_CAMINO.md`, H08 abre a la familia dos modos (H08P17): el confirmador con
+enrutador (salidas charla y dominio, con el hilo) en Open WebUI y en la voz, y el modo
+directo con dominio fijo en Kodi. El orquestador no se mueve aqui: es el hito `H10`, que
+lo conecta por la salida "complejo" del confirmador.
+
 ## Criterio de salida
 
 Decidido por el usuario el 2026-10-29 (H08P1). Cada modo se exige solo donde
 el menu de una clase lo ofrece a la familia: el menu es configuracion del
 borde por clase y perfil (edge ADR 0002, punto 5; H05P6; H07P3), y cada
-consumidor usa el modo que le sirve (Kodi, solo `directo`).
+consumidor usa el modo que le sirve (Kodi, solo `directo`). Desde H08P17, los
+menus de la familia ofrecen el confirmador (Open WebUI y voz) y `directo` con
+dominio fijo (Kodi); los criterios 2 y 6 se comprueban en esos dos modos.
 
 Puerta (nadie de la familia entra antes):
 
@@ -44,9 +53,9 @@ Puerta (nadie de la familia entra antes):
    cuenta infantil, en cada modo de su menu y por cada consumidor que lleve
    personas (Open WebUI, voz, Kodi), consta `child` en la auditoria del borde
    y, como contexto compuesto, en la telemetria de extended (`edge CR-0001` y
-   `CR-0002`). Una bateria fija de peticiones no aptas para un nino sale
-   adaptada o rechazada en todas con perfil infantil, y respondida con perfil
-   adulto. Una peticion infantil sin perfil es un fallo, no un aviso.
+   `CR-0002`). Una peticion infantil sin perfil es un fallo, no un aviso. Si el
+   ente adapta el contenido al perfil no se mide aqui: es juicio de conscience
+   (meta ADR 0013, punto 2); hasta que exista, riesgo asumido (H08P19).
 3. **Superficie** (criterio 2 de meta ADR 0013). Desde otra maquina de la red
    de casa solo responden el borde y Open WebUI; ni el core ni extended.
 4. **Sesiones** (criterio 4 de meta ADR 0013). Dos conversaciones distintas
@@ -60,8 +69,13 @@ Puerta (nadie de la familia entra antes):
    corta por contexto acumulado. Mientras core#45 siga abierto, `razonado` no
    esta en ningun menu de la familia (configuracion); vuelve por configuracion
    cuando su bateria pase.
-7. **Primer token.** En `directo`, el p90 del primer token de una bateria fija
-   es de 8 s o menos.
+7. **Cada modo responde** (H08P18; sustituye al primer token de 8 s). Por cada
+   modo en un menu de la familia, su bateria fija contesta todas sus
+   peticiones, sin tiempos de espera, y su p90 consta en la puerta sin empeorar
+   la ultima medida registrada. Una peticion que no se contesta llega al
+   cliente como fallo del servidor, con un aviso legible, y consta en la
+   telemetria de extended y en la auditoria del borde (H08P21). El limite de
+   tiempo de la voz lo fija el diseno de `H09`.
 8. **Home Assistant.** La voz contesta a traves del ente, con estado y control,
    por el criterio de su diseno aparte, y se atiende como infantil.
 9. **Sesion de Open WebUI** con caducidad declarada en su instalador (H08P4:
@@ -94,8 +108,15 @@ Salida ("la familia ha entrado"):
 | H08P12 | core#47: el instalador deja el proceso anterior sirviendo tras actualizar, y su verificacion no lo detecta | core | aprobacion del usuario para tocar el core | decidido por el usuario el 2026-11-03: bloquea `H08` por el criterio 12; PATCH del core antes del tramo 2 de `H09`. Sin empezar |
 | H08P13 | core#48: elegir el dominio por una llamada al modelo cuesta ~3 s por turno | este hilo | H08P6 | decidido por el usuario el 2026-11-03: importa mas la arquitectura que esos segundos; no se desarma el diseno de IA_NEST por latencia. core#48 no bloquea `H08` |
 | H08P14 | Bateria fija del criterio 7 y su linea base | este hilo, lab | H08P5 | hecho el 2026-11-03: bateria v1 en el laboratorio, 20 frases de varios dominios, 3 vueltas, por extended como pide el borde, sesion nueva y sin escribir memoria. No se cambia sin subir de version. Linea base: 57 de 60 correctas, primer token con mediana de 16,8 s y p90 de 29,9 s; `general` 7,8 s de mediana. Los 3 fallos: extended agota 30 s esperando la eleccion de dominio del core. Medirla destapo dos problemas del anfitrion que falseaban la latencia: un servicio de audio del escritorio retenia ~11 GB, y parte de la memoria de los modelos estaba en swap sobre disco mecanico (de 17 de 60 correctas a 44 y a 57 al corregirlos). Las medidas anteriores (H08P5) no son comparables: menos frases y menos dominios. Aviso para extended: ese tiempo de espera llega al cliente como 400, y uno a mitad de flujo termina sin evento de error |
-| H08P15 | Segunda GPU: revisar H08P7 con la linea base | este hilo | H08P14 | decidido por el usuario el 2026-11-03: se aplaza hasta medir con la bateria v1 lo que consigue extended; se decide entonces si sigue bloqueando `H08` por el criterio 7. Motivo: con la memoria del anfitrion corregida, el sistema responde sin ella. La virtualizacion actual no sirve para pasarla a una VM (retiro el paso de PCI, sin PCIe). Si se retoma, el usuario se inclina por una VM con KVM y su propio controlador, en vez de cambiar el del anfitrion; a comprobar: VT-d, grupos IOMMU, convivencia entre hipervisores y carga con las dos GPU. Alternativa sin hardware: embeddings en CPU |
-| H08P10 | Puerta: criterios 1-9 en el laboratorio | este hilo, lab | H09, H08P8, H08P9, H08P12, H08P15 | pendiente |
+| H08P15 | Segunda GPU: revisar H08P7 con la linea base | este hilo | H08P14 | decidido por el usuario el 2026-11-03: se aplaza hasta medir con la bateria v1 lo que consigue extended; se decide entonces si sigue bloqueando `H08` por el criterio 7. Motivo: con la memoria del anfitrion corregida, el sistema responde sin ella. La virtualizacion actual no sirve para pasarla a una VM (retiro el paso de PCI, sin PCIe). Si se retoma, el usuario se inclina por una VM con KVM y su propio controlador, en vez de cambiar el del anfitrion; a comprobar: VT-d, grupos IOMMU, convivencia entre hipervisores y carga con las dos GPU. Alternativa sin hardware: embeddings en CPU. Cerrado por H08P18 el 2026-11-06: la segunda GPU deja de bloquear `H08`. Corregido el mismo dia por H08P21: vuelve a bloquear, para quitar los tiempos de espera del criterio 7 |
+| H08P16 | Cierre del hito siguiente de extended (Deck #125) | extended -> este hilo | H08P8 | hecho el 2026-11-06, extended `v0.6.4` (evidencia en `ia_nest_lab`): la puerta de extended pasa con el almacen grande y todas sus lineas en verde, con un ejecutor; el segundo, en H08P10. L5r, con el paso cero ajustado por configuracion del laboratorio. L4b, sin la sintesis de la Fase 9, solo con el orden del contexto; la Fase 9 queda en espera. `edge CR-0002`: mecanismo comprobado en vivo; falta comprobarlo de punta a punta por el borde (criterio 2). Memoria: `episodic` pasa a `thread_artifacts` de ambito sesion (extended ADR 0002, enmienda de 2026-09-22). El confirmador ve el turno anterior y hay un dominio de charla, que solo salta el conocimiento si el paso cero coincide. Pasan a este hilo: la latencia (criterio 7), el segundo ejecutor y los dos fallos de errores de extended |
+| H08P17 | Con que modo entra la familia en cada consumidor | este hilo | H08P16 | decidido por el usuario el 2026-11-06: Open WebUI y la voz, por el confirmador con enrutador; Kodi, por `directo` con dominio fijo. El orquestador sale de los menus de la familia por configuracion, como `razonado`, y sigue en el del operador. Motivo, medido el 2026-11-04 en el laboratorio: tarda de 22 a 60 s, inventa ante una frase de cortesia o una frase rota y no tiene streaming con memoria; el confirmador pasa su criterio con el servicio real. Es la practica habitual: un enrutador barato delante y un agente que planifica solo para lo complejo; Home Assistant hace lo mismo con la voz. El orquestador para la familia pasa a `H10`, despues de `H08`. Descartado: Open WebUI por el orquestador ya (`H08` esperaria a un trabajo de tamano desconocido) y las dos entradas en el menu de adultos (exigiria los criterios 2 y 6 tambien en el orquestador, que hoy no los pasa) |
+| H08P18 | Criterio 7 por modo, con medidas | este hilo, lab | H08P17 | decidido por el usuario el 2026-11-06. Medido antes, en el laboratorio, sobre extended `v0.6.4` (evidencia en `ia_nest_lab`): el confirmador, con la bateria v1 sin cambios, contesta 53 de 60, primer token con mediana de 17,9 s y p90 de 26,7 s; los 7 fallos son tiempos de espera de 30 s de extended hacia la eleccion de dominio del core, devueltos como HTTP 400. `directo` con dominio fijo, como entra Kodi (variante v1-kodi: mismas frases, sin streaming), contesta 60 de 60, respuesta entera con mediana de 5,6 s y p90 de 8,8 s. Del tiempo del confirmador, por peso: carga y cambio de modelo en el recurso de modelos (~10 s, por resta; limite del recurso), memoria y conocimiento en serie (4,8 s de mediana; la memoria, ~2,6 s aun con la sesion vacia) y eleccion de dominio (1-3 s). Los 8 s se retiran como criterio de diseno: no tenian justificacion escrita y dependian del hardware. Queda el criterio 7 de arriba. Bloquean `H08` por el: los tiempos de espera de la eleccion de dominio, su causa y que lleguen como fallo del servidor y no como 400 (recoge los dos fallos de errores de extended de H08P14). Vigilado, sin bloquear: memoria y conocimiento en paralelo e indice vectorial (H08P6, punto 2, sin hacer), core#48 y la segunda GPU, que deja de bloquear (cierra H08P15) |
+| H08P19 | Criterio 2: el perfil infantil, mecanismo o contenido | este hilo | H08P17 | decidido por el usuario el 2026-11-06: el criterio 2 vuelve a lo que exige meta ADR 0013 (criterio 3): el perfil infantil llega de punta a punta, en la auditoria del borde y como contexto compuesto en la telemetria de extended, en cada modo y consumidor del menu infantil. Se retira la bateria de peticiones no aptas que H08P1 habia anadido: juzgar el contenido por categorias no es tarea de extended ni del borde, sino de conscience (meta ADR 0013, punto 2). Hasta que exista, riesgo asumido, controlado con la auditoria del borde y la supervision fisica de los padres |
+| H08P20 | Cuando arranca `H09` | este hilo -> `H09` | H08P17 | decidido por el usuario el 2026-11-06: se abre ya, en su propio hilo desde meta, con el tramo 1 en paralelo a la correccion de los tiempos de espera de la eleccion de dominio (H08P18). Motivo: el tramo 1 no toca el core ni depende de nada pendiente, da el limite de tiempo de la voz que pide el criterio 7, y la voz va por el confirmador, asi que ve ese fallo desde el principio. El tramo 2 sigue esperando a core#47 (H08P12). Prompt del hilo en el laboratorio, enlazado desde este repo |
+| H08P21 | Como se quitan los tiempos de espera del criterio 7 | este hilo | H08P18 | decidido por el usuario el 2026-11-06, corrige a H08P18: ajustar tiempos en extended no es prioritario. Los tiempos de espera del confirmador vienen, con toda probabilidad, del cambio de modelo en la GPU de 12 GB, y su camino es la segunda GPU (H08P7, Deck #126), que vuelve a bloquear `H08` por el criterio 7. Al montarla se repite la bateria v1 sin cambiarla; si siguen los fallos, se miran entonces. El control de los fallos si entra en el criterio 7, por buena practica de registro y auditoria y para que la persona sepa que ha pasado: una peticion que no se contesta llega como fallo del servidor, con aviso legible, y deja rastro en la telemetria y en la auditoria. Es tratamiento de errores en extended, no ajuste de tiempos. Memoria y conocimiento en paralelo e indice vectorial, sin prioridad |
+| H08P22 | Segundo ejecutor de la puerta de extended (criterio 1) | este hilo | H08P16 | decidido por el usuario el 2026-11-06: Codex, a ciegas, en la puerta de H08P10 y sobre el tag de extended desplegado entonces; no antes, porque el aviso del fallo (H08P21) cambiara extended. Si los dos ejecutores discrepan, decide el usuario (doctrina multi-IA) |
+| H08P10 | Puerta: criterios 1-9 en el laboratorio | este hilo, lab | H09, H08P8, H08P9, H08P12, H08P21 | pendiente |
 | H08P11 | Entrada y semana de uso real: criterios 10-12 | este hilo, lab | H08P10 | pendiente |
 
 ## Mapa de bloqueos (estado al abrir)
@@ -115,6 +136,10 @@ Ninguno cerrado. Cada uno se conduce en su capa.
 
 ## Notas
 
+- Riesgo asumido (H08P19): hasta que exista conscience, nada comprueba que una
+  respuesta sea apta para un nino; el perfil llega al modelo como contexto y
+  nada mas. El control es la auditoria del borde y la supervision fisica de los
+  padres.
 - Un nino con la sesion abierta de un adulto conversa como adulto. Riesgo
   aceptado en este entorno (H08P4); en otro entorno, la caducidad del
   instalador de Open WebUI es el mando.
