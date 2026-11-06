@@ -42,7 +42,7 @@ Se conduce en su capa; aqui solo consta que bloquea a un hito. Asignado en
 | Que | Donde | Bloquea |
 |---|---|---|
 | `edge CR-0001` (perfil del interlocutor) | core#44 | - (entregado en core `v0.4.2`, H08P9) |
-| `edge CR-0002` (extended lo compone) | extended#81 | H08 (mecanismo hecho en extended `v0.5.4`; falta la bateria del criterio 2) |
+| `edge CR-0002` (extended lo compone) | extended#81 | H08 (mecanismo hecho en extended `v0.5.4`; falta comprobarlo de punta a punta por el borde, criterio 2) |
 | L5r y L4b de la puerta de extended | extended, Deck #125 | H08 (en verde en extended `v0.6.4` con un ejecutor; el segundo, en H08P10) |
 | `razonado` entrega su JSON interno y corta por contexto acumulado | core#45 | - (fuera de los menus de la familia mientras siga abierto, H08P1) |
 | El instalador del core no reinicia los servicios al actualizar y su verificacion no lo detecta | core#47 | H08 (criterio 12); se corrige antes del tramo 2 de H09 |
