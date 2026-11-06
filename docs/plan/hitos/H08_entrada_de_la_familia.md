@@ -28,12 +28,21 @@ entre la primera persona que no sea el operador, y desde entonces el criterio 2
 es invariante de despliegue; `user_id` propios para pruebas y aviso a la
 familia antes de cada parada.
 
+## Que mueve del camino
+
+De `docs/EL_CAMINO.md`, H08 abre a la familia dos modos (H08P17): el confirmador con
+enrutador (salidas charla y dominio, con el hilo) en Open WebUI y en la voz, y el modo
+directo con dominio fijo en Kodi. El orquestador no se mueve aqui: es el hito `H10`, que
+lo conecta por la salida "complejo" del confirmador.
+
 ## Criterio de salida
 
 Decidido por el usuario el 2026-10-29 (H08P1). Cada modo se exige solo donde
 el menu de una clase lo ofrece a la familia: el menu es configuracion del
 borde por clase y perfil (edge ADR 0002, punto 5; H05P6; H07P3), y cada
-consumidor usa el modo que le sirve (Kodi, solo `directo`).
+consumidor usa el modo que le sirve (Kodi, solo `directo`). Desde H08P17, los
+menus de la familia ofrecen el confirmador (Open WebUI y voz) y `directo` con
+dominio fijo (Kodi); los criterios 2 y 6 se comprueban en esos dos modos.
 
 Puerta (nadie de la familia entra antes):
 
@@ -95,6 +104,8 @@ Salida ("la familia ha entrado"):
 | H08P13 | core#48: elegir el dominio por una llamada al modelo cuesta ~3 s por turno | este hilo | H08P6 | decidido por el usuario el 2026-11-03: importa mas la arquitectura que esos segundos; no se desarma el diseno de IA_NEST por latencia. core#48 no bloquea `H08` |
 | H08P14 | Bateria fija del criterio 7 y su linea base | este hilo, lab | H08P5 | hecho el 2026-11-03: bateria v1 en el laboratorio, 20 frases de varios dominios, 3 vueltas, por extended como pide el borde, sesion nueva y sin escribir memoria. No se cambia sin subir de version. Linea base: 57 de 60 correctas, primer token con mediana de 16,8 s y p90 de 29,9 s; `general` 7,8 s de mediana. Los 3 fallos: extended agota 30 s esperando la eleccion de dominio del core. Medirla destapo dos problemas del anfitrion que falseaban la latencia: un servicio de audio del escritorio retenia ~11 GB, y parte de la memoria de los modelos estaba en swap sobre disco mecanico (de 17 de 60 correctas a 44 y a 57 al corregirlos). Las medidas anteriores (H08P5) no son comparables: menos frases y menos dominios. Aviso para extended: ese tiempo de espera llega al cliente como 400, y uno a mitad de flujo termina sin evento de error |
 | H08P15 | Segunda GPU: revisar H08P7 con la linea base | este hilo | H08P14 | decidido por el usuario el 2026-11-03: se aplaza hasta medir con la bateria v1 lo que consigue extended; se decide entonces si sigue bloqueando `H08` por el criterio 7. Motivo: con la memoria del anfitrion corregida, el sistema responde sin ella. La virtualizacion actual no sirve para pasarla a una VM (retiro el paso de PCI, sin PCIe). Si se retoma, el usuario se inclina por una VM con KVM y su propio controlador, en vez de cambiar el del anfitrion; a comprobar: VT-d, grupos IOMMU, convivencia entre hipervisores y carga con las dos GPU. Alternativa sin hardware: embeddings en CPU |
+| H08P16 | Cierre del hito siguiente de extended (Deck #125) | extended -> este hilo | H08P8 | hecho el 2026-11-06, extended `v0.6.4` (evidencia en `ia_nest_lab`): la puerta de extended pasa con el almacen grande y todas sus lineas en verde, con un ejecutor; el segundo, en H08P10. L5r, con el paso cero ajustado por configuracion del laboratorio. L4b, sin la sintesis de la Fase 9, solo con el orden del contexto; la Fase 9 queda en espera. `edge CR-0002`: mecanismo comprobado en vivo; falta ver si el modelo adapta la respuesta (criterio 2). Memoria: `episodic` pasa a `thread_artifacts` de ambito sesion (extended ADR 0002, enmienda de 2026-09-22). El confirmador ve el turno anterior y hay un dominio de charla, que solo salta el conocimiento si el paso cero coincide. Pasan a este hilo: la latencia (criterio 7), el segundo ejecutor y los dos fallos de errores de extended |
+| H08P17 | Con que modo entra la familia en cada consumidor | este hilo | H08P16 | decidido por el usuario el 2026-11-06: Open WebUI y la voz, por el confirmador con enrutador; Kodi, por `directo` con dominio fijo. El orquestador sale de los menus de la familia por configuracion, como `razonado`, y sigue en el del operador. Motivo, medido el 2026-11-04 en el laboratorio: tarda de 22 a 60 s, inventa ante una frase de cortesia o una frase rota y no tiene streaming con memoria; el confirmador pasa su criterio con el servicio real. Es la practica habitual: un enrutador barato delante y un agente que planifica solo para lo complejo; Home Assistant hace lo mismo con la voz. El orquestador para la familia pasa a `H10`, despues de `H08`. Descartado: Open WebUI por el orquestador ya (`H08` esperaria a un trabajo de tamano desconocido) y las dos entradas en el menu de adultos (exigiria los criterios 2 y 6 tambien en el orquestador, que hoy no los pasa) |
 | H08P10 | Puerta: criterios 1-9 en el laboratorio | este hilo, lab | H09, H08P8, H08P9, H08P12, H08P15 | pendiente |
 | H08P11 | Entrada y semana de uso real: criterios 10-12 | este hilo, lab | H08P10 | pendiente |
 

@@ -1,7 +1,7 @@
 # Hoja de ruta del ente
 
 Estado: activo
-Version: 0.13 - 2026-11-04 (el camino: mapas del core y de extended)
+Version: 0.14 - 2026-11-06 (H08: modo por consumidor; H10, el orquestador para la familia)
 
 Nivel 0 del plan (meta ADR 0014). Solo hitos, orden y estado. El detalle vive
 en el fichero de cada hito; un hito sin fichero aun no esta abierto.
@@ -25,7 +25,8 @@ de esos mapas mueve.
 | Id | Hito | Depende de | Estado |
 |---|---|---|---|
 | H09 | Home Assistant al ente: estado y control por la frontera de herramientas del core y el servidor MCP de Home Assistant, en dos tramos (H08P3) | H07 | siguiente |
-| [H08](hitos/H08_entrada_de_la_familia.md) | Entrada de la familia | H06, H07, H09, trabajo de capa | abierto |
+| [H08](hitos/H08_entrada_de_la_familia.md) | Entrada de la familia: confirmador en Open WebUI y voz, `directo` con dominio fijo en Kodi (H08P17) | H06, H07, H09, trabajo de capa | abierto |
+| H10 | Orquestador para la familia: la salida "complejo" del confirmador, `edge CR-0003`, no inventar cuando no entiende y un plan mas rapido; entra en Open WebUI por configuracion cuando pase su bateria (H08P17) | H08 | planificado |
 
 El criterio de salida de H04-H08 esta en meta ADR 0015 (C1-C8, con el hito que
 cumple cada uno).
@@ -41,14 +42,14 @@ Se conduce en su capa; aqui solo consta que bloquea a un hito. Asignado en
 | Que | Donde | Bloquea |
 |---|---|---|
 | `edge CR-0001` (perfil del interlocutor) | core#44 | - (entregado en core `v0.4.2`, H08P9) |
-| `edge CR-0002` (extended lo compone) | extended#81 | H08 |
-| L5r y L4b de la puerta de extended | extended, Deck #125 | H08 |
+| `edge CR-0002` (extended lo compone) | extended#81 | H08 (mecanismo hecho en extended `v0.5.4`; falta la bateria del criterio 2) |
+| L5r y L4b de la puerta de extended | extended, Deck #125 | H08 (en verde en extended `v0.6.4` con un ejecutor; el segundo, en H08P10) |
 | `razonado` entrega su JSON interno y corta por contexto acumulado | core#45 | - (fuera de los menus de la familia mientras siga abierto, H08P1) |
 | El instalador del core no reinicia los servicios al actualizar y su verificacion no lo detecta | core#47 | H08 (criterio 12); se corrige antes del tramo 2 de H09 |
 | Primer token en `directo`: p90 de 29,9 s en la bateria v1, frente a los 8 s del criterio 7 (H08P14) | extended, recurso de modelos | H08 |
 | La eleccion de dominio cuesta ~3 s por turno | core#48 | - (no se desarma el diseno por latencia, H08P13) |
 | Segunda GPU del recurso de modelos (H08P7) | anfitrion, Deck #126 | aplazada hasta medir el efecto de extended (H08P15) |
-| `edge CR-0003` (modo iterativo de uso normal) | extended#82 | - |
+| `edge CR-0003` (modo iterativo de uso normal) | extended#82 | H10 |
 
 ## Cerrados
 
