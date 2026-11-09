@@ -1,7 +1,7 @@
 # Hoja de ruta del ente
 
 Estado: activo
-Version: 0.16 - 2026-11-06 (core v0.5.0: tool_contracts para el tramo 2 de H09)
+Version: 0.18 - 2026-11-09 (H09 cerrado)
 
 Nivel 0 del plan (meta ADR 0014). Solo hitos, orden y estado. El detalle vive
 en el fichero de cada hito; un hito sin fichero aun no esta abierto.
@@ -24,7 +24,6 @@ de esos mapas mueve.
 
 | Id | Hito | Depende de | Estado |
 |---|---|---|---|
-| [H09](hitos/H09_home_assistant_al_ente.md) | Home Assistant al ente: estado y control por la frontera de herramientas del core y el servidor MCP de Home Assistant, en dos tramos (H08P3); la voz por el confirmador (H08P17) | H07 | abierto el 2026-11-06; tramo 1 montado (falta el punto 4); tramo 2 con el contrato del core entregado (`v0.5.0`), falta la capa externa |
 | [H08](hitos/H08_entrada_de_la_familia.md) | Entrada de la familia: confirmador en Open WebUI y voz, `directo` con dominio fijo en Kodi (H08P17) | H06, H07, H09, trabajo de capa | abierto |
 | H10 | Orquestador para la familia: la salida "complejo" del confirmador, `edge CR-0003`, no inventar cuando no entiende y un plan mas rapido; entra en Open WebUI por configuracion cuando pase su bateria (H08P17) | H08 | planificado |
 
@@ -47,7 +46,7 @@ Se conduce en su capa; aqui solo consta que bloquea a un hito. Asignado en
 | `razonado` entrega su JSON interno y corta por contexto acumulado | core#45 | - (fuera de los menus de la familia mientras siga abierto, H08P1) |
 | El instalador del core no reinicia los servicios al actualizar y su verificacion no lo detecta | core#47 | - (entregado en core `v0.4.3`, ficha 0014, desplegado sin paso a mano; H08P12) |
 | Una peticion que no se contesta no avisa bien: un tiempo de espera hacia el core llega al cliente como HTTP 400, y un `TimeoutError` a mitad de flujo termina sin evento de error ni rastro en la telemetria (H08P14, H08P21) | extended#98 | H08 (criterio 7; corregido en extended `v0.6.5`, desplegado y comprobado en el laboratorio; el paso por el borde, en H08P10) |
-| Un fallo al escribir la memoria despues de entregar la respuesta convierte el turno en error: la voz oye la respuesta y despues el aviso de fallo (H09P6) | extended#100 | H09 (criterio 4), y por el H08 |
+| Un fallo al escribir la memoria despues de entregar la respuesta convierte el turno en error: la voz oye la respuesta y despues el aviso de fallo (H09P6) | extended#100 | H08 (vigilado; deja de bloquear H09 por decision del usuario el 2026-11-09, H09P28) |
 | Memoria y conocimiento en paralelo e indice vectorial: recordar cuesta 4,8 s por turno (H08P6, H08P18) | extended | - (sin prioridad, H08P21) |
 | La eleccion de dominio cuesta ~3 s por turno | core#48 | - (no se desarma el diseno por latencia, H08P13) |
 | Segunda GPU del recurso de modelos (H08P7) | anfitrion, Deck #126 | H08 (criterio 7: quitar los tiempos de espera del confirmador, 7 de 60 en la bateria v1; H08P21) |
@@ -65,3 +64,4 @@ Se conduce en su capa; aqui solo consta que bloquea a un hito. Asignado en
 - [H04](hitos/cerrados/H04_directorio_de_identidades.md): directorio de identidades en la pasarela (lldap, solo LDAPS), con copia, restauracion y orden de arranque probados. Cerrado el 2026-10-27.
 - [H05](hitos/cerrados/H05_borde_contra_el_directorio.md): borde contra el directorio (clave de API por cuenta, sin identidades en su configuracion) y punto REST/MCP, con fallo cerrado probado. Cerrado el 2026-10-28.
 - [H07](hitos/cerrados/H07_consumidores_uno_a_uno.md): consumidores uno a uno: Open WebUI por el directorio, Kodi y agente Linux con su cuenta y su clase (borde `v0.2.1`); Home Assistant, al diseno aparte vigilado. Cerrado el 2026-10-28.
+- [H09](hitos/cerrados/H09_home_assistant_al_ente.md): Home Assistant al ente: Luna por el ente, estado y control por `tool_contracts` (core `v0.5.0`) y la capa externa `v0.1.0` con catalogo cerrado; criterio 4 por experiencia, con la bateria v2 de referencia para la segunda GPU. Cerrado el 2026-11-09.
