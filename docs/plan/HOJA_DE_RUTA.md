@@ -1,7 +1,7 @@
 # Hoja de ruta del ente
 
 Estado: activo
-Version: 0.19 - 2026-11-09 (H08: criterio 7 reajustado, la segunda GPU deja de bloquear; medidas de referencia)
+Version: 0.20 - 2026-11-09 (H11 planificado: respuesta de las acciones en su canal)
 
 Nivel 0 del plan (meta ADR 0014). Solo hitos, orden y estado. El detalle vive
 en el fichero de cada hito; un hito sin fichero aun no esta abierto.
@@ -25,7 +25,8 @@ de esos mapas mueve.
 | Id | Hito | Depende de | Estado |
 |---|---|---|---|
 | [H08](hitos/H08_entrada_de_la_familia.md) | Entrada de la familia: confirmador en Open WebUI y voz, `directo` con dominio fijo en Kodi (H08P17) | H06, H07, H09, trabajo de capa | abierto |
-| H10 | Orquestador para la familia: la salida "complejo" del confirmador, `edge CR-0003`, no inventar cuando no entiende y un plan mas rapido; entra en Open WebUI por configuracion cuando pase su bateria (H08P17) | H08 | planificado |
+| H11 | Respuesta de las acciones en su canal: una accion pedida desde un canal (chat, voz, pantalla, agente) termina con su resultado, correcto o fallido, en ese mismo canal y queda registrada; hoy una accion larga contesta "en ello" y su resultado no vuelve (H08P27). Diseno en meta: criterio, ADR situado frente a las tareas largas de MCP, el ciclo de tareas de A2A y los webhooks, y trabajo por capa (borde, core, capas externas, consumidores). Base para conscience | H08 | planificado |
+| H10 | Orquestador para la familia: la salida "complejo" del confirmador, `edge CR-0003`, no inventar cuando no entiende y un plan mas rapido; entra en Open WebUI por configuracion cuando pase su bateria (H08P17) | H08, H11 | planificado |
 
 El criterio de salida de H04-H08 esta en meta ADR 0015 (C1-C8, con el hito que
 cumple cada uno).
