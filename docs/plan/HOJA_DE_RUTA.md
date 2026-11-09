@@ -1,7 +1,7 @@
 # Hoja de ruta del ente
 
 Estado: activo
-Version: 0.17 - 2026-11-09 (H09: capa externa v0.1.0 y Luna por el ente)
+Version: 0.18 - 2026-11-09 (H09 cerrado)
 
 Nivel 0 del plan (meta ADR 0014). Solo hitos, orden y estado. El detalle vive
 en el fichero de cada hito; un hito sin fichero aun no esta abierto.
@@ -24,7 +24,6 @@ de esos mapas mueve.
 
 | Id | Hito | Depende de | Estado |
 |---|---|---|---|
-| [H09](hitos/H09_home_assistant_al_ente.md) | Home Assistant al ente: estado y control por la frontera de herramientas del core y el servidor MCP de Home Assistant, en dos tramos (H08P3); la voz por el confirmador (H08P17) | H07 | abierto el 2026-11-06; tramo 1 montado (falta el punto 4); tramo 2 hecho: contrato del core (`v0.5.0`), capa externa `v0.1.0`, bateria de los criterios 6-8 y Luna por el ente; criterio 4 por experiencia, con la bateria v2 como referencia para la segunda GPU (H09P28) |
 | [H08](hitos/H08_entrada_de_la_familia.md) | Entrada de la familia: confirmador en Open WebUI y voz, `directo` con dominio fijo en Kodi (H08P17) | H06, H07, H09, trabajo de capa | abierto |
 | H10 | Orquestador para la familia: la salida "complejo" del confirmador, `edge CR-0003`, no inventar cuando no entiende y un plan mas rapido; entra en Open WebUI por configuracion cuando pase su bateria (H08P17) | H08 | planificado |
 
@@ -65,3 +64,4 @@ Se conduce en su capa; aqui solo consta que bloquea a un hito. Asignado en
 - [H04](hitos/cerrados/H04_directorio_de_identidades.md): directorio de identidades en la pasarela (lldap, solo LDAPS), con copia, restauracion y orden de arranque probados. Cerrado el 2026-10-27.
 - [H05](hitos/cerrados/H05_borde_contra_el_directorio.md): borde contra el directorio (clave de API por cuenta, sin identidades en su configuracion) y punto REST/MCP, con fallo cerrado probado. Cerrado el 2026-10-28.
 - [H07](hitos/cerrados/H07_consumidores_uno_a_uno.md): consumidores uno a uno: Open WebUI por el directorio, Kodi y agente Linux con su cuenta y su clase (borde `v0.2.1`); Home Assistant, al diseno aparte vigilado. Cerrado el 2026-10-28.
+- [H09](hitos/cerrados/H09_home_assistant_al_ente.md): Home Assistant al ente: Luna por el ente, estado y control por `tool_contracts` (core `v0.5.0`) y la capa externa `v0.1.0` con catalogo cerrado; criterio 4 por experiencia, con la bateria v2 de referencia para la segunda GPU. Cerrado el 2026-11-09.
