@@ -4,7 +4,7 @@
 - fecha: 2026-11-06
 - capa origen: `ia_nest_external_home_assistant`
 - capa destino: `ia_nest_core`
-- estado: propuesto
+- estado: entregado
 
 ## Caso de uso motor
 
@@ -93,3 +93,19 @@ marcas, nunca relajarlas.
   herramientas.
 
 Notificacion a la capa destino: ikseth/ia_nest_core#51 (2026-11-06).
+
+## Resolucion
+
+ACEPTADO, REFORMULADO, ENTREGADO y PUBLICADO el 2026-11-06 en `core v0.5.0`
+(MINOR por envergadura; `core ADR 0053`, core#54 y core#55). Reformulado en dos
+puntos: las herramientas se declaran en el DOMINIO (`domains[].tools`), no en un
+perfil de parametros del modelo, que el core comparte entre dominios; y sobra
+`trust_annotations`: declarar un proveedor en `tool_providers` es confiar en sus
+anotaciones, y la politica del core solo endurece. El bucle vive en
+`prompt.run` y `prompt.stream`, con limite de vueltas y una ultima llamada sin
+herramientas para que siempre haya respuesta; el cliente solo ve texto
+(`done.trace.tool_calls`, aditivo); telemetria `tools_offered` y `tool_call`.
+Sin eventos D2 nuevos (aviso a extended en ia_nest_extended#101). Comprobado en
+el laboratorio con un proveedor MCP de prueba (criterio del ADR, puntos 1-5 y 7;
+el 6 por tests) y desplegado sin paso a mano (meta `H09`, paso H09P12). La capa
+origen necesita `core >=0.5 <0.6`.

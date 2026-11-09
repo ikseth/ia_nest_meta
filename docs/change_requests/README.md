@@ -111,6 +111,7 @@ durabilidad, no el formulario.
 | [edge CR-0001](from-ia_nest_edge/resuelto/CR-0001-perfil-del-interlocutor-en-la-identidad.md) | `ia_nest_edge` | `ia_nest_core` | el contexto de identidad dice que clase de interlocutor es | entregado | core `v0.4.2`, publicada 2026-10-29 |
 | [edge CR-0002](from-ia_nest_edge/solicitado/CR-0002-extended-compone-el-perfil-del-interlocutor.md) | `ia_nest_edge` | `ia_nest_extended` | extended transporta el perfil del interlocutor y lo compone | propuesto | extended PATCH, sin numero |
 | [edge CR-0003](from-ia_nest_edge/solicitado/CR-0003-modo-iterativo-de-uso-normal.md) | `ia_nest_edge` | `ia_nest_extended` | un modo iterativo de uso normal: `task.stream` enriquecido y re-planificar con enriquecimiento | propuesto | lo que disponga extended (y el core, por su CR) |
+| [external_home_assistant CR-0001](from-ia_nest_external_home_assistant/resuelto/CR-0001-herramientas-por-mcp-en-un-dominio.md) | `ia_nest_external_home_assistant` | `ia_nest_core` | el core invoca herramientas de una capa externa por MCP, desde un dominio y con politica por perfil | entregado (reformulado, core ADR 0053) | core `v0.5.0`, publicada 2026-11-06 |
 
 Notificacion a la capa destino:
 
@@ -123,6 +124,7 @@ Notificacion a la capa destino:
 | CR-0003 | hallazgos que lo motivan | [avisos_al_core_desde_extended_2026-08-18.md](../handoff/avisos_al_core_desde_extended_2026-08-18.md) |
 | CR-0004 | hallazgo que lo motiva | [avisos_al_core_desde_extended_2026-08-18.md](../handoff/avisos_al_core_desde_extended_2026-08-18.md) |
 | CR-0005 | verificado por el cable contra v0.4.0 | (sin brief aparte: el caso esta en la ficha) |
+| external_home_assistant CR-0001 | issue | ikseth/ia_nest_core#51 (cerrado al entregar) |
 | CR-0003 | respuesta del core | [cr_0003_respuesta_core.md](../handoff/cr_0003_respuesta_core.md) |
 | CR-0004 | respuesta del core | [cr_0004_respuesta_core.md](../handoff/cr_0004_respuesta_core.md) |
 | CR-0005 | respuesta del core | [cr_0005_respuesta_core.md](../handoff/cr_0005_respuesta_core.md) |
