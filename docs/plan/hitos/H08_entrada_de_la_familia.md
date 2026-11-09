@@ -172,6 +172,16 @@ Ninguno cerrado. Cada uno se conduce en su capa.
   depende de la memoria: es `max_tokens` del perfil.
 - El asistente de voz es un dispositivo compartido: sin reconocer a quien
   habla, se atiende como infantil (criterio 3 de meta ADR 0013).
+- Identidad, perfil y juicio son tres piezas (aclarado con el usuario el
+  2026-11-09): la identidad es la cuenta del directorio; el perfil, el grupo
+  `child` o `adult` que el borde pone en cada peticion sin que el cliente lo
+  cambie; el juicio sobre contenido y acciones, de conscience, que recibe el
+  perfil como entrada. Las cuentas de prueba (`probe_child`, `probe_adult`) no
+  son roles ni parte del diseno: son higiene de pruebas, para no usar cuentas
+  reales. Mejoras futuras anotadas, para conscience o hito propio: perfil
+  calculado desde la fecha de nacimiento en el directorio (cambia solo al
+  cumplir la edad y admite mas tramos) y reconocimiento de quien habla en la
+  voz (el perfil seria el de esa persona y no el infantil del canal).
 
 ## Reglas del hito
 
