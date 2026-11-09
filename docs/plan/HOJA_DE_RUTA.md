@@ -24,7 +24,7 @@ de esos mapas mueve.
 
 | Id | Hito | Depende de | Estado |
 |---|---|---|---|
-| [H09](hitos/H09_home_assistant_al_ente.md) | Home Assistant al ente: estado y control por la frontera de herramientas del core y el servidor MCP de Home Assistant, en dos tramos (H08P3); la voz por el confirmador (H08P17) | H07 | abierto el 2026-11-06; tramo 1 montado (falta el punto 4); tramo 2 hecho: contrato del core (`v0.5.0`), capa externa `v0.1.0`, bateria de los criterios 6-8 y Luna por el ente; falta el punto 4 (latencia, extended#100) |
+| [H09](hitos/H09_home_assistant_al_ente.md) | Home Assistant al ente: estado y control por la frontera de herramientas del core y el servidor MCP de Home Assistant, en dos tramos (H08P3); la voz por el confirmador (H08P17) | H07 | abierto el 2026-11-06; tramo 1 montado (falta el punto 4); tramo 2 hecho: contrato del core (`v0.5.0`), capa externa `v0.1.0`, bateria de los criterios 6-8 y Luna por el ente; criterio 4 por experiencia, con la bateria v2 como referencia para la segunda GPU (H09P28) |
 | [H08](hitos/H08_entrada_de_la_familia.md) | Entrada de la familia: confirmador en Open WebUI y voz, `directo` con dominio fijo en Kodi (H08P17) | H06, H07, H09, trabajo de capa | abierto |
 | H10 | Orquestador para la familia: la salida "complejo" del confirmador, `edge CR-0003`, no inventar cuando no entiende y un plan mas rapido; entra en Open WebUI por configuracion cuando pase su bateria (H08P17) | H08 | planificado |
 

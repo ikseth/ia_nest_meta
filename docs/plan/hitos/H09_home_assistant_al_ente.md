@@ -73,6 +73,14 @@ Tramo 1, "la voz pasa por el ente":
    suele repetir la orden o darla por perdida. Es referencia: con el hardware
    de 2026-11-06 no se cumple (el confirmador da p90 de 26,7 s), y se revisa al
    montar la segunda GPU (Deck #126), con la mejora medida.
+
+   Revisado por el usuario el 2026-11-09 (H09P28): el criterio se da por
+   cumplido por experiencia de uso; el rendimiento actual del laboratorio es
+   bueno. La segunda GPU no se juzga contra los 10 s sino contra una bateria de
+   referencia medida antes de montarla (bateria v2 de voz, que intercala
+   dominios para provocar el cambio de modelo, que es lo que la GPU mejora): se
+   repite sin cambios con la GPU montada y el usuario la aprueba segun el
+   porcentaje de mejora o empeora.
 5. **Solo configuracion y su integracion** (C6). Home Assistant entra con su
    cuenta del directorio, la integracion fina con la raiz dentro de su propia
    instalacion y su configuracion, sin tocar el borde ni a otros consumidores.
@@ -124,6 +132,8 @@ Tramo 2, "el ente ve y controla la casa":
 | H09P25 | Sustitucion: Luna pasa al ente (criterio 10) | este hilo, lab | H09P24 | decidido por el usuario el 2026-11-09, tras su prueba de voz ("mas seguro que la configuracion actual"): el asistente de voz de la casa sigue llamandose Luna y pasa al ente, y la configuracion anterior se guarda como Titan, no preferida; las versiones llevaran nombres de lunas. Hecho el mismo dia por un guion del laboratorio con vuelta atras y sin reinicio: en la canalizacion preferida solo cambia el agente de conversacion (de Ollama directo al de IA_NEST); reconocimiento, voz, idioma y frases locales primero siguen igual, y la tablet y las apps no se tocan. Practica habitual en Home Assistant: cambiar el agente dentro de la canalizacion. Comprobado: lo local sigue local (0,04 s) y lo demas va por el ente con el estado real. Defectos conocidos aceptados al cambiar: primera palabra a 12-15 s por encima de la referencia de 10 s (segunda GPU) y extended#100 abierto. Queda acotar la exposicion de la voz entidad a entidad (H09P18) |
 | H09P26 | Exposicion de la voz tras la sustitucion (cierra lo pendiente de H09P18) | este hilo | H09P25 | decidido por el usuario el 2026-11-09: no se retira nada de la exposicion a Assist. Calefaccion y ventiladores no se quieren negar a nadie, sino impedir que se activen fuera de temporada: se blindaran en Home Assistant segun el indicador estacional de la casa, por cualquier camino (voz local, ente, app, paneles), en un trabajo propio de Home Assistant (Deck #162). Coste aceptado mientras: por voz, lo local maneja todo lo expuesto, como antes con la Luna anterior |
 | H09P27 | Corte de la capa externa | capa, lab | H09P26 | hecho el 2026-11-09: `ia_nest_external_home_assistant` `v0.1.0` cortada (aprobado por el usuario) y desplegada por su tag en el laboratorio; humo de solo lectura por la Luna de produccion correcto, con la llamada en el registro de la capa y en la telemetria del core (perfil, dominio `domotica`, herramienta) |
+| H09P28 | Criterio 4 por experiencia y referencia para la segunda GPU | este hilo, lab | H09P27 | decidido por el usuario el 2026-11-09: el criterio 4 se da por cumplido por experiencia de uso y la segunda GPU se aprueba por el porcentaje de mejora o empeora frente a una bateria de referencia medida antes. Bateria v2 de voz por Luna (20 frases generales de v1-ha intercaladas con 5 de domotica y 4 de cultura, para provocar el cambio de modelo; 3 vueltas): 86 de 87 aciertos; primer token mediana 11,8 s y p90 14,3 s; respuesta entera mediana 22,5 s y p90 27,3 s (por grupo en `ia_nest_lab`). Se repite sin cambios con la GPU montada (Deck #126) |
+| H09P29 | Retirar la canalizacion de prueba | lab | H09P25 | hecho el 2026-11-09 a peticion del usuario: "IA_NEST (prueba)" borrada de Home Assistant (era identica a Luna); quedan Luna (por el ente, preferida), Titan (copia) y la de serie. Las baterias del laboratorio van por Luna, y la vuelta atras de la integracion se niega si alguna canalizacion usa su agente |
 | H09P5 | Tramo 2: contrato de herramientas, capa externa y politica por perfil | core, capa nueva, lab | H09P12 | disenado (H09P7-H09P11); contrato del core entregado (H09P12); capa montada (H09P17) y cortada en `v0.1.0` (H09P27), bateria de los criterios 6-8 (H09P20) y sustitucion hecha (H09P25); exposicion sin cambios, blindaje estacional fuera del hito (H09P26) |
 
 ## Reglas del hito
