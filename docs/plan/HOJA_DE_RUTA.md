@@ -1,7 +1,7 @@
 # Hoja de ruta del ente
 
 Estado: activo
-Version: 0.19 - 2026-11-09 (H08: criterio 7 reajustado; la segunda GPU deja de bloquear)
+Version: 0.19 - 2026-11-09 (H08: criterio 7 reajustado, la segunda GPU deja de bloquear; medidas de referencia)
 
 Nivel 0 del plan (meta ADR 0014). Solo hitos, orden y estado. El detalle vive
 en el fichero de cada hito; un hito sin fichero aun no esta abierto.
@@ -53,6 +53,23 @@ Se conduce en su capa; aqui solo consta que bloquea a un hito. Asignado en
 | Extended declara `core >=0.4 <0.5` y el laboratorio ya sirve core `v0.5.0` (sin eventos D2 nuevos) | extended#101 | - (re-verificar y ampliar el rango, deber de 2b) |
 | El instalador del core reescribe su fichero de entorno y borra la variable de `auth_env` de un proveedor de herramientas | core#56 | - (cubierto en el laboratorio con un drop-in de systemd, H09P16) |
 | `edge CR-0003` (modo iterativo de uso normal) | extended#82 | H10 |
+
+## Medidas de referencia
+
+Decidido por el usuario el 2026-11-09 (H08P24). Vale para todos los hitos y
+capas.
+
+- Las baterias de medida son fijas: no cambian sin subir de version (v1, v2...).
+- Una medida es la referencia tal como sale; no se repite para confirmarla ni
+  para explicar una diferencia: la diferencia se anota con lo que cambio.
+- Cada cambio desplegado en el laboratorio que pueda afectar a la calidad o al
+  tiempo (version de una capa, configuracion, modelos, hardware) se mide con las
+  baterias que le tocan y anade una fila al historico, marcada con el cambio o
+  el hito.
+- Los criterios de salida que hablan de tiempo se juzgan por experiencia de uso
+  mirando esa serie (criterio 4 de `H09`, criterio 7 de `H08`).
+- El historico, con cifras, versiones y evidencia, vive en el laboratorio
+  (privado); aqui solo la pauta.
 
 ## Cerrados
 
