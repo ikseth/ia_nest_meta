@@ -4,7 +4,7 @@
 - fecha: 2026-10-22
 - capa origen: `ia_nest_edge`
 - capa destino: `ia_nest_extended`
-- estado: propuesto
+- estado: entregado
 
 ## Caso de uso motor
 
@@ -57,3 +57,14 @@ operador reconcilia.
 Coordinacion: el hilo de extended tiene abierto su hito siguiente (paso cero,
 reranker, Fase 9). Esta pieza no es ruta critica: la familia espera ademas por
 L5r y L4b.
+
+## Resolucion
+
+ENTREGADO en extended `v0.5.4` (PATCH): `identity.interlocutor_profile` se
+transporta por CLI, REST y MCP y, con `child`, se compone siempre como seccion
+permanente `## interlocutor`, configurable, incluso sin memoria ni RAG.
+`task.stream` sigue reenviado sin composicion. Comprobado de punta a punta por
+el borde en la puerta de meta `H08` (H08P10, criterio 2): `child` en la
+auditoria del borde y como contexto compuesto en la telemetria de extended,
+por Open WebUI, Kodi y la voz. Registrado el 2026-11-19; el campo de estado
+iba con retraso respecto a lo entregado.
