@@ -126,9 +126,12 @@ todas las vueltas) bloquea. La linea base se mide antes de cambiar nada
 3. **Lo que falta del marco** (donde, quien) se pregunta en vez de suponerse,
    en frases preparadas sin ese dato por cada entrada; sin fallos sistematicos.
    Que no invente en preguntas de conocimiento no es de este hito: es `H10`.
-4. **Sin regresiones.** La bateria de enrutado de H09P24, la v1 y la v2 de voz
-   no empeoran respecto a su ultima fila del historico, con la pauta de
-   H08P23.
+4. **Sin regresiones.** v1-puerta-owui (Open WebUI), v1-ha (la voz) y local
+   (lo que Assist resuelve en casa) no empeoran respecto a su ultima fila del
+   historico, con la pauta de H08P23. Ajustado en H12P1b (2026-11-19): la
+   bateria de enrutado de H09P24 no es reproducible, y tramo2 y v2 dependen de
+   la luz y el ventilador de prueba, ya retirados de Home Assistant; v2 vuelve
+   al criterio si se recrean.
 5. **Cada conversacion queda establecida.** El 100 % de las sesiones de Open
    WebUI y de Home Assistant registra participantes, canal y lo que se sabia al
    abrirla.
