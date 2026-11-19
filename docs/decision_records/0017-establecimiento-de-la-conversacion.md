@@ -232,3 +232,10 @@ Otras:
 
 Ninguno en el contrato publico de ninguna capa: es contrato entre capas. Cada
 CR que salga de el (H12P6) se versiona en su capa.
+
+## Estado posterior
+
+2026-11-19: el catalogo de recursos (punto 6) queda decidido en meta ADR 0018
+(H12P4). Vive en extended como memoria, con la decision de confianza, y lo ofrecido en un turno es permisos
+por catalogo, acotado por el efecto de la peticion (lectura u orden), que solo
+resta.
