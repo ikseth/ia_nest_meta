@@ -81,6 +81,13 @@ capas.
   mirando esa serie (criterio 4 de `H09`, criterio 7 de `H08`).
 - El historico, con cifras, versiones y evidencia, vive en el laboratorio
   (privado); aqui solo la pauta.
+- Pruebas que pasan por la casa (anadido por el usuario el 2026-11-19, H12P1b,
+  tras una accion no pedida en una bateria de lectura): antes de empezar, el
+  permiso del usuario por tipo (lectura, o lectura y acciones) y su ventana;
+  aviso de pruebas en las teles durante toda la prueba; sin permiso de
+  acciones, la bateria se para si el modelo llama a una herramienta que no sea
+  de lectura. Un procedimiento por entrada (Home Assistant, Open WebUI, Kodi,
+  agente Linux), en el laboratorio.
 
 ## Cerrados
 
