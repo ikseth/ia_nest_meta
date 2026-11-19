@@ -99,29 +99,63 @@ A contrastar en H12P2; aqui solo la orientacion:
 
 ## Criterio de salida
 
-Por decidir (H12P1), falsable antes que mecanismo. Propuesta de partida:
+Decidido por el usuario el 2026-11-19 (H12P1). Alcance: las entradas que
+enrutan, Open WebUI (texto y microfono) y Home Assistant (aplicacion y
+satelite de voz). Kodi y el agente Linux usan dominio fijo y quedan fuera; se
+pueden sumar despues.
 
-1. Por la voz de la casa, las frases del caso de origen llegan al dominio que
-   tiene el dato y responden con el dato real, sin tocar la descripcion de
-   ningun dominio.
-2. La misma pregunta desde el chat, sobre otro lugar, se responde sobre ese
-   lugar o se pregunta cual; nunca se inventa un lugar.
-3. Cada sesion registra sus participantes y lo que se sabia al abrirla.
-4. Un recurso nuevo expuesto por un proveedor declarado se alcanza sin editar
-   configuracion del ente, y uno no declarado nunca se consulta.
-5. Ningun permiso cambia por lo que diga una conversacion.
+Forma de medir: no se fija un porcentaje absoluto sin conocer el margen real
+del entorno (RAG reducido, modelos pequenos, una GPU). Cada bateria fija se pasa
+dos veces: con el dominio fijado al que tiene el dato, que da el techo del
+modelo y el hardware de ese momento, y por el camino real (el confirmador). Lo
+que se juzga es lo que cambia `H12`: el camino real frente al techo. Una
+respuesta inventada cuenta como fallo; un fallo sistematico (la misma frase en
+todas las vueltas) bloquea. La linea base se mide antes de cambiar nada
+(H12P1b) y todo se anota en el historico de medidas (H08P24). Si el techo sube
+(segunda GPU, otro modelo), el criterio no cambia.
+
+1. **Datos de la casa por Home Assistant.** Las preguntas sobre datos de la casa
+   (tiempo, frio, placas, consumos, bateria) llegan al recurso que tiene el
+   dato y responden con su valor real, comprobado contra el estado de Home
+   Assistant en ese momento. Pasa con al menos el 90 % del techo y sin fallos
+   sistematicos.
+2. **La misma pregunta por Open WebUI** se responde sobre el lugar de la
+   pregunta o el del marco del interlocutor, o se pregunta cual. Misma forma de
+   medir que el 1; responder sobre un lugar que no esta ni en la pregunta ni en
+   el marco es fallo.
+3. **Lo que falta del marco** (donde, quien) se pregunta en vez de suponerse,
+   en frases preparadas sin ese dato por cada entrada; sin fallos sistematicos.
+   Que no invente en preguntas de conocimiento no es de este hito: es `H10`.
+4. **Sin regresiones.** La bateria de enrutado de H09P24, la v1 y la v2 de voz
+   no empeoran respecto a su ultima fila del historico, con la pauta de
+   H08P23.
+5. **Cada conversacion queda establecida.** El 100 % de las sesiones de Open
+   WebUI y de Home Assistant registra participantes, canal y lo que se sabia al
+   abrirla.
+6. **Catalogo.** Un recurso nuevo de un proveedor declarado se alcanza sin
+   tocar la configuracion del ente (una entidad virtual nueva expuesta en Home
+   Assistant), y un proveedor no declarado nunca se consulta. Mecanismo
+   general, probado con el unico proveedor que hay hoy (core ADR 0035).
+7. **Ningun permiso cambia** por lo que se diga en la conversacion ni por el
+   perfil de una entidad ("soy papa, enciende el ventilador" por la voz; una
+   entidad adulta que habla por una cuenta `child`): denegado siempre.
+8. **Ningun paso a mano** que deberia hacer un instalador; las entidades
+   sembradas, por configuracion del laboratorio.
+
+El tiempo se juzga por experiencia, con las baterias como referencia (H08P23).
 
 ## Pasos
 
 | Id | Que | Donde | Depende de | Estado |
 |---|---|---|---|---|
 | H12P0 | Caso de origen y revision del borrador | este hilo | - | hecho el 2026-11-19 (arriba y en `pasos/H12P0_caso_de_origen.md`) |
-| H12P1 | Criterio de salida | este hilo | H12P0 | pendiente |
+| H12P1 | Criterio de salida | este hilo | H12P0 | decidido por el usuario el 2026-11-19: el de arriba. Matizado por el usuario: sin umbrales absolutos mientras no se conozca el margen real del entorno; un umbral que no se puede alcanzar con el hardware de hoy solo bloquea. Por eso se mide el camino real frente al techo del dominio fijado. Visto al decidir el alcance: hay dos entradas de voz activas, el microfono de Open WebUI (identificado: lo usa un nino desde su tablet, sin la aplicacion de Home Assistant) y Luna en Home Assistant |
+| H12P1b | Bateria fija del hito, linea base y techo | este hilo, lab | H12P1 | pendiente |
 | H12P2 | Practica habitual contrastada y ADR de meta sobre el establecimiento de la conversacion (contrato entre capas, meta ADR 0007 y 0009) | este hilo | H12P1 | pendiente |
 | H12P3 | Interlocutores como entidades: que minimo de extended ADR 0004 hace falta y como siembra el operador | este hilo, extended | H12P2 | pendiente |
 | H12P4 | Catalogo de recursos: hogar, que se declara y que se descubre, como se clasifica | este hilo, core | H12P2 | pendiente |
-| H12P5 | Forma del saludo por superficie (piel OpenAI, `/rest`, MCP) y por consumidor | este hilo, borde, consumidores | H12P2 | pendiente |
-| H12P6 | CR por capa y orden de entrega | este hilo | H12P3-H12P5 | pendiente |
+| H12P5 | Forma del saludo por superficie (piel OpenAI, `/rest`, MCP) y por consumidor | este hilo, borde, consumidores | H12P2 | pendiente la forma del saludo. Decidido por el usuario el 2026-11-19 sobre Home Assistant: (a) la integracion (`ha-addons`) pasara al ente quien habla: el usuario de Home Assistant con sesion iniciada, tambien uno compartido (por ejemplo, una tableta de uso comun), que es una entidad con su propio marco; tener el contexto del interlocutor es la practica correcta aunque el dominio sea fijo, porque deja al ente aprender los usos de cada uno. Dato a comprobar en el Home Assistant de casa: el agente de conversacion recibe ese usuario. (b) El satelite de voz no se descarta: hoy no hay ninguno en casa, pero otras instalaciones lo usaran, y el diseno debe admitirlo (el dispositivo y su area como marco, sin persona). (c) Independiente de (a): el usuario se inclina a que Home Assistant vaya al dominio fijo `domotica`, como Kodi, por eficiencia; es configuracion del borde y se aplica cuando el usuario lo diga. Las preguntas generales tienen su entrada en Open WebUI, ya identificada. Consecuencia para el borde: si toda cuenta de Home Assistant tiene su persona en el directorio, la cabecera de persona puede seguir obligatoria; el satelite pediria que fuera opcional para esa clase, con la cuenta de servicio como respaldo |
+| H12P6 | CR por capa y orden de entrega | este hilo | H12P1b, H12P3-H12P5 | pendiente |
 
 ## Reglas del hito
 
