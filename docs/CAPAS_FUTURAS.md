@@ -82,6 +82,12 @@ catalogo de recursos del ente (modelos, dominios, proveedores de herramientas y
 agentes): lo que se confia se declara y lo que ofrece se descubre. El hogar se
 decide alli (H12P4).
 
+**Estado al 2026-11-19 (meta ADR 0018).** La pregunta 1 queda respondida en su
+parte de recursos: el catalogo vive en extended como memoria, con la decision de confianza
+(el core la aplica dentro de un techo que pone la operacion), y lo que se ofrece en cada turno sale de componerlo con
+el marco y la peticion. Elegir entre atomico y descomponible sigue en el
+confirmador (`docs/EL_CAMINO.md`, salida "complejo", hito `H10`).
+
 **Un obstaculo ya conocido**: iterar exige re-planificar con lo hallado, y hoy
 re-planificar y enriquecer son mutuamente excluyentes (`extended docs/PLAN.md`,
 coste declarado de su Fase 7b). Quien aborde esto se lo encontrara, y el canal
