@@ -1,7 +1,7 @@
 # Hoja de ruta del ente
 
 Estado: activo
-Version: 0.20 - 2026-11-09 (H11 planificado: respuesta de las acciones en su canal)
+Version: 0.21 - 2026-11-19 (H12 abierto: establecimiento de la conversacion; operacion supervisada)
 
 Nivel 0 del plan (meta ADR 0014). Solo hitos, orden y estado. El detalle vive
 en el fichero de cada hito; un hito sin fichero aun no esta abierto.
@@ -25,8 +25,9 @@ de esos mapas mueve.
 | Id | Hito | Depende de | Estado |
 |---|---|---|---|
 | [H08](hitos/H08_entrada_de_la_familia.md) | Entrada de la familia: confirmador en Open WebUI y voz, `directo` con dominio fijo en Kodi (H08P17) | H06, H07, H09, trabajo de capa | abierto |
-| H11 | Respuesta de las acciones en su canal: una accion pedida desde un canal (chat, voz, pantalla, agente) termina con su resultado, correcto o fallido, en ese mismo canal y queda registrada; hoy una accion larga contesta "en ello" y su resultado no vuelve (H08P27). Diseno en meta: criterio, ADR situado frente a las tareas largas de MCP, el ciclo de tareas de A2A y los webhooks, y trabajo por capa (borde, core, capas externas, consumidores). Base para conscience | H08 | planificado |
-| H10 | Orquestador para la familia: la salida "complejo" del confirmador, `edge CR-0003`, no inventar cuando no entiende y un plan mas rapido; entra en Open WebUI por configuracion cuando pase su bateria (H08P17) | H08, H11 | planificado |
+| [H12](hitos/H12_establecimiento_de_la_conversacion.md) | Establecimiento de la conversacion: el ente sabe con quien habla (interlocutores como entidades), que recursos tiene (catalogo vivo) y fija el terreno comun al abrir cada conversacion; nace de la operacion supervisada (H08P11, H08P31) | operacion supervisada de H08 | abierto |
+| H11 | Respuesta de las acciones en su canal: una accion pedida desde un canal (chat, voz, pantalla, agente) termina con su resultado, correcto o fallido, en ese mismo canal y queda registrada; hoy una accion larga contesta "en ello" y su resultado no vuelve (H08P27). Diseno en meta: criterio, ADR situado frente a las tareas largas de MCP, el ciclo de tareas de A2A y los webhooks, y trabajo por capa (borde, core, capas externas, consumidores). Base para conscience | H08, H12 | planificado |
+| H10 | Orquestador para la familia: la salida "complejo" del confirmador, `edge CR-0003`, no inventar cuando no entiende y un plan mas rapido; entra en Open WebUI por configuracion cuando pase su bateria (H08P17) | H08, H11, H12 | planificado |
 
 El criterio de salida de H04-H08 esta en meta ADR 0015 (C1-C8, con el hito que
 cumple cada uno).
@@ -42,7 +43,7 @@ Se conduce en su capa; aqui solo consta que bloquea a un hito. Asignado en
 | Que | Donde | Bloquea |
 |---|---|---|
 | `edge CR-0001` (perfil del interlocutor) | core#44 | - (entregado en core `v0.4.2`, H08P9) |
-| `edge CR-0002` (extended lo compone) | extended#81 | H08 (mecanismo hecho en extended `v0.5.4`; falta comprobarlo de punta a punta por el borde, criterio 2) |
+| `edge CR-0002` (extended lo compone) | extended#81 | - (entregado en extended `v0.5.4`; de punta a punta por el borde en H08P10, criterio 2) |
 | L5r y L4b de la puerta de extended | extended, Deck #125 | H08 (en verde en extended `v0.6.4` con un ejecutor; el segundo, en H08P10) |
 | `razonado` entrega su JSON interno y corta por contexto acumulado | core#45 | - (fuera de los menus de la familia mientras siga abierto, H08P1) |
 | El instalador del core no reinicia los servicios al actualizar y su verificacion no lo detecta | core#47 | - (entregado en core `v0.4.3`, ficha 0014, desplegado sin paso a mano; H08P12) |
@@ -54,6 +55,14 @@ Se conduce en su capa; aqui solo consta que bloquea a un hito. Asignado en
 | Extended declara `core >=0.4 <0.5` y el laboratorio ya sirve core `v0.5.0` (sin eventos D2 nuevos) | extended#101 | - (re-verificar y ampliar el rango, deber de 2b) |
 | El instalador del core reescribe su fichero de entorno y borra la variable de `auth_env` de un proveedor de herramientas | core#56 | - (cubierto en el laboratorio con un drop-in de systemd, H09P16) |
 | `edge CR-0003` (modo iterativo de uso normal) | extended#82 | H10 |
+
+## Operacion supervisada
+
+Decidido por el usuario el 2026-11-19 (H08P31). Desde la entrada de la familia
+(H08P11) el ente esta en uso real bajo supervision del usuario, y ese es su
+regimen de aqui en adelante, no un paso de un hito. Cada hallazgo se anota con
+su evidencia (en `ia_nest_lab`) y va a su sitio: un ajuste del laboratorio, un
+aviso a una capa o un hito. Cerrar `H08` no termina la operacion supervisada.
 
 ## Medidas de referencia
 

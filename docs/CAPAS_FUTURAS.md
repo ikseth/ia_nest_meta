@@ -1,7 +1,7 @@
 # Capas futuras del ente
 
 Estado: activo
-Version: 1.4 - 2026-10-27 (pasarela del recinto, H03)
+Version: 1.5 - 2026-11-19 (catalogo de recursos, a H12)
 
 Concerns del ENTE que no tienen repo asignado. Se registran aqui para no
 perderlos: son fronteras futuras del ente, no trabajo pendiente de ninguna capa
@@ -76,6 +76,11 @@ ella el bucle de un encargo que llega desde fuera: es del agente que lo lleva.
 Siguen sin dueno la pregunta 1 (la piel OpenAI del borde la suple con una
 correspondencia fija, sin resolverla) y lo que el ente haga por iniciativa
 propia.
+
+**Estado al 2026-11-19 (meta H12).** La pregunta 1 se aborda en `H12` como
+catalogo de recursos del ente (modelos, dominios, proveedores de herramientas y
+agentes): lo que se confia se declara y lo que ofrece se descubre. El hogar se
+decide alli (H12P4).
 
 **Un obstaculo ya conocido**: iterar exige re-planificar con lo hallado, y hoy
 re-planificar y enriquecer son mutuamente excluyentes (`extended docs/PLAN.md`,
