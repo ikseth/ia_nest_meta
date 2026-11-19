@@ -55,6 +55,7 @@ Se conduce en su capa; aqui solo consta que bloquea a un hito. Asignado en
 | Extended declara `core >=0.4 <0.5` y el laboratorio ya sirve core `v0.5.0` (sin eventos D2 nuevos) | extended#101 | - (re-verificar y ampliar el rango, deber de 2b) |
 | El instalador del core reescribe su fichero de entorno y borra la variable de `auth_env` de un proveedor de herramientas | core#56 | - (cubierto en el laboratorio con un drop-in de systemd, H09P16) |
 | `edge CR-0003` (modo iterativo de uso normal) | extended#82 | H10 |
+| En un seguimiento corto ("y sabes cuando?") el modelo contesta sobre un turno anterior y no sobre el ultimo; visto en la operacion supervisada (H08P11) | extended#102 | - (vigilado) |
 
 ## Operacion supervisada
 
