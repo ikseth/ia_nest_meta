@@ -86,8 +86,11 @@ ninguna capa cambia su contrato sin un ADR propio.
 | Personas, casa, tableta comun, clase y grupo de la cuenta de Home Assistant | H12P3; H12P5 D3 y D5 | laboratorio | B |
 | Comprobar que llega el usuario desde la app y la tableta | H12P5 | laboratorio, al desplegar la integracion | B |
 
-## Pendiente de este paso
+## Aviso a las capas de destino
 
-- Avisar a cada capa de destino por un canal duradero (issue en su repo) y
-  anotarlo en la tabla de notificacion del indice de CR. Pendiente de
-  aprobacion del usuario.
+2026-11-20, con aprobacion del usuario, por issue en cada repo de destino
+(anotado en la tabla de notificacion del indice de CR):
+
+- `extended CR-0006`: `ia_nest_core#57`.
+- `extended CR-0007`: `ia_nest_external_home_assistant#4`.
+- `edge CR-0004`: `ia_nest_extended#103`.

@@ -134,6 +134,9 @@ Notificacion a la capa destino:
 | edge CR-0001 | issue en el core | [ia_nest_core#44](https://github.com/ikseth/ia_nest_core/issues/44) |
 | edge CR-0002 | issue en extended | [ia_nest_extended#81](https://github.com/ikseth/ia_nest_extended/issues/81) |
 | edge CR-0003 | issue en extended | [ia_nest_extended#82](https://github.com/ikseth/ia_nest_extended/issues/82) |
+| CR-0006 | issue en el core | [ia_nest_core#57](https://github.com/ikseth/ia_nest_core/issues/57) |
+| CR-0007 | issue en la capa de Home Assistant | [ia_nest_external_home_assistant#4](https://github.com/ikseth/ia_nest_external_home_assistant/issues/4) |
+| edge CR-0004 | issue en extended | [ia_nest_extended#103](https://github.com/ikseth/ia_nest_extended/issues/103) |
 
 ## Avisos entre capas que NO son CR
 
