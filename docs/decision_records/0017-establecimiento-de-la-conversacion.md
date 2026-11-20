@@ -239,3 +239,9 @@ CR que salga de el (H12P6) se versiona en su capa.
 (H12P4). Vive en extended como memoria, con la decision de confianza, y lo ofrecido en un turno es permisos
 por catalogo, acotado por el efecto de la peticion (lectura u orden), que solo
 resta.
+
+2026-11-20: la forma por superficie y por consumidor (punto 8 y consecuencias
+para el borde y el consumidor de Home Assistant) queda decidida en
+`docs/plan/pasos/H12P5_saludo.md`: cabeceras por clase iguales en las tres
+caras, cuenta, persona y dispositivo con su origen, persona opcional por clase
+con respaldo infantil, y `language` fuera de la peticion.
