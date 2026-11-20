@@ -4,7 +4,7 @@
 - fecha: 2026-11-20
 - capa origen: `ia_nest_extended`
 - capa destino: `ia_nest_core`
-- estado: propuesto
+- estado: aceptado (tramo A entregado en core `v0.6.0`, core ADR 0054; tramo B pendiente)
 - tandas: tramo A en la tanda A de `H12`, tramo B en la tanda B (meta H12P6)
 - ajuste 2026-11-20 (meta H12P7, D1): el punto 1 del tramo A espera a meta `H13`
 
