@@ -1,7 +1,7 @@
 # H12P7: tanda A, catalogo y efecto
 
 Estado: D1 decidido y tanda A entregada y medida el 2026-11-20
-Version: 1.1 - 2026-11-20
+Version: 1.2 - 2026-11-20
 
 Paso de `H12`. Entrega y mide la tanda A de `pasos/H12P6_entregas.md`.
 
@@ -104,7 +104,19 @@ Con permiso del usuario: lectura, y acciones solo sobre la luz y el ventilador d
   Causa del entorno, no del codigo; se vuelve a medir cuando cambie el estado de tron.
 - Criterio 1 (`marco-v1`, referencia de antes del conector): no se paso, no cabia en la ventana.
 
+### Remedida (2026-11-20, tarde)
+
+Se bajo la memoria de tres maquinas virtuales del servidor de modelos que no la usaban, y con
+16 GiB disponibles se paso de nuevo, con el modo de pruebas de la casa:
+
+- Criterio 4, v1-ha: 60/60, mediana 11,7 s y p90 13,0 s (frente a 11,4 y 11,9 del 2026-11-19),
+  sin avisos de fallo. Confirma que el 55/60 era del entorno.
+- `marco-v1`, 3 vueltas, como referencia del criterio 1 para `H13`: igual que la linea base del
+  2026-11-19. Grupo A por Luna 0/24 y por Open WebUI 0/24; techo 8/24 (6/24 el 19); B 6/6; C 0/6;
+  D 24/24; E 18/18. Los 45 turnos de `domotica` salen `read`; solo se usa la lectura de la casa y la
+  salvaguarda no salta. B y C se mueven por la redaccion del modelo, sin herramientas de por medio.
+  La tanda A no tenia que mover A: falta el catalogo, que es `H13`.
+
 ## Pendiente de este paso
 
-- `marco-v1` como referencia del criterio 1 (que pasa a `H13`).
-- v1-ha de nuevo cuando cambie el estado de memoria de tron.
+Nada. La referencia de `marco-v1` para `H13` es la de la remedida.
