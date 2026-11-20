@@ -6,6 +6,7 @@
 - capa destino: `ia_nest_core`
 - estado: propuesto
 - tandas: tramo A en la tanda A de `H12`, tramo B en la tanda B (meta H12P6)
+- ajuste 2026-11-20 (meta H12P7, D1): el punto 1 del tramo A espera a meta `H13`
 
 ## Caso de uso motor
 
@@ -102,3 +103,20 @@ Tramo A: `marco-v1` por Home Assistant frente al techo (criterio 1 de `H12`),
 una entidad virtual nueva alcanzable sin tocar la configuracion (criterio 6),
 la frase del incidente sin herramientas que no sean de lectura en ninguna vuelta
 (0018, D5), y v1-ha sin empeorar. Tramo B: criterios 2, 3, 5 y 7 de `H12`.
+
+## Ajuste de la capa origen (2026-11-20)
+
+Meta H12P7, D1 (decidido por el usuario): el conector entre Home Assistant e
+IA_NEST pasa al hito `H13` de meta, porque la lectura de Assist no da ids de
+entidad ni de area, y `extended CR-0007` queda en espera. Sin inventario no hay
+resumen ni preseleccion de aparatos, asi que:
+
+- **Tramo A, ahora:** puntos 2, 3 y 4 (proveedores como techo con lo confiado
+  desde extended, efecto `read` u `order` tambien en dominio fijo, y el efecto
+  solo resta). Del contexto del turno solo viaja `trusted_providers`.
+- **Punto 1 (`catalog`: resumen y preseleccion):** espera a `H13`. La forma
+  sugerida no cambia: es la misma parte opcional del mismo campo.
+- **Como se mide el tramo A:** la frase del incidente sin herramientas que no
+  sean de lectura en ninguna vuelta, un proveedor no declarado nunca consultado
+  y v1-ha sin empeorar. El criterio 1 de `H12` se anota como referencia; el 1 y
+  la primera mitad del 6 pasan a `H13`.

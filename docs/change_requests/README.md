@@ -1,7 +1,7 @@
 # Change Requests (CR) entre capas del ente
 
 Estado: activo (hogar autoritativo)
-Version: 1.6 - 2026-11-20 (CR de H12: marco, catalogo y efecto)
+Version: 1.7 - 2026-11-20 (CR-0007 en espera de H13)
 
 Canal formal para que una capa solicite un cambio en el contrato de otra capa de
 la que depende (tipicamente hacia el core). Complementa el grafo de dependencias
@@ -113,7 +113,7 @@ durabilidad, no el formulario.
 | [edge CR-0003](from-ia_nest_edge/solicitado/CR-0003-modo-iterativo-de-uso-normal.md) | `ia_nest_edge` | `ia_nest_extended` | un modo iterativo de uso normal: `task.stream` enriquecido y re-planificar con enriquecimiento | propuesto | lo que disponga extended (y el core, por su CR) |
 | [external_home_assistant CR-0001](from-ia_nest_external_home_assistant/resuelto/CR-0001-herramientas-por-mcp-en-un-dominio.md) | `ia_nest_external_home_assistant` | `ia_nest_core` | el core invoca herramientas de una capa externa por MCP, desde un dominio y con politica por perfil | entregado (reformulado, core ADR 0053) | core `v0.5.0`, publicada 2026-11-06 |
 | [CR-0006](from-ia_nest_extended/solicitado/CR-0006-contexto-del-turno-techo-y-efecto.md) | `ia_nest_extended` | `ia_nest_core` | contexto del turno (catalogo y marco), proveedores como techo, efecto lectura u orden, preguntar como resultado declarado (meta ADR 0017 y 0018) | propuesto | lo que disponga el core (previsto MINOR por tramo, A y B de H12) |
-| [CR-0007](from-ia_nest_extended/solicitado/CR-0007-inventario-de-la-casa-sin-estado.md) | `ia_nest_extended` | `ia_nest_external_home_assistant` | inventario de la casa sin estado y un token que solo lo lea (meta ADR 0018) | propuesto | external_home_assistant `v0.2.0` (MINOR) |
+| [CR-0007](from-ia_nest_extended/solicitado/CR-0007-inventario-de-la-casa-sin-estado.md) | `ia_nest_extended` | `ia_nest_external_home_assistant` | inventario de la casa sin estado y un token que solo lo lea (meta ADR 0018) | propuesto, en espera de meta `H13` (H12P7) | external_home_assistant `v0.2.0` (MINOR), al retomarse |
 | [edge CR-0004](from-ia_nest_edge/solicitado/CR-0004-extended-compone-el-marco-de-la-conversacion.md) | `ia_nest_edge` | `ia_nest_extended` | extended transporta cuenta, persona y dispositivo y compone y guarda el marco (meta ADR 0017, H12P3, H12P5) | propuesto | lo que disponga extended (previsto MINOR, tanda B de H12) |
 
 Notificacion a la capa destino:

@@ -5,7 +5,7 @@
 - capa origen: `ia_nest_extended`
 - capa destino: `ia_nest_external_home_assistant`
 - estado: propuesto
-- tanda: A de `H12` (meta H12P6)
+- tanda: A de `H12` (meta H12P6); en espera desde el 2026-11-20 (meta H12P7, D1), pasa a `H13`
 
 ## Caso de uso motor
 
@@ -70,3 +70,16 @@ sin estado y sin poder actuar.
 Ninguna con el alcance de la capa: sigue presentando Home Assistant y
 clasificando; no decide que se ofrece (eso es del core) ni que se confia (eso
 es del catalogo de extended, 0018, D1).
+
+## En espera (2026-11-20)
+
+Nota de la capa origen (meta H12P7, D1, decidido por el usuario). Comprobado en
+el Home Assistant de casa: la lectura de Assist que usa la capa
+(`GetLiveContext`, del servidor MCP de Home Assistant) no da id de entidad ni
+id de area, que es lo que pide el punto 1. Los ids estan en los registros de
+Home Assistant, fuera de esa lectura. Como darlos es el diseno del conector
+entre Home Assistant e IA_NEST, que se aparca en el hito `H13` de meta: primero
+se mira el producto y la comunidad, y solo en el peor caso un MCP propio.
+
+Mientras tanto la capa de Home Assistant no tiene nada que hacer con este CR. Se
+retomara, se reformulara o se retirara al abrir `H13`.

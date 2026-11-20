@@ -86,6 +86,13 @@ ninguna capa cambia su contrato sin un ADR propio.
 | Personas, casa, tableta comun, clase y grupo de la cuenta de Home Assistant | H12P3; H12P5 D3 y D5 | laboratorio | B |
 | Comprobar que llega el usuario desde la app y la tableta | H12P5 | laboratorio, al desplegar la integracion | B |
 
+## Estado posterior
+
+H12P7, D1 (2026-11-20): `extended CR-0007` queda en espera y pasa con el
+conector a `H13`; la tanda A se reduce a la base de entities, el proveedor con
+su confianza, el techo y el efecto, sin cambios en la capa de Home Assistant.
+Ver `pasos/H12P7_tanda_a.md`.
+
 ## Pendiente de este paso
 
 - Avisar a cada capa de destino por un canal duradero (issue en su repo) y
