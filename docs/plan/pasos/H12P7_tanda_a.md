@@ -1,7 +1,7 @@
 # H12P7: tanda A, catalogo y efecto
 
-Estado: D1 decidido por el usuario el 2026-11-20; entrega en curso
-Version: 1.0 - 2026-11-20
+Estado: D1 decidido y tanda A entregada y medida el 2026-11-20
+Version: 1.2 - 2026-11-20
 
 Paso de `H12`. Entrega y mide la tanda A de `pasos/H12P6_entregas.md`.
 
@@ -72,9 +72,51 @@ usa una clave de aparato distinta de H12P3 D3; la frase del incidente
 proveedor no declarado nunca se consulta; el criterio 4 no empeora; el
 criterio 1 queda en el historico como referencia de antes del conector.
 
+## Entrega (2026-11-20)
+
+- Extended `v0.7.0` (extended ADR 0016, ia_nest_extended#104 y #105): registro de entidades con
+  la clase `provider` y el hecho curado `trusted`, historico de solo anadir, principal
+  `operator`, `entity.*` por la CLI, siembra (`ENTITIES_SEED`) y techo (`PROVIDER_CEILING`) en el
+  instalador; manda `turn_context.trusted_providers` al core solo si el core lo declara.
+- Core `v0.6.0` (core ADR 0054, ia_nest_core#58 y #59): dispone `extended CR-0006` tramo A.
+  `tool_providers` es el techo y se consulta la interseccion con lo confiado; todo turno con
+  herramientas clasifica el efecto (`read` u `order`) con el modelo del enrutador, en la duda
+  `read`, y con `read` solo pasan herramientas de solo lectura; `tool_provider.list`.
+- La capa de Home Assistant no cambia. Codex programo extended; el core lo programo Claude (Codex
+  llego al limite de uso de su cuenta).
+
+## Medida (2026-11-20; evidencia e historico en `ia_nest_lab`)
+
+Con permiso del usuario: lectura, y acciones solo sobre la luz y el ventilador de prueba
+(recreados para medir y retirados al terminar), con el modo de pruebas de la casa.
+
+- Efecto, por el techo (dominio `domotica`, perfil `child`): "enciende la luz de prueba al 50 por
+  ciento" -> `order`, `light_set`, encendida; "esta encendida la luz de prueba?" -> `read`, solo
+  herramientas de lectura; "apaga la luz de prueba" -> `order`, apagada. Clasificar cuesta
+  1,0-1,4 s.
+- Frase del incidente (H12P1b), por el techo y por Luna (3 vueltas): siempre `read`,
+  `kodi_recomendar` no se ofrece, ninguna accion. La lectura falla (el modelo no sabe que entidad
+  pedir: es el hueco del catalogo, `H13`) y contesta que no puede comprobarlo, sin inventar.
+- Confianza: extended manda `trusted_providers: ["home_assistant"]` y el core la aplica.
+- Criterio 4, v1-ha: 55/60, p90 16,3 s frente a 60/60 y 11,9 s del 2026-11-19. Las 20 frases no
+  usan herramientas: la tanda A no actua en ellas. Mismo camino y mismos cambios de modelo que el
+  19; cada carga de modelo tarda 7,3 s de media frente a 3,3 s, con tron con ~4 GB menos libres.
+  Causa del entorno, no del codigo; se vuelve a medir cuando cambie el estado de tron.
+- Criterio 1 (`marco-v1`, referencia de antes del conector): no se paso, no cabia en la ventana.
+
+### Remedida (2026-11-20, tarde)
+
+Se bajo la memoria de tres maquinas virtuales del servidor de modelos que no la usaban, y con
+16 GiB disponibles se paso de nuevo, con el modo de pruebas de la casa:
+
+- Criterio 4, v1-ha: 60/60, mediana 11,7 s y p90 13,0 s (frente a 11,4 y 11,9 del 2026-11-19),
+  sin avisos de fallo. Confirma que el 55/60 era del entorno.
+- `marco-v1`, 3 vueltas, como referencia del criterio 1 para `H13`: igual que la linea base del
+  2026-11-19. Grupo A por Luna 0/24 y por Open WebUI 0/24; techo 8/24 (6/24 el 19); B 6/6; C 0/6;
+  D 24/24; E 18/18. Los 45 turnos de `domotica` salen `read`; solo se usa la lectura de la casa y la
+  salvaguarda no salta. B y C se mueven por la redaccion del modelo, sin herramientas de por medio.
+  La tanda A no tenia que mover A: falta el catalogo, que es `H13`.
+
 ## Pendiente de este paso
 
-- Brief de extended (tanda A reducida) en el laboratorio y su entrega.
-- `extended CR-0006` tramo A en el core: requiere aprobacion del usuario.
-- Laboratorio y medida: efecto del criterio 7, segunda mitad del 6, el 4, y el
-  1 como referencia.
+Nada. La referencia de `marco-v1` para `H13` es la de la remedida.
