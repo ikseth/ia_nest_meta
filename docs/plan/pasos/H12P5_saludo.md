@@ -267,3 +267,10 @@ app y desde la tableta comun, y que el dispositivo es nulo en las dos.
   directorio, sembrado como `device` con `shared`; la tabla en el
   aprovisionamiento; la comprobacion de arriba.
 - Nada para Open WebUI ni para el core.
+
+## Estado posterior
+
+2026-11-21 (H12P8): el respaldo `child` de D3 pasa a nivel de permiso
+`restricted` con tono apto para todos (meta ADR 0019). Crear el usuario de la
+tableta comun (D5) sale del hito: es configuracion de la instalacion (H12P8,
+D3).
