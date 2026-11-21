@@ -245,3 +245,7 @@ para el borde y el consumidor de Home Assistant) queda decidida en
 `docs/plan/pasos/H12P5_saludo.md`: cabeceras por clase iguales en las tres
 caras, cuenta, persona y dispositivo con su origen, persona opcional por clase
 con respaldo infantil, y `language` fuera de la peticion.
+
+2026-11-21: el respaldo infantil (punto 10 y H12P5, D3) pasa a nivel de permiso
+`restricted` con tono apto para todos; el tono infantil queda para una persona
+validada del grupo infantil del directorio. Ver meta ADR 0019.
