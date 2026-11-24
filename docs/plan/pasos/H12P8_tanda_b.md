@@ -1,8 +1,9 @@
 # H12P8: tanda B, el marco, su medida y cierre del hito
 
 Estado: en curso; D1-D3 decididos por el usuario el 2026-11-21, D4 el 2026-11-24; linea base de 5 y 7
-medida; fase 1 programada en las cuatro capas (ramas locales)
-Version: 0.4 - 2026-11-24
+medida; desplegado en el laboratorio (core v0.7.1, extended v0.8.2, borde v0.3.0); D5
+(el contexto va aparte del prompt) pendiente de diseno
+Version: 0.5 - 2026-11-24
 
 Paso de `H12`. Entrega y mide la tanda B de `pasos/H12P6_entregas.md` ("sabe
 con quien habla"): el borde y la integracion de Home Assistant afirman cuenta,
@@ -222,8 +223,50 @@ Ajustes que quedan anotados para una version siguiente:
 - `entity.unresolved` lista las claves sin entidad. Una persona conocida a la
   que le falta la casa no sale ahi; listarla cambia extended ADR 0017.
 
+## Fase 2, primera parte (2026-11-24)
+
+Desplegado por instalador en el laboratorio, en orden core, extended y borde. El
+detalle esta en el inventario del laboratorio. La prueba de humo por Open WebUI
+saco tres fallos, que volvieron a la fase 1:
+
+1. Extended mandaba el marco tambien en sus llamadas internas (extraccion,
+   sintesis). Corregido en extended `v0.8.1`; `v0.8.2` corrige que `v0.8.1`
+   dejara sin marco el turno enriquecido.
+2. El modelo del enrutador no acertaba el juicio compuesto de lo que falta: "va
+   a llover?" no dependia del lugar y "va a llover hoy en Madrid?" si. Se
+   corrigio en core `v0.7.1` pidiendo dos juicios por separado: 35 de 36 frente
+   a 33 de 36, contra el modelo real.
+3. El clasificador ve el prompt enriquecido (memoria y RAG pegados delante de
+   la frase), no lo que dijo la persona. Con "en Madrid", el RAG sobre Madrid le
+   hizo pedir el lugar. La clasificacion del efecto de la tanda A tiene el mismo
+   defecto. Ver D5.
+
+Con core `v0.7.1` y extended `v0.8.2`, el humo pasa: "va a llover?" pregunta el
+lugar, "en Madrid" queda dicho (`seq 1`, `cause: dialog`) y no se vuelve a
+preguntar, y "que es una bateria de litio?" no pregunta.
+
+## D5: el contexto de extended va aparte del prompt (2026-11-24)
+
+El usuario elige la opcion B frente a mandar la frase literal como parte nueva
+de `turn_context` (A). Con B, extended deja de pegar memoria y RAG delante de la
+frase y los manda como contexto separado; el `prompt` es lo que dijo la persona.
+Es la practica habitual (mensajes con partes de A2A y MCP, contexto en mensajes
+aparte en las API de chat) y el mismo patron que el bloque del marco (core ADR
+0055, D3). A habria anadido un campo que sobra cuando llegue B, con su retirada
+y su aviso a cada consumidor. Lo que se busca es un buen cimiento, no salir al
+paso.
+
+B cambia el contrato entre extended y el core en todos los caminos que
+enriquecen. Necesita ADR de meta, del core y de extended, y se hara como paso
+propio (H12P9) antes de cerrar `H12`: lo que falta se pregunta bien solo con el.
+
 ## Pendiente de este paso
 
-- Fase 2: push, PR y tags (con aprobacion), despliegue por instalador en orden
-  core, extended, borde, integracion; configuracion y siembra del laboratorio;
-  medida; cierre.
+- D5: borrador del ADR de meta y artifact con casos de origen y ejemplos; decision
+  del usuario; paso H12P9.
+- Fase 2: siembra de personas y casa de la instalacion (datos del usuario); la
+  cuenta de HA en `edge_asserts_people` (directorio, con permiso); la
+  integracion 0.2.0 en el HA de produccion (con permiso) y su tabla de personas;
+  piezas de prueba para D3.
+- Medida (criterio 5 cuenta desde el 2026-11-24 con dos dias de uso real; 2, 3,
+  7, segunda mitad del 6 y 4 despues de D5) y cierre de `H12`.
