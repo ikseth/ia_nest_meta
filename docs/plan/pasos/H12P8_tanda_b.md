@@ -253,6 +253,27 @@ nacimiento, vinculo, otras clases como el coche) queda para una decision
 aparte, junto con un formulario de siembra para el operador. Lo dicho no se
 siembra solo: se guarda en la sesion y la siembra futura sera de conscience.
 
+## Linea de fondo del usuario (2026-11-24): el nivel sale de las caracteristicas
+
+Registrada para que lo que venga no se aparte de ella. No es una decision de
+H12 ni se implementa aqui.
+
+- Una entidad acumula caracteristicas con el tiempo (hoy: hechos curados con
+  versiones; la lista cerrada crece por decision y, en el futuro, la alimenta
+  conscience).
+- Adulto o nino no es una etiqueta: se deduce de las caracteristicas de la
+  entidad (por ejemplo, la edad a partir de la fecha de nacimiento). Hoy el
+  nivel de una persona identificada sale de un grupo del directorio
+  (`profile_child`); el objetivo es que salga de sus hechos y que la etiqueta
+  desaparezca.
+- Hasta que la entidad se identifica (siembra manual hoy, conscience mas
+  adelante), tratamiento basico: `restricted` y tono general (meta ADR 0019).
+- Lo que fija el nivel lo pone una fuente de confianza (operador o directorio),
+  nunca lo dicho en la conversacion (criterio 7).
+
+Donde se decide: la ampliacion de la lista cerrada (fecha de nacimiento,
+vinculo, clases nuevas), en Deck #213, antes de cualquier formulario.
+
 ## D5: el contexto de extended va aparte del prompt (2026-11-24)
 
 El usuario elige la opcion B frente a mandar la frase literal como parte nueva
@@ -272,6 +293,9 @@ propio (H12P9) antes de cerrar `H12`: lo que falta se pregunta bien solo con el.
 
 - D5: borrador del ADR de meta y artifact con casos de origen y ejemplos; decision
   del usuario; paso H12P9.
+- La voz de HA sabra el lugar cuando la integracion 0.2.0 mande el dispositivo
+  de cada satelite y estos se siembren como dispositivos de la casa (sembrar la
+  cuenta de servicio no tiene efecto: habla sin persona ni dispositivo).
 - Fase 2: la cuenta de HA en `edge_asserts_people` (directorio, con permiso); la
   integracion 0.2.0 en el HA de produccion (con permiso) y su tabla de personas;
   piezas de prueba para D3.
