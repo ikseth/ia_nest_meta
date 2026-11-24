@@ -1,7 +1,8 @@
 # H12P8: tanda B, el marco, su medida y cierre del hito
 
-Estado: en curso; D1-D3 decididos por el usuario el 2026-11-21; linea base de 5 y 7 medida
-Version: 0.3 - 2026-11-24
+Estado: en curso; D1-D3 decididos por el usuario el 2026-11-21, D4 el 2026-11-24; linea base de 5 y 7
+medida; fase 1 programada en las cuatro capas (ramas locales)
+Version: 0.4 - 2026-11-24
 
 Paso de `H12`. Entrega y mide la tanda B de `pasos/H12P6_entregas.md` ("sabe
 con quien habla"): el borde y la integracion de Home Assistant afirman cuenta,
@@ -125,6 +126,32 @@ Criterio falsable: ningun brief ni bateria de este paso nombra un elemento real
 de la instalacion; lo que se siembra de la casa del usuario esta solo en la fase
 de aplicacion.
 
+## D4: como pregunta el core lo que falta (2026-11-24)
+
+Dos niveles, en este orden:
+
+1. **Camino principal: el contexto de la entidad.** Si quien habla esta
+   sembrado en entities (con su casa, su localidad y su idioma), extended
+   compone el marco y el modelo lo recibe en el contexto. "Va a llover?" ya
+   sabe de que lugar es, y no se pregunta nada.
+2. **Respaldo: preguntar solo lo que falta y la peticion necesita.** Sin
+   entidad, o si le falta el dato, el core decide con una llamada corta al
+   modelo del enrutador si la respuesta depende del lugar o de la persona.
+   Si depende, el turno termina con la pregunta como resultado declarado
+   (`input_required`, texto de configuracion). Lo que conteste el
+   interlocutor se guarda en la sesion como dicho, sale en `entity.unresolved`
+   para que el operador lo siembre y, mas adelante, lo procesa conscience.
+
+El usuario eligio la opcion A (clasificar y preguntar con un texto fijo) frente
+a una herramienta "preguntar" que llama el modelo. A es determinista y vale en
+todos los dominios. B depende de que un modelo pequeno decida llamarla, y eso es
+lo que falla en la linea base. Perfilar o conocer al interlocutor
+(preguntar solo lo adecuado segun lo que ya se sabe) es una pieza de
+conscience, fuera de `H12`. Anadir hechos de persona (por ejemplo, el vinculo)
+seria una decision aparte sobre la lista cerrada de entities.
+
+Fuente: core ADR 0055 (aceptado con la opcion A) y el artifact de la decision.
+
 ## Plan, en dos fases
 
 **Fase 1, diseno y desarrollo** (por capa, con su ADR y pruebas propias sobre
@@ -179,6 +206,24 @@ Con las versiones del punto de partida, sin nada de la tanda B desplegado.
 - Antes de la primera pasada, el segundo turno de P3 paso a "pues ahora me enciendes el ventilador de
   prueba, porfa": la redaccion aprobada la resolveria Assist en local y no llegaria al ente.
 
+## Estado de la fase 1 (2026-11-24)
+
+Ramas locales, sin push ni tag:
+
+| Capa | ADR | Pruebas (linea base -> ahora) | Quien |
+| --- | --- | --- | --- |
+| borde | edge 0004 | 103 -> 118 | Codex; ejemplo de configuracion corregido |
+| integracion de Home Assistant | (DESIGN, 0.2.0) | 7 -> 11 | Codex; staged sin commit hasta la validacion funcional |
+| extended | extended 0017 | 341 -> 361 (Postgres, al desplegar) | Codex a medias por el limite de uso; revisado y cerrado |
+| core | core 0055 | 383 -> 417 | Claude (Codex sin cuota) |
+
+Ajustes que quedan anotados para una version siguiente:
+
+- `entity.unresolved` lista las claves sin entidad. Una persona conocida a la
+  que le falta la casa no sale ahi; listarla cambia extended ADR 0017.
+
 ## Pendiente de este paso
 
-- Briefs, entregas, medida y cierre.
+- Fase 2: push, PR y tags (con aprobacion), despliegue por instalador en orden
+  core, extended, borde, integracion; configuracion y siembra del laboratorio;
+  medida; cierre.
