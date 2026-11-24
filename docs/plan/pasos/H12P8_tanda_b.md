@@ -245,6 +245,14 @@ Con core `v0.7.1` y extended `v0.8.2`, el humo pasa: "va a llover?" pregunta el
 lugar, "en Madrid" queda dicho (`seq 1`, `cause: dialog`) y no se vuelve a
 preguntar, y "que es una bateria de litio?" no pregunta.
 
+Siembra basica de la instalacion (2026-11-24, datos del usuario): la casa y las
+cuatro personas, mas las dos cuentas de sonda para las baterias. Con una persona
+sembrada, el marco sale con persona y lugar conocidos y no se pregunta el lugar:
+es el camino principal de D4. Lo que no cabe en la lista cerrada (fecha de
+nacimiento, vinculo, otras clases como el coche) queda para una decision
+aparte, junto con un formulario de siembra para el operador. Lo dicho no se
+siembra solo: se guarda en la sesion y la siembra futura sera de conscience.
+
 ## D5: el contexto de extended va aparte del prompt (2026-11-24)
 
 El usuario elige la opcion B frente a mandar la frase literal como parte nueva
@@ -264,8 +272,7 @@ propio (H12P9) antes de cerrar `H12`: lo que falta se pregunta bien solo con el.
 
 - D5: borrador del ADR de meta y artifact con casos de origen y ejemplos; decision
   del usuario; paso H12P9.
-- Fase 2: siembra de personas y casa de la instalacion (datos del usuario); la
-  cuenta de HA en `edge_asserts_people` (directorio, con permiso); la
+- Fase 2: la cuenta de HA en `edge_asserts_people` (directorio, con permiso); la
   integracion 0.2.0 en el HA de produccion (con permiso) y su tabla de personas;
   piezas de prueba para D3.
 - Medida (criterio 5 cuenta desde el 2026-11-24 con dos dias de uso real; 2, 3,
