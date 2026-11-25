@@ -1,9 +1,9 @@
 # H12P8: tanda B, el marco, su medida y cierre del hito
 
-Estado: en curso; D1-D3 decididos por el usuario el 2026-11-21, D4 el 2026-11-24; linea base de 5 y 7
-medida; desplegado en el laboratorio (core v0.7.1, extended v0.8.2, borde v0.3.0); D5
-(el contexto va aparte del prompt) pendiente de diseno
-Version: 0.5 - 2026-11-24
+Estado: en curso; D1-D3 decididos por el usuario el 2026-11-21, D4 el 2026-11-24, D5 el
+2026-11-25 (meta ADR 0020, se entrega en H12P9); linea base de 5 y 7 medida; desplegado en el
+laboratorio (core v0.7.1, extended v0.8.2, borde v0.3.0)
+Version: 0.6 - 2026-11-25
 
 Paso de `H12`. Entrega y mide la tanda B de `pasos/H12P6_entregas.md` ("sabe
 con quien habla"): el borde y la integracion de Home Assistant afirman cuenta,
@@ -245,13 +245,12 @@ Con core `v0.7.1` y extended `v0.8.2`, el humo pasa: "va a llover?" pregunta el
 lugar, "en Madrid" queda dicho (`seq 1`, `cause: dialog`) y no se vuelve a
 preguntar, y "que es una bateria de litio?" no pregunta.
 
-Siembra basica de la instalacion (2026-11-24, datos del usuario): la casa y las
-cuatro personas, mas las dos cuentas de sonda para las baterias. Con una persona
-sembrada, el marco sale con persona y lugar conocidos y no se pregunta el lugar:
-es el camino principal de D4. Lo que no cabe en la lista cerrada (fecha de
-nacimiento, vinculo, otras clases como el coche) queda para una decision
-aparte, junto con un formulario de siembra para el operador. Lo dicho no se
-siembra solo: se guarda en la sesion y la siembra futura sera de conscience.
+Con una persona sembrada con su casa, el marco sale con persona y lugar
+conocidos y no se pregunta el lugar: es el camino principal de D4, comprobado
+en el laboratorio el 2026-11-24 (detalle en `ia_nest_lab`). Lo que no cabe en
+la lista cerrada queda para una decision aparte (ver la linea de fondo), junto
+con un formulario de siembra para el operador. Lo dicho no se siembra solo: se
+guarda en la sesion y la siembra futura sera de conscience.
 
 ## Linea de fondo del usuario (2026-11-24): el nivel sale de las caracteristicas
 
@@ -289,13 +288,22 @@ B cambia el contrato entre extended y el core en todos los caminos que
 enriquecen. Necesita ADR de meta, del core y de extended, y se hara como paso
 propio (H12P9) antes de cerrar `H12`: lo que falta se pregunta bien solo con el.
 
+Puntos abiertos decididos por el usuario el 2026-11-25 (meta ADR 0020): alcance
+completo, con `task.run`; el presupuesto lo pone extended, configurable, con
+los valores de hoy como primera configuracion y ajuste segun la medida;
+telemetria de tamanos por origen, sin texto, y una auditoria transversal por
+niveles como decision aparte de meta; y el contexto se coloca segun la
+confianza de su origen (el del interlocutor junto al marco, la memoria, el RAG
+y el hilo fuera del `system`, marcados como datos de referencia).
+
 ## Pendiente de este paso
 
-- D5: borrador del ADR de meta y artifact con casos de origen y ejemplos; decision
-  del usuario; paso H12P9.
-- La voz de HA sabra el lugar cuando la integracion 0.2.0 mande el dispositivo
-  de cada satelite y estos se siembren como dispositivos de la casa (sembrar la
-  cuenta de servicio no tiene efecto: habla sin persona ni dispositivo).
+- D5: decidido (meta ADR 0020); se entrega en H12P9, que va antes del resto de
+  este paso.
+- Una entrada de voz sin persona sabe el lugar solo si su integracion manda el
+  dispositivo (la 0.2.0 manda el de cada satelite) y ese dispositivo esta
+  sembrado con su casa. Sembrar la cuenta de servicio no tiene efecto: habla sin
+  persona ni dispositivo.
 - Fase 2: la cuenta de HA en `edge_asserts_people` (directorio, con permiso); la
   integracion 0.2.0 en el HA de produccion (con permiso) y su tabla de personas;
   piezas de prueba para D3.
