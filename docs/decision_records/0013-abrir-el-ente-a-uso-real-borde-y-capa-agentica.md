@@ -159,3 +159,9 @@ directorio central de identidades, un punto REST/MCP comun en el borde y TLS en
 los tramos que cruzan el perimetro, con ocho criterios falsables y el hito que
 cumple cada uno. Los criterios 2, 3 y 4 y el punto 7 siguen vigentes. Ver meta
 ADR 0015.
+
+2026-11-21: el perfil del punto 2 y el respaldo del criterio duro 3 del punto 6
+se separan en nivel de permiso (`adult` o `restricted`) y tono. Sin perfil
+determinado se aplica `restricted`, con las mismas herramientas que tenia el
+infantil, y tono apto para todos. El motivo del criterio (un nino en un
+dispositivo compartido) sigue cubierto. Ver meta ADR 0019.

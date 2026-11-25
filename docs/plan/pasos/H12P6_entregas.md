@@ -93,6 +93,13 @@ conector a `H13`; la tanda A se reduce a la base de entities, el proveedor con
 su confianza, el techo y el efecto, sin cambios en la capa de Home Assistant.
 Ver `pasos/H12P7_tanda_a.md`.
 
+2026-11-21 (H12P8, D3): de la fila "Laboratorio" de la tanda B salen el usuario
+de la tableta comun (Home Assistant y directorio) y "comprobar que llega el
+usuario desde la app y la tableta": son configuracion de una instalacion, no
+diseno. El caso general (usuario compartido, satelite) se comprueba con piezas
+de prueba. Ver `pasos/H12P8_tanda_b.md` y la regla "Proyecto general, aplicado
+en el laboratorio" de la hoja de ruta.
+
 ## Pendiente de este paso
 
 - Avisar a cada capa de destino por un canal duradero (issue en su repo) y

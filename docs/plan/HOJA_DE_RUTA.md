@@ -1,7 +1,7 @@
 # Hoja de ruta del ente
 
 Estado: activo
-Version: 0.21 - 2026-11-19 (H12 abierto: establecimiento de la conversacion; operacion supervisada)
+Version: 0.22 - 2026-11-21 (proyecto general, aplicado en el laboratorio)
 
 Nivel 0 del plan (meta ADR 0014). Solo hitos, orden y estado. El detalle vive
 en el fichero de cada hito; un hito sin fichero aun no esta abierto.
@@ -65,6 +65,25 @@ Decidido por el usuario el 2026-11-19 (H08P31). Desde la entrada de la familia
 regimen de aqui en adelante, no un paso de un hito. Cada hallazgo se anota con
 su evidencia (en `ia_nest_lab`) y va a su sitio: un ajuste del laboratorio, un
 aviso a una capa o un hito. Cerrar `H08` no termina la operacion supervisada.
+
+## Proyecto general, aplicado en el laboratorio
+
+Decidido por el usuario el 2026-11-21 (H12P8). Vale para todos los hitos.
+IA_NEST es un proyecto general que se aplica en una casa, no un proyecto
+incrustado en una instalacion. Cada hito separa dos fases:
+
+1. **Diseno y desarrollo.** Los casos son tipos de situacion (voz sin persona,
+   dispositivo compartido, satelite, una persona por un chat) y mejoran el
+   diseno y la arquitectura. Cada capa los resuelve con su ADR, su codigo y sus
+   pruebas, sin depender de ningun elemento concreto de la instalacion.
+2. **Aplicacion al laboratorio.** Con el diseno implementado, se despliega por
+   instalador, se ajusta la configuracion de la instalacion (sus personas, su
+   casa, sus usuarios y cuentas, sus clases) y se mide con las baterias. Lo que
+   salga ahi, un fallo o un requisito nuevo, vuelve a la fase 1 como caso.
+
+Dar de alta un elemento real de la instalacion es fase 2 y se decide aparte;
+nunca es requisito de un diseno. Las baterias verifican el diseno aplicado con
+casos genericos y piezas de prueba del laboratorio.
 
 ## Medidas de referencia
 
