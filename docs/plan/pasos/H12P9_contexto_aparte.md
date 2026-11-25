@@ -1,8 +1,8 @@
 # H12P9: el contexto va aparte de lo que dice la persona
 
-Estado: en curso; D1-D3 decididos por el usuario el 2026-11-25; ADR del core y de
-extended aceptados el mismo dia
-Version: 0.1 - 2026-11-25
+Estado: hecho el 2026-11-25; core `v0.8.0` y extended `v0.9.0` publicados y
+desplegados en el laboratorio
+Version: 0.2 - 2026-11-25
 
 Paso de `H12`. Entrega meta ADR 0020 (H12P8, D5): extended deja de pegar el
 contexto delante de la frase y el core lo coloca segun la confianza de su
@@ -64,8 +64,8 @@ y marco (una subtarea podria terminar en `input_required`; diseno nuevo).
 
 | Capa | ADR | Pruebas (linea base -> ahora) | Estado |
 | --- | --- | --- | --- |
-| core | core 0056 (`v0.8.0`) | 421 -> 439 | Codex y revision; commit en rama local `feat/contexto-aparte` |
-| extended | extended 0018 (`v0.9.0`), enmienda a extended 0017 punto 6 | 362 -> 371 (Postgres, al desplegar) | Codex (cortado por cuota al final) y revision; commit en rama local `feat/contexto-aparte` |
+| core | core 0056 (`v0.8.0`) | 421 -> 439 | Codex y revision; core#62, tag `v0.8.0` |
+| extended | extended 0018 (`v0.9.0`), enmienda a extended 0017 punto 6 | 362 -> 371; con Postgres (banco) 433, sin omitidos | Codex (cortado por cuota al final) y revision; extended#109, tag `v0.9.0` |
 
 Lo corregido en la revision:
 
@@ -79,17 +79,34 @@ Lo corregido en la revision:
   plan suministrado en cobertura).
 - Extended: prueba de Postgres para `no_home`, que la consulta nueva no tenia.
 
-Queda para el humo: el contexto no fiable va en un segundo mensaje `user` antes
-del de la persona; se comprueba con el modelo real del laboratorio.
+## Despliegue y humo (2026-11-25, evidencia en `ia_nest_lab`)
 
-## Por hacer
+Core `v0.8.0` y extended `v0.9.0` por instalador, sin cambios de configuracion
+ni migracion.
+
+- Humo de H12P8 (persona sembrada con casa): no pregunta el lugar; el core
+  recibe la frase como `prompt` y el RAG y el hilo aparte; `domain.route`
+  recibe el ultimo intercambio como bloque `thread`.
+- Humo de H12P9 (interlocutor sin sembrar, lugar `unknown`): "en Madrid" como
+  primer turno, con el RAG de Madrid aparte, no pregunta (el fallo de H12P8,
+  fase 2); "va a llover?" pregunta el lugar y "en Madrid" queda dicho; "va a
+  llover hoy en Madrid?" no pregunta.
+- El modelo real acepta el contexto no fiable en un segundo mensaje `user`.
+
+Visto de paso, sin hacer fallar el paso: sin herramienta del tiempo, la
+respuesta a "va a llover hoy en Madrid?" dice que no esta en la informacion
+proporcionada (el RAG trae un fragmento sobre Madrid que no habla del tiempo).
+Que el ente sepa que herramientas tiene es catalogo (`H13`).
+
+## Por hacer (todo hecho)
 
 1. Aceptar los ADR del core y de extended (hecho, 2026-11-25).
 2. Briefs de Codex y revision: core primero, extended despues (hecho,
    2026-11-25).
 3. Tags con aprobacion del usuario; despliegue por instalador y repeticion del
-   humo de H12P8.
-4. Aviso por issue a cada capa de destino (ajuste de H12P6), con aprobacion del
-   usuario.
+   humo de H12P8 (hecho, 2026-11-25).
+4. Aviso por issue a cada capa de destino (ajuste de H12P6): las issues ya
+   estaban abiertas; tabla de notificacion del indice de CR completada (hecho,
+   2026-11-25).
 5. Cierre del paso: fila H12P9, comentario en Deck #200 y traspaso de la fase 2
-   de H12P8.
+   de H12P8 (hecho, 2026-11-25).

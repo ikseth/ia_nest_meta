@@ -103,5 +103,6 @@ en el laboratorio" de la hoja de ruta.
 ## Pendiente de este paso
 
 - Avisar a cada capa de destino por un canal duradero (issue en su repo) y
-  anotarlo en la tabla de notificacion del indice de CR. Pendiente de
-  aprobacion del usuario.
+  anotarlo en la tabla de notificacion del indice de CR. Hecho: las issues
+  (ia_nest_core#57, ia_nest_external_home_assistant#4, ia_nest_extended#103)
+  estaban abiertas; la tabla se completo el 2026-11-25 (H12P9).
