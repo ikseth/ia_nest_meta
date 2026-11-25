@@ -221,7 +221,8 @@ Ramas locales, sin push ni tag:
 Ajustes que quedan anotados para una version siguiente:
 
 - `entity.unresolved` lista las claves sin entidad. Una persona conocida a la
-  que le falta la casa no sale ahi; listarla cambia extended ADR 0017.
+  que le falta la casa no sale ahi; listarla cambia extended ADR 0017. Hecho en
+  H12P9 (extended `v0.9.0`, ADR 0018).
 
 ## Fase 2, primera parte (2026-11-24)
 
@@ -298,8 +299,9 @@ y el hilo fuera del `system`, marcados como datos de referencia).
 
 ## Pendiente de este paso
 
-- D5: decidido (meta ADR 0020); se entrega en H12P9, que va antes del resto de
-  este paso.
+- D5: decidido (meta ADR 0020); entregado en H12P9 el 2026-11-25 (core
+  `v0.8.0`, extended `v0.9.0`, desplegados; el humo pasa). `entity.unresolved`
+  lista ya la persona o el dispositivo sembrados sin casa (`reason: no_home`).
 - Una entrada de voz sin persona sabe el lugar solo si su integracion manda el
   dispositivo (la 0.2.0 manda el de cada satelite) y ese dispositivo esta
   sembrado con su casa. Sembrar la cuenta de servicio no tiene efecto: habla sin
