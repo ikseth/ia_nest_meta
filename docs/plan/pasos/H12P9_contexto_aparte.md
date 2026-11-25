@@ -62,15 +62,31 @@ y marco (una subtarea podria terminar en `input_required`; diseno nuevo).
 
 ## Entregables
 
-| Capa | ADR | Estado |
-| --- | --- | --- |
-| core | core 0056 (`v0.8.0`) | aceptado, rama local `feat/contexto-aparte` |
-| extended | extended 0018 (`v0.9.0`), enmienda a extended 0017 punto 6 | aceptado, rama local `feat/contexto-aparte` |
+| Capa | ADR | Pruebas (linea base -> ahora) | Estado |
+| --- | --- | --- | --- |
+| core | core 0056 (`v0.8.0`) | 421 -> 439 | Codex y revision; commit en rama local `feat/contexto-aparte` |
+| extended | extended 0018 (`v0.9.0`), enmienda a extended 0017 punto 6 | 362 -> 371 (Postgres, al desplegar) | Codex (cortado por cuota al final) y revision; commit en rama local `feat/contexto-aparte` |
+
+Lo corregido en la revision:
+
+- Core: la columna nueva del CSV (`context`) iba delante de
+  `interlocutor_profile`; reordenar columnas rompe contrato (core
+  `docs/VERSIONADO.md`). Va al final.
+- Core: el plan de cobertura de `task.run` lo escribe siempre el planificador y
+  aceptaba `context` en sus unidades. Un planificador manipulado por un texto
+  del RAG podia emitir un bloque `interlocutor` y meterlo en un `system`. El
+  plan producido nunca acepta `context` (el fallo venia del brief, que suponia
+  plan suministrado en cobertura).
+- Extended: prueba de Postgres para `no_home`, que la consulta nueva no tenia.
+
+Queda para el humo: el contexto no fiable va en un segundo mensaje `user` antes
+del de la persona; se comprueba con el modelo real del laboratorio.
 
 ## Por hacer
 
 1. Aceptar los ADR del core y de extended (hecho, 2026-11-25).
-2. Briefs de Codex y revision: core primero, extended despues.
+2. Briefs de Codex y revision: core primero, extended despues (hecho,
+   2026-11-25).
 3. Tags con aprobacion del usuario; despliegue por instalador y repeticion del
    humo de H12P8.
 4. Aviso por issue a cada capa de destino (ajuste de H12P6), con aprobacion del
