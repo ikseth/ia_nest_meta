@@ -90,3 +90,15 @@ del marco.
 - Extended: deja de pegar el contexto cuando el core declara la parte, tambien
   en las subtareas de `task.run`. MINOR.
 - Borde e integraciones: nada.
+
+## Estado posterior
+
+2026-11-25 (meta H12P9, `pasos/H12P9_contexto_aparte.md`): al bajarlo al codigo,
+el usuario decide tres casos que esta decision no resolvia. D1: la reescritura
+autonoma de `task.run` se mantiene; el `prompt` de `task.run` es la peticion
+reescrita, que se entiende sola, y el contexto va aparte (matiza el punto 1).
+D2: `domain.route` recibe la frase y el ultimo intercambio como bloque `thread`,
+que el enrutador lee como pista (matiza el punto 4). D3: en `task.run`,
+`trusted_providers` baja a las subtareas y `frame` se ignora (precisa el punto
+6). `task.plan` acepta el contexto igual que `task.run`. Se dispone en core ADR
+0056 y extended ADR 0018.
